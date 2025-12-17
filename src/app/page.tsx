@@ -55,6 +55,12 @@ export default function Home() {
     "Amazon",
     "Deloitte",
     "Accenture",
+    "TCS",
+    "PwC",
+    "IBM",
+    "Wipro",
+    "Flipkart",
+    "Zoho"
   ];
 
 
@@ -254,12 +260,20 @@ export default function Home() {
           <p className="mb-8 text-muted-foreground">
             Our learners are hired by the best in the industry.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            {companyNames.map((name) => (
-              <Badge key={name} variant="outline" className="px-4 py-2 text-lg">
-                {name}
-              </Badge>
-            ))}
+          <div
+            className="group relative flex gap-8 overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            }}
+          >
+            <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
+                {[...companyNames, ...companyNames].map((name, index) => (
+                  <Badge key={`${name}-${index}`} variant="outline" className="px-6 py-3 text-lg whitespace-nowrap">
+                    {name}
+                  </Badge>
+                ))}
+            </div>
           </div>
         </div>
       </section>
@@ -528,5 +542,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
