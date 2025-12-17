@@ -1,3 +1,392 @@
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Briefcase,
+  Users,
+  Award,
+  Star,
+  BookOpen,
+  BrainCircuit,
+  ShieldCheck,
+  Cpu,
+  Code,
+  Rocket,
+} from "lucide-react";
+import type { Course } from "@/lib/courses";
+import { courses } from "@/lib/courses";
+import type { ImagePlaceholder } from "@/lib/placeholder-images";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+
+const getImage = (id: string): ImagePlaceholder | undefined => {
+  return PlaceHolderImages.find((img) => img.id === id);
+};
+
 export default function Home() {
-  return <></>;
+  const featuredCourses = courses.slice(0, 4);
+  const companyLogos = [
+    "logo-google",
+    "logo-amazon",
+    "logo-deloitte",
+    "logo-accenture",
+    "logo-tcs",
+    "logo-pwc",
+    "logo-ibm",
+    "logo-wipro",
+  ]
+    .map(getImage)
+    .filter(Boolean) as ImagePlaceholder[];
+
+  const instructors = [
+    {
+      name: "Dr. Anjali Sharma",
+      title: "AI Research Scientist",
+      imageId: "instructor-1",
+    },
+    {
+      name: "Rohan Verma",
+      title: "Principal Data Scientist",
+      imageId: "instructor-2",
+    },
+    {
+      name: "Priya Singh",
+      title: "Quantum Computing Expert",
+      imageId: "instructor-3",
+    },
+    {
+      name: "Amit Desai",
+      title: "Cybersecurity Lead",
+      imageId: "instructor-4",
+    },
+  ];
+
+  const successStories = [
+    {
+      text: "The Data Science course helped me land a role as a Data Analyst at Infosys! The projects and mentor support were excellent.",
+      author: "Aditya Sharma",
+      role: "Career Switcher",
+      imageId: "student-1",
+      rating: 5,
+    },
+    {
+      text: "From zero experience to building dashboards — the course gave me confidence to work with real data.",
+      author: "Karan Malhotra",
+      role: "College Student",
+      imageId: "student-2",
+      rating: 5,
+    },
+    {
+      text: "Quantum Leap’s AI/ML course gave me real project experience. The mentors were outstanding and helped me land my first AI internship.",
+      author: "Ritika Verma",
+      role: "B.Tech Student",
+      imageId: "student-3",
+      rating: 5,
+    },
+  ];
+
+  const learnerBenefits = [
+    {
+      title: "Innovative Learning",
+      description:
+        "Interactive, lab-based learning with simulators and real-world projects.",
+      icon: <Rocket className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "24 x 7 Support",
+      description: "Always-on mentor & peer learning channels for round-the-clock help.",
+      icon: <Users className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "Career Assistance",
+      description:
+        "Resume workshops, mock interviews & placement help from day one.",
+      icon: <Briefcase className="h-8 w-8 text-primary" />,
+    },
+  ];
+
+  const whyChooseUs = [
+    { title: "Placement Assistance", icon: <Award className="h-6 w-6"/> },
+    { title: "Application-Oriented Learning", icon: <BrainCircuit className="h-6 w-6"/> },
+    { title: "Company-Specific Prep", icon: <Code className="h-6 w-6"/> },
+    { title: "AI-enabled Resume Builder", icon: <BookOpen className="h-6 w-6"/> },
+    { title: "Mock Interviews", icon: <Users className="h-6 w-6"/> },
+    { title: "Capstone Projects", icon: <Cpu className="h-6 w-6"/> },
+    { title: "Career Masterclasses", icon: <Star className="h-6 w-6"/> },
+    { title: "Personalized Guidance", icon: <ShieldCheck className="h-6 w-6"/> },
+    { title: "Lifetime LMS Access", icon: <Briefcase className="h-6 w-6"/> },
+  ];
+
+  return (
+    <div className="flex flex-col">
+      <section className="py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            <div className="space-y-6">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
+                Transform into a Future-Ready Professional, Powered by AI.
+              </h1>
+              <p className="text-lg text-muted-foreground md:text-xl">
+                Learn with AI-driven, industry-relevant courses in Data
+                Science, AI/ML, and more — and unlock your dream career in tech.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Button asChild size="lg">
+                  <Link href="/courses">Explore Courses</Link>
+                </Button>
+                <Button asChild variant="secondary" size="lg">
+                  <Link href="/signup">Sign Up Now</Link>
+                </Button>
+              </div>
+            </div>
+            <Card className="p-6 shadow-xl">
+              <CardHeader>
+                <CardTitle>Book a Free Live Class</CardTitle>
+                <CardDescription>
+                  Get a taste of our learning experience.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form className="space-y-4">
+                  <Input placeholder="Name" />
+                  <Input type="email" placeholder="Email" />
+                  <Input type="tel" placeholder="Phone" />
+                  <Input placeholder="Highest Qualification" />
+                  <Button type="submit" className="w-full">
+                    Book Now
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-card py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+            <div className="space-y-2">
+              <h3 className="text-3xl font-bold">Experts</h3>
+              <p className="text-muted-foreground">Industry-Leading</p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-3xl font-bold">1:1</h3>
+              <p className="text-muted-foreground">Mentored by Industry Leaders</p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-3xl font-bold">30+</h3>
+              <p className="text-muted-foreground">Hiring Partners</p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-3xl font-bold">55%</h3>
+              <p className="text-muted-foreground">Average Salary Hike</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="mb-2 text-3xl font-bold">
+            Get Offers From Top Companies
+          </h2>
+          <p className="mb-8 text-muted-foreground">
+            Our learners are hired by the best in the industry.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {companyLogos.map((logo) => (
+              <Image
+                key={logo.id}
+                src={logo.imageUrl}
+                alt={logo.description}
+                data-ai-hint={logo.imageHint}
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-card py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold">Explore Our Courses</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              Designed for the jobs of tomorrow.
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredCourses.map((course: Course) => (
+              <Card
+                key={course.slug}
+                className="transition-shadow hover:shadow-xl"
+              >
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    {course.name}
+                  </CardTitle>
+                  <CardDescription>{course.tagline}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild className="w-full">
+                    <Link href={`/courses/${course.slug}`}>View Details</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-primary">
+            90% Career Transition Rate
+          </h2>
+          <p className="mt-2 mb-6 text-2xl font-semibold">— in Just 6 Months!</p>
+          <Button size="lg" variant="outline">
+            Download Handbook
+          </Button>
+        </div>
+      </section>
+
+      <section className="bg-card py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold">Learner Benefits</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              An ecosystem designed for your success.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {learnerBenefits.map((benefit) => (
+              <Card key={benefit.title} className="p-6 text-center">
+                <div className="mb-4 flex justify-center">{benefit.icon}</div>
+                <CardTitle className="text-2xl">{benefit.title}</CardTitle>
+                <CardDescription className="mt-2">
+                  {benefit.description}
+                </CardDescription>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold">Success Stories</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              See how we&apos;ve changed lives.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {successStories.map((story) => {
+              const storyImage = getImage(story.imageId);
+              return (
+                <Card key={story.author} className="flex flex-col">
+                  <CardContent className="flex-grow p-6">
+                    <div className="mb-2 flex">
+                      {[...Array(story.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-5 w-5 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                    <p className="text-muted-foreground">&quot;{story.text}&quot;</p>
+                  </CardContent>
+                  <CardHeader className="flex-row items-center gap-4 pt-0">
+                    {storyImage && (
+                      <Avatar>
+                        <AvatarImage
+                          src={storyImage.imageUrl}
+                          alt={story.author}
+                          data-ai-hint={storyImage.imageHint}
+                        />
+                        <AvatarFallback>{story.author.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                    )}
+                    <div>
+                      <CardTitle className="text-base">{story.author}</CardTitle>
+                      <CardDescription>{story.role}</CardDescription>
+                    </div>
+                  </CardHeader>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-card py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold">Why Choose Quantum Leap</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              Everything you need to launch your tech career.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
+            {whyChooseUs.map((item) => (
+              <div key={item.title} className="flex items-center gap-4">
+                <div className="rounded-lg bg-primary/10 p-3 text-primary">
+                  {item.icon}
+                </div>
+                <h3 className="font-semibold">{item.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold">
+              Learn From The Best In The Industry
+            </h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              Our instructors are practitioners from top companies.
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {instructors.map((instructor) => {
+              const instructorImage = getImage(instructor.imageId);
+              return (
+                <Card key={instructor.name} className="text-center">
+                  <CardContent className="p-6">
+                    {instructorImage && (
+                      <Avatar className="mx-auto mb-4 h-24 w-24">
+                        <AvatarImage
+                          src={instructorImage.imageUrl}
+                          alt={instructor.name}
+                          data-ai-hint={instructorImage.imageHint}
+                        />
+                        <AvatarFallback>
+                          {instructor.name.charAt(0)}
+                        </AvatarFallback>
+                      </Avatar>
+                    )}
+                    <CardTitle>{instructor.name}</CardTitle>
+                    <CardDescription>{instructor.title}</CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
