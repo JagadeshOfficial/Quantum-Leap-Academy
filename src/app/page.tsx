@@ -33,6 +33,7 @@ import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { logos, getLogoById, type Logo } from "@/lib/logos";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -40,7 +41,8 @@ const getImage = (id: string): ImagePlaceholder | undefined => {
 
 export default function Home() {
   const featuredCourses = courses.slice(0, 4);
-  const companyLogos = [
+  
+  const companyLogoIds = [
     "logo-johnson-and-johnson",
     "logo-ubs",
     "logo-bank-of-america",
@@ -49,9 +51,9 @@ export default function Home() {
     "logo-oracle",
     "logo-microsoft",
     "logo-american-express",
-  ]
-    .map(getImage)
-    .filter(Boolean) as ImagePlaceholder[];
+  ];
+  const companyLogos = companyLogoIds.map(id => getLogoById(id)).filter((l): l is Logo => l !== undefined);
+
 
   const instructors = [
     {
@@ -508,7 +510,7 @@ export default function Home() {
                         Formerly at:
                       </p>
                       {instructor.companies.map((companyId) => {
-                        const companyLogo = getImage(companyId);
+                        const companyLogo = getLogoById(companyId);
                         return companyLogo ? (
                           <div key={companyId} className="flex h-6 w-16 shrink-0 items-center justify-center">
                             <Image
