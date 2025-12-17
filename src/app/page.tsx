@@ -21,6 +21,9 @@ import {
   Cpu,
   Code,
   Rocket,
+  TrendingUp,
+  UserCheck,
+  Building,
 } from "lucide-react";
 import type { Course } from "@/lib/courses";
 import { courses } from "@/lib/courses";
@@ -125,7 +128,7 @@ export default function Home() {
     { title: "Lifetime LMS Access", icon: <Briefcase className="h-6 w-6"/> },
   ];
 
-  const heroImage = getImage("hero-background");
+  const heroImage = getImage("hero-background-2");
 
   return (
     <div className="flex flex-col">
@@ -183,24 +186,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-card py-12">
+      <section className="border-b bg-background py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
-            <div className="space-y-2">
-              <h3 className="text-3xl font-bold">Experts</h3>
-              <p className="text-muted-foreground">Industry-Leading</p>
-            </div>
-            <div className="space-y-2">
+            <div className="flex flex-col items-center gap-2">
+              <UserCheck className="h-10 w-10 text-primary" />
               <h3 className="text-3xl font-bold">1:1</h3>
-              <p className="text-muted-foreground">Mentored by Industry Leaders</p>
+              <p className="text-muted-foreground">Mentorship</p>
             </div>
-            <div className="space-y-2">
+            <div className="flex flex-col items-center gap-2">
+              <Building className="h-10 w-10 text-primary" />
               <h3 className="text-3xl font-bold">30+</h3>
               <p className="text-muted-foreground">Hiring Partners</p>
             </div>
-            <div className="space-y-2">
+            <div className="flex flex-col items-center gap-2">
+              <TrendingUp className="h-10 w-10 text-primary" />
               <h3 className="text-3xl font-bold">55%</h3>
               <p className="text-muted-foreground">Average Salary Hike</p>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <BrainCircuit className="h-10 w-10 text-primary" />
+              <h3 className="text-3xl font-bold">AI</h3>
+              <p className="text-muted-foreground">Personalized Learning</p>
             </div>
           </div>
         </div>
@@ -403,5 +410,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
