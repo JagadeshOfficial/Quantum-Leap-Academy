@@ -16,7 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Award, TrendingUp, Building, BrainCircuit, Loader2 } from 'lucide-react';
-import { logos, getLogoById, type Logo } from "@/lib/logos";
+import { Badge } from '@/components/ui/badge';
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -37,8 +37,6 @@ export default function HirePage() {
   const companyNames = [
     "Johnson & Johnson", "UBS", "Bank of America", "Spinnaker Analytics", "KPMG", "Oracle", "Microsoft", "American Express", "Google", "Amazon", "Deloitte", "Accenture", "TCS", "PwC", "IBM", "Wipro", "Flipkart", "Zoho"
   ];
-  const hiringPartners = companyNames.map(name => getLogoById(`logo-${name.toLowerCase().replace(/ & /g, '-and-').replace(/ /g, '-')}`)).filter(Boolean) as Logo[];
-
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -111,24 +109,28 @@ export default function HirePage() {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold">Trusted by Industry Leaders</h2>
-             <div className="mt-8 flex flex-wrap justify-center items-center gap-8">
-              {hiringPartners.slice(0, 12).map((logo) => (
-                <div key={logo.id} className="flex h-12 items-center justify-center" title={logo.description.replace(' Logo', '')}>
-                  <Image
-                    src={logo.imageUrl}
-                    alt={logo.description}
-                    width={100}
-                    height={40}
-                    className="object-contain"
-                    data-ai-hint={logo.imageHint}
-                  />
+        <div className="container mx-auto px-4 text-center">
+            <h2 className="mb-2 text-3xl font-bold">
+                Trusted by Industry Leaders
+            </h2>
+            <p className="mb-8 text-muted-foreground">
+                Our learners are hired by the best in the industry.
+            </p>
+            <div
+                className="group relative flex gap-8 overflow-hidden"
+                style={{
+                maskImage:
+                    "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+                }}
+            >
+                <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
+                    {[...companyNames, ...companyNames].map((name, index) => (
+                    <Badge key={`${name}-${index}`} variant="outline" className="px-6 py-3 text-lg whitespace-nowrap">
+                        {name}
+                    </Badge>
+                    ))}
                 </div>
-              ))}
             </div>
-          </div>
         </div>
       </section>
 
