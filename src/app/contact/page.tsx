@@ -10,7 +10,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Mail, MapPin, Phone, Twitter, Linkedin, Facebook } from "lucide-react";
 import Image from "next/image";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -20,7 +26,36 @@ const getImage = (id: string): ImagePlaceholder | undefined => {
 };
 
 export default function ContactPage() {
-    const mapImage = getImage("map-image");
+  const mapImage = getImage("map-image");
+  const faqs = [
+    {
+      question: "What is the duration of the courses?",
+      answer:
+        "Our courses range from 10 to 24 weeks, depending on the program. Each course page has specific details on duration and learning hours.",
+    },
+    {
+      question: "Do you offer job placement assistance?",
+      answer:
+        "Yes, we offer comprehensive career assistance, including resume workshops, mock interviews, and placement support from day one.",
+    },
+    {
+      question: "Are there any prerequisites for enrolling in a course?",
+      answer:
+        "Prerequisites vary by course. Most of our beginner-friendly courses do not require prior experience, while advanced programs may have specific requirements. Please check the individual course pages for details.",
+    },
+    {
+      question: "Can I get a refund if I'm not satisfied?",
+      answer:
+        "We offer a satisfaction guarantee. Please refer to our terms and conditions for details on our refund policy.",
+    },
+  ];
+
+  const socialLinks = [
+    { icon: <Twitter className="h-6 w-6" />, href: "#" },
+    { icon: <Linkedin className="h-6 w-6" />, href: "#" },
+    { icon: <Facebook className="h-6 w-6" />, href: "#" },
+  ];
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="mb-12 text-center">
@@ -65,52 +100,93 @@ export default function ContactPage() {
         <div className="space-y-8">
           <Card>
             <CardHeader>
-                <CardTitle>Our Location</CardTitle>
+              <CardTitle>Our Location</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-                 {mapImage && (
-                    <div className="relative h-64 w-full overflow-hidden rounded-lg">
-                        <Image
-                        src={mapImage.imageUrl}
-                        alt="Location Map"
-                        data-ai-hint={mapImage.imageHint}
-                        fill
-                        className="object-cover"
-                        />
-                    </div>
-                )}
-                <div className="flex items-start gap-4">
-                    <MapPin className="mt-1 h-6 w-6 shrink-0 text-primary" />
-                    <div>
-                        <h3 className="font-semibold">Quantum Leap Academy</h3>
-                        <p className="text-muted-foreground">123 Tech Park Avenue, Innovation City, 560100</p>
-                    </div>
+              {mapImage && (
+                <div className="relative h-64 w-full overflow-hidden rounded-lg">
+                  <Image
+                    src={mapImage.imageUrl}
+                    alt="Location Map"
+                    data-ai-hint={mapImage.imageHint}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
+              )}
+              <div className="flex items-start gap-4">
+                <MapPin className="mt-1 h-6 w-6 shrink-0 text-primary" />
+                <div>
+                  <h3 className="font-semibold">Quantum Leap Academy</h3>
+                  <p className="text-muted-foreground">
+                    123 Tech Park Avenue, Innovation City, 560100
+                  </p>
+                </div>
+              </div>
             </CardContent>
           </Card>
-           <Card>
+          <Card>
             <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+              <CardTitle>Contact Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-                 <div className="flex items-center gap-4">
-                    <Mail className="h-6 w-6 shrink-0 text-primary" />
-                    <div>
-                        <h3 className="font-semibold">Email Us</h3>
-                        <p className="text-muted-foreground">hello@quantumleap.com</p>
-                    </div>
+              <div className="flex items-center gap-4">
+                <Mail className="h-6 w-6 shrink-0 text-primary" />
+                <div>
+                  <h3 className="font-semibold">Email Us</h3>
+                  <p className="text-muted-foreground">
+                    hello@quantumleap.com
+                  </p>
                 </div>
-                 <div className="flex items-center gap-4">
-                    <Phone className="h-6 w-6 shrink-0 text-primary" />
-                     <div>
-                        <h3 className="font-semibold">Call Us</h3>
-                        <p className="text-muted-foreground">+91 98765 43210</p>
-                    </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <Phone className="h-6 w-6 shrink-0 text-primary" />
+                <div>
+                  <h3 className="font-semibold">Call Us</h3>
+                  <p className="text-muted-foreground">+91 98765 43210</p>
                 </div>
+              </div>
             </CardContent>
-           </Card>
+          </Card>
         </div>
       </div>
+      <section className="mt-20">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              Find quick answers to common questions.
+            </p>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem value={`item-${index}`} key={index}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+      <section className="mt-20 border-t pt-12">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold">Follow Us</h2>
+          <p className="mt-2 text-muted-foreground">
+            Stay up to date with our latest news and offers.
+          </p>
+          <div className="mt-6 flex justify-center gap-6">
+            {socialLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                className="text-muted-foreground transition-colors hover:text-primary"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
