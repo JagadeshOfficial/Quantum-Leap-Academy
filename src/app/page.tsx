@@ -201,7 +201,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <Card className="bg-white/90 p-6 shadow-2xl backdrop-blur-sm">
+            <Card className="bg-background/95 p-6 shadow-2xl backdrop-blur-md">
               <CardHeader>
                 <CardTitle>Book a Live Class Now</CardTitle>
                 <CardDescription>
