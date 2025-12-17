@@ -241,7 +241,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="bg-secondary py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-2 text-3xl font-bold">
             Get Offers From Top Companies
@@ -269,7 +269,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-card py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Explore Our Courses</h2>
@@ -330,7 +330,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-secondary py-20">
         <div className="container mx-auto max-w-full px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">90% Career Transition Rate</h2>
@@ -344,7 +344,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-card py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Learner Benefits</h2>
@@ -366,7 +366,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-background py-20">
+      <section className="bg-secondary py-20">
         <div className="container mx-auto max-w-full px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Success Stories</h2>
@@ -453,7 +453,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="bg-secondary py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">
