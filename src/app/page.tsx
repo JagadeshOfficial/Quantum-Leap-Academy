@@ -39,14 +39,14 @@ const getImage = (id: string): ImagePlaceholder | undefined => {
 export default function Home() {
   const featuredCourses = courses.slice(0, 4);
   const companyLogos = [
-    "logo-google",
-    "logo-amazon",
-    "logo-deloitte",
-    "logo-accenture",
-    "logo-tcs",
-    "logo-pwc",
-    "logo-ibm",
-    "logo-wipro",
+    "logo-johnson-and-johnson",
+    "logo-ubs",
+    "logo-bank-of-america",
+    "logo-spinnaker",
+    "logo-kpmg",
+    "logo-oracle",
+    "logo-microsoft",
+    "logo-american-express",
   ]
     .map(getImage)
     .filter(Boolean) as ImagePlaceholder[];
@@ -223,31 +223,22 @@ export default function Home() {
           <p className="mb-8 text-muted-foreground">
             Our learners are hired by the best in the industry.
           </p>
-          <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg">
-            <div
-              className="w-max animate-infinite-scroll flex"
-              style={{
-                animationPlayState: 'running',
-                animationDelay: '0s',
-                animationDirection: 'normal',
-              }}
-            >
-              {[...companyLogos, ...companyLogos].map((logo, index) => (
-                <div
-                  className="mx-4 flex w-[150px] shrink-0 items-center justify-center py-2"
-                  key={index}
-                >
-                  <Image
-                    src={logo.imageUrl}
-                    alt={logo.description}
-                    data-ai-hint={logo.imageHint}
-                    width={120}
-                    height={40}
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+            {companyLogos.map((logo, index) => (
+              <div
+                className="flex h-12 w-36 items-center justify-center"
+                key={index}
+              >
+                <Image
+                  src={logo.imageUrl}
+                  alt={logo.description}
+                  data-ai-hint={logo.imageHint}
+                  width={144}
+                  height={48}
+                  className="object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
