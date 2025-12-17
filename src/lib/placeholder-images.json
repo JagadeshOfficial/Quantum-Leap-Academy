@@ -25,10 +25,22 @@
       "imageHint": "woman portrait"
     },
     {
+      "id": "instructor-bg-1",
+      "description": "Abstract background for Anjali Sharma",
+      "imageUrl": "https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "abstract gradient"
+    },
+    {
       "id": "instructor-2",
       "description": "Rohan Verma, Principal Data Scientist",
       "imageUrl": "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjU5NDE0MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "man portrait"
+    },
+    {
+      "id": "instructor-bg-2",
+      "description": "Abstract background for Rohan Verma",
+      "imageUrl": "https://images.unsplash.com/photo-1557682224-5b8590b9ec98?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "abstract gradient"
     },
     {
       "id": "instructor-3",
@@ -37,10 +49,22 @@
       "imageHint": "woman professional"
     },
     {
+      "id": "instructor-bg-3",
+      "description": "Abstract background for Priya Singh",
+      "imageUrl": "https://images.unsplash.com/photo-1557683304-679a6b595d1b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "abstract gradient"
+    },
+    {
       "id": "instructor-4",
       "description": "Amit Desai, Cybersecurity Lead",
       "imageUrl": "https://images.unsplash.com/photo-1720672284660-cfecee298779?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzY1OTI5MDk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "man professional"
+    },
+    {
+      "id": "instructor-bg-4",
+      "description": "Abstract background for Amit Desai",
+      "imageUrl": "https://images.unsplash.com/photo-1557683325-3ba8f0df79de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "abstract gradient"
     },
     {
       "id": "student-1",
@@ -111,61 +135,61 @@
     {
       "id": "logo-google",
       "description": "Google Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1687523327554-fa9f50423489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/google.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-amazon",
       "description": "Amazon Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1619551734325-81aaf323686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/amazon.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-deloitte",
       "description": "Deloitte Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/deloitte.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-accenture",
       "description": "Accenture Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/accenture.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-tcs",
       "description": "TCS Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/tcs.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-pwc",
       "description": "PwC Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/pwc.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-ibm",
       "description": "IBM Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1549924231-f129b911e442?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/ibm.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-wipro",
       "description": "Wipro Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1619551734325-81aaf323686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/wipro.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-flipkart",
       "description": "Flipkart Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1496200186974-4293800e2c20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/flipkart.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-zoho",
       "description": "Zoho Logo",
-      "imageUrl": "https://images.unsplash.com/photo-1619551734325-81aaf323686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjU5NDY4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://firebasestudio-hosting.web.app/images/zoho.png",
       "imageHint": "company logo"
     },
     {

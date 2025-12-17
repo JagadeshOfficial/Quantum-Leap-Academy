@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -57,21 +58,29 @@ export default function Home() {
       name: "Dr. Anjali Sharma",
       title: "AI Research Scientist",
       imageId: "instructor-1",
+      companies: ["logo-google", "logo-microsoft"],
+      backgroundImageId: "instructor-bg-1",
     },
     {
       name: "Rohan Verma",
       title: "Principal Data Scientist",
       imageId: "instructor-2",
+      companies: ["logo-amazon", "logo-flipkart"],
+      backgroundImageId: "instructor-bg-2",
     },
     {
       name: "Priya Singh",
       title: "Quantum Computing Expert",
       imageId: "instructor-3",
+      companies: ["logo-ibm"],
+      backgroundImageId: "instructor-bg-3",
     },
     {
       name: "Amit Desai",
       title: "Cybersecurity Lead",
       imageId: "instructor-4",
+      companies: ["logo-pwc", "logo-deloitte"],
+      backgroundImageId: "instructor-bg-4",
     },
   ];
 
@@ -108,7 +117,8 @@ export default function Home() {
     },
     {
       title: "24 x 7 Support",
-      description: "Always-on mentor & peer learning channels for round-the-clock help.",
+      description:
+        "Always-on mentor & peer learning channels for round-the-clock help.",
       icon: <Users className="h-8 w-8 text-primary" />,
     },
     {
@@ -118,21 +128,30 @@ export default function Home() {
       icon: <Briefcase className="h-8 w-8 text-primary" />,
     },
     {
-        title: 'Industry-Recognized Certification',
-        description: 'Get certified by global leaders and showcase your skills.',
-        icon: <Award className="h-8 w-8 text-primary" />,
+      title: "Industry-Recognized Certification",
+      description: "Get certified by global leaders and showcase your skills.",
+      icon: <Award className="h-8 w-8 text-primary" />,
     },
   ];
 
   const whyChooseUs = [
     { title: "Placement Assistance", icon: <Award className="h-8 w-8" /> },
-    { title: "Application-Oriented Learning", icon: <BrainCircuit className="h-8 w-8" /> },
+    {
+      title: "Application-Oriented Learning",
+      icon: <BrainCircuit className="h-8 w-8" />,
+    },
     { title: "Company-Specific Prep", icon: <Code className="h-8 w-8" /> },
-    { title: "AI-enabled Resume Builder", icon: <BookOpen className="h-8 w-8" /> },
+    {
+      title: "AI-enabled Resume Builder",
+      icon: <BookOpen className="h-8 w-8" />,
+    },
     { title: "Mock Interviews", icon: <Users className="h-8 w-8" /> },
     { title: "Capstone Projects", icon: <Cpu className="h-8 w-8" /> },
     { title: "Career Masterclasses", icon: <Star className="h-8 w-8" /> },
-    { title: "Personalized Guidance", icon: <ShieldCheck className="h-8 w-8" /> },
+    {
+      title: "Personalized Guidance",
+      icon: <ShieldCheck className="h-8 w-8" />,
+    },
     { title: "Lifetime LMS Access", icon: <Briefcase className="h-8 w-8" /> },
   ];
 
@@ -315,14 +334,16 @@ export default function Home() {
         <div className="container mx-auto max-w-full px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">90% Career Transition Rate</h2>
-            <p className="mt-2 mb-6 text-2xl font-semibold">— in Just 6 Months!</p>
+            <p className="mt-2 mb-6 text-2xl font-semibold">
+              — in Just 6 Months!
+            </p>
             <Button size="lg" variant="outline">
               Download Handbook
             </Button>
           </div>
         </div>
       </section>
-      
+
       <section className="bg-card py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
@@ -334,9 +355,7 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {learnerBenefits.map((benefit) => (
               <Card key={benefit.title} className="p-6 text-center">
-                <div className="mb-4 flex justify-center">
-                  {benefit.icon}
-                </div>
+                <div className="mb-4 flex justify-center">{benefit.icon}</div>
                 <h3 className="text-xl font-semibold">{benefit.title}</h3>
                 <p className="mt-2 text-muted-foreground">
                   {benefit.description}
@@ -358,14 +377,18 @@ export default function Home() {
           <div
             className="group relative flex gap-8 overflow-hidden"
             style={{
-              maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+              maskImage:
+                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
             }}
           >
             <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
               {[...successStories, ...successStories].map((story, index) => {
                 const storyImage = getImage(story.imageId);
                 return (
-                  <Card key={`${story.author}-${index}`} className="w-80 flex-shrink-0">
+                  <Card
+                    key={`${story.author}-${index}`}
+                    className="w-80 flex-shrink-0"
+                  >
                     <CardContent className="flex-grow p-6">
                       <div className="mb-2 flex">
                         {[...Array(story.rating)].map((_, i) => (
@@ -375,7 +398,9 @@ export default function Home() {
                           />
                         ))}
                       </div>
-                      <p className="text-muted-foreground">&quot;{story.text}&quot;</p>
+                      <p className="text-muted-foreground">
+                        &quot;{story.text}&quot;
+                      </p>
                     </CardContent>
                     <CardHeader className="flex-row items-center gap-4 pt-0">
                       {storyImage && (
@@ -391,7 +416,9 @@ export default function Home() {
                         </Avatar>
                       )}
                       <div>
-                        <CardTitle className="text-base">{story.author}</CardTitle>
+                        <CardTitle className="text-base">
+                          {story.author}
+                        </CardTitle>
                         <CardDescription>{story.role}</CardDescription>
                       </div>
                     </CardHeader>
@@ -439,23 +466,63 @@ export default function Home() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {instructors.map((instructor) => {
               const instructorImage = getImage(instructor.imageId);
+              const backgroundImage = getImage(instructor.backgroundImageId);
               return (
-                <Card key={instructor.name} className="text-center">
-                  <CardContent className="p-6">
-                    {instructorImage && (
-                      <Avatar className="mx-auto mb-4 h-24 w-24">
-                        <AvatarImage
-                          src={instructorImage.imageUrl}
-                          alt={instructor.name}
-                          data-ai-hint={instructorImage.imageHint}
-                        />
-                        <AvatarFallback>
-                          {instructor.name.charAt(0)}
-                        </AvatarFallback>
-                      </Avatar>
+                <Card
+                  key={instructor.name}
+                  className="overflow-hidden rounded-xl border-0 shadow-lg transition-all hover:scale-105"
+                >
+                  <div className="relative h-40">
+                    {backgroundImage && (
+                      <Image
+                        src={backgroundImage.imageUrl}
+                        alt={`${instructor.name} background`}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={backgroundImage.imageHint}
+                      />
                     )}
-                    <CardTitle>{instructor.name}</CardTitle>
-                    <CardDescription>{instructor.title}</CardDescription>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-4">
+                      {instructorImage && (
+                        <Avatar className="h-20 w-20 border-4 border-background">
+                          <AvatarImage
+                            src={instructorImage.imageUrl}
+                            alt={instructor.name}
+                            data-ai-hint={instructorImage.imageHint}
+                          />
+                          <AvatarFallback>
+                            {instructor.name.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                      )}
+                    </div>
+                  </div>
+                  <CardContent className="p-6 pt-4">
+                    <CardTitle className="text-xl">{instructor.name}</CardTitle>
+                    <CardDescription className="mb-4">
+                      {instructor.title}
+                    </CardDescription>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="text-xs font-semibold text-muted-foreground">
+                        Formerly at:
+                      </p>
+                      {instructor.companies.map((companyId) => {
+                        const companyLogo = getImage(companyId);
+                        return companyLogo ? (
+                          <div key={companyId} className="flex h-6 w-16 items-center justify-center">
+                            <Image
+                              src={companyLogo.imageUrl}
+                              alt={companyLogo.description}
+                              width={64}
+                              height={24}
+                              className="object-contain"
+                              data-ai-hint={companyLogo.imageHint}
+                            />
+                           </div>
+                        ) : null;
+                      })}
+                    </div>
                   </CardContent>
                 </Card>
               );
