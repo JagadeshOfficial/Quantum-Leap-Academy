@@ -475,51 +475,39 @@ export default function Home() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {instructors.map((instructor) => {
               const instructorImage = getImage(instructor.imageId);
-              const backgroundImage = getImage(instructor.backgroundImageId);
               return (
                 <Card
                   key={instructor.name}
-                  className="overflow-hidden rounded-xl border-0 shadow-lg transition-all hover:scale-105"
+                  className="overflow-hidden text-center transition-shadow hover:shadow-xl"
                 >
-                  <div className="relative h-40">
-                    {backgroundImage && (
-                      <Image
-                        src={backgroundImage.imageUrl}
-                        alt={`${instructor.name} background`}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={backgroundImage.imageHint}
-                      />
+                  <CardContent className="flex flex-col items-center p-6">
+                    {instructorImage && (
+                      <Avatar className="mb-4 h-24 w-24 border-4 border-primary/20">
+                        <AvatarImage
+                          src={instructorImage.imageUrl}
+                          alt={instructor.name}
+                          data-ai-hint={instructorImage.imageHint}
+                        />
+                        <AvatarFallback>
+                          {instructor.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </AvatarFallback>
+                      </Avatar>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    <div className="absolute -bottom-10 left-4">
-                      {instructorImage && (
-                        <Avatar className="h-20 w-20 border-4 border-background">
-                          <AvatarImage
-                            src={instructorImage.imageUrl}
-                            alt={instructor.name}
-                            data-ai-hint={instructorImage.imageHint}
-                          />
-                          <AvatarFallback>
-                            {instructor.name.charAt(0)}
-                          </AvatarFallback>
-                        </Avatar>
-                      )}
-                    </div>
-                  </div>
-                  <CardContent className="p-6 pt-12">
                     <CardTitle className="text-xl">{instructor.name}</CardTitle>
                     <CardDescription className="mb-4">
                       {instructor.title}
                     </CardDescription>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <p className="text-xs font-semibold text-muted-foreground">
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      <p className="w-full text-center text-xs font-semibold text-muted-foreground">
                         Formerly at:
                       </p>
                       {instructor.companies.map((companyId) => {
                         const companyLogo = getLogoById(companyId);
                         return companyLogo ? (
-                          <div key={companyId} className="flex h-6 w-16 shrink-0 items-center justify-center">
+                          <div key={companyId} className="flex h-6 w-16 shrink-0 items-center justify-center" title={companyLogo.description.replace(' Logo', '')}>
                             <Image
                               src={companyLogo.imageUrl}
                               alt={companyLogo.description}
@@ -542,5 +530,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
