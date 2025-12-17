@@ -24,6 +24,7 @@ import {
   TrendingUp,
   UserCheck,
   Building,
+  CheckCircle,
 } from "lucide-react";
 import type { Course } from "@/lib/courses";
 import { courses } from "@/lib/courses";
@@ -103,18 +104,23 @@ export default function Home() {
       title: "Innovative Learning",
       description:
         "Interactive, lab-based learning with simulators and real-world projects.",
-      icon: <Rocket className="h-8 w-8 text-primary" />,
+      icon: <Rocket className="h-6 w-6 text-primary" />,
     },
     {
       title: "24 x 7 Support",
       description: "Always-on mentor & peer learning channels for round-the-clock help.",
-      icon: <Users className="h-8 w-8 text-primary" />,
+      icon: <Users className="h-6 w-6 text-primary" />,
     },
     {
       title: "Career Assistance",
       description:
         "Resume workshops, mock interviews & placement help from day one.",
-      icon: <Briefcase className="h-8 w-8 text-primary" />,
+      icon: <Briefcase className="h-6 w-6 text-primary" />,
+    },
+    {
+        title: 'Industry-Recognized Certification',
+        description: 'Get certified by global leaders and showcase your skills.',
+        icon: <Award className="h-6 w-6 text-primary" />,
     },
   ];
 
@@ -131,6 +137,7 @@ export default function Home() {
   ];
 
   const heroImage = getImage("hero-background-2");
+  const benefitsImage = getImage("benefits-image");
 
   return (
     <div className="flex flex-col">
@@ -305,40 +312,55 @@ export default function Home() {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-primary">
-            90% Career Transition Rate
-          </h2>
-          <p className="mt-2 mb-6 text-2xl font-semibold">— in Just 6 Months!</p>
-          <Button size="lg" variant="outline">
-            Download Handbook
-          </Button>
+        <div className="container mx-auto max-w-full px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold">90% Career Transition Rate</h2>
+            <p className="mt-2 mb-6 text-2xl font-semibold">— in Just 6 Months!</p>
+            <Button size="lg" variant="outline">
+              Download Handbook
+            </Button>
+          </div>
+        </div>
+      </section>
+      
+      <section className="bg-background py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            <div>
+              <h2 className="text-4xl font-bold">Learner Benefits</h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                An ecosystem designed for your success.
+              </p>
+              <ul className="mt-8 space-y-6">
+                {learnerBenefits.map((benefit) => (
+                  <li key={benefit.title} className="flex items-start gap-4">
+                    <div className="rounded-full bg-primary/10 p-3 text-primary">
+                      {benefit.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                      <p className="text-muted-foreground">{benefit.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {benefitsImage && (
+              <div className="relative h-96 w-full overflow-hidden rounded-lg">
+                <Image
+                  src={benefitsImage.imageUrl}
+                  alt={benefitsImage.description}
+                  data-ai-hint={benefitsImage.imageHint}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
       <section className="bg-card py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold">Learner Benefits</h2>
-            <p className="mt-2 text-lg text-muted-foreground">
-              An ecosystem designed for your success.
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {learnerBenefits.map((benefit) => (
-              <Card key={benefit.title} className="p-6 text-center">
-                <div className="mb-4 flex justify-center">{benefit.icon}</div>
-                <CardTitle className="text-2xl">{benefit.title}</CardTitle>
-                <CardDescription className="mt-2">
-                  {benefit.description}
-                </CardDescription>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
         <div className="container mx-auto max-w-full px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Success Stories</h2>
@@ -394,7 +416,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-card py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Why Choose Quantum Leap</h2>
