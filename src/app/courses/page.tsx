@@ -12,6 +12,8 @@ import { courses } from "@/lib/courses";
 import Image from "next/image";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Badge } from "@/components/ui/badge";
+import { Star } from "lucide-react";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -48,14 +50,28 @@ export default function CoursesPage() {
                   />
                 </div>
               )}
-              <CardHeader>
-                <CardTitle>{course.name}</CardTitle>
-                <CardDescription>{course.tagline}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-grow flex-col justify-end">
-                <Button asChild className="mt-4 w-full">
-                  <Link href={`/courses/${course.slug}`}>Learn More</Link>
-                </Button>
+              <CardContent className="flex flex-grow flex-col p-6">
+                <h3 className="text-xl font-bold">{course.name}</h3>
+                <div className="mt-4 flex-grow space-y-3 text-sm text-muted-foreground">
+                  <p>{course.duration}</p>
+                  <div className="flex items-center">
+                    <span className="font-semibold">{course.rating}</span>
+                    <Star className="ml-1 h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="ml-2">
+                      ({course.reviews.length}K+ Students)
+                    </span>
+                  </div>
+                  <Badge variant="secondary">DEDICATED CAREER SUPPORT</Badge>
+                  <p>{course.enrolledStudents}+ students enrolled</p>
+                </div>
+                <div className="mt-6 flex gap-4">
+                  <Button variant="outline" className="w-full">
+                    Brochure
+                  </Button>
+                  <Button asChild className="w-full">
+                    <Link href={`/courses/${course.slug}`}>View Course</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           );
