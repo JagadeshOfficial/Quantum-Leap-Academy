@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -216,6 +218,21 @@ export default function AboutPage() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+       <section className="border-t bg-card py-20">
+        <div className="container mx-auto text-center">
+          <h2 className="mb-4 text-3xl font-bold">Ready to Start Your Journey?</h2>
+          <p className="mb-8 text-lg text-muted-foreground">Enroll today and take the first step towards your dream career.</p>
+          <div className="flex justify-center gap-4">
+             <Button size="lg" asChild>
+                <Link href="/courses">Explore Courses</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/contact">Talk to an Advisor</Link>
+            </Button>
           </div>
         </div>
       </section>
