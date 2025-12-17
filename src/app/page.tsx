@@ -104,23 +104,23 @@ export default function Home() {
       title: "Innovative Learning",
       description:
         "Interactive, lab-based learning with simulators and real-world projects.",
-      icon: <Rocket className="h-6 w-6 text-primary" />,
+      icon: <Rocket className="h-8 w-8 text-primary" />,
     },
     {
       title: "24 x 7 Support",
       description: "Always-on mentor & peer learning channels for round-the-clock help.",
-      icon: <Users className="h-6 w-6 text-primary" />,
+      icon: <Users className="h-8 w-8 text-primary" />,
     },
     {
       title: "Career Assistance",
       description:
         "Resume workshops, mock interviews & placement help from day one.",
-      icon: <Briefcase className="h-6 w-6 text-primary" />,
+      icon: <Briefcase className="h-8 w-8 text-primary" />,
     },
     {
         title: 'Industry-Recognized Certification',
         description: 'Get certified by global leaders and showcase your skills.',
-        icon: <Award className="h-6 w-6 text-primary" />,
+        icon: <Award className="h-8 w-8 text-primary" />,
     },
   ];
 
@@ -325,37 +325,24 @@ export default function Home() {
       
       <section className="bg-background py-20">
         <div className="container mx-auto px-4">
-          <div className="grid items-center gap-12 md:grid-cols-2">
-            <div>
-              <h2 className="text-4xl font-bold">Learner Benefits</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                An ecosystem designed for your success.
-              </p>
-              <ul className="mt-8 space-y-6">
-                {learnerBenefits.map((benefit) => (
-                  <li key={benefit.title} className="flex items-start gap-4">
-                    <div className="rounded-full bg-primary/10 p-3 text-primary">
-                      {benefit.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                      <p className="text-muted-foreground">{benefit.description}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {benefitsImage && (
-              <div className="relative h-96 w-full overflow-hidden rounded-lg">
-                <Image
-                  src={benefitsImage.imageUrl}
-                  alt={benefitsImage.description}
-                  data-ai-hint={benefitsImage.imageHint}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-bold">Learner Benefits</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+              An ecosystem designed for your success.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {learnerBenefits.map((benefit) => (
+              <Card key={benefit.title} className="p-6 text-center">
+                <div className="mb-4 flex justify-center">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                <p className="mt-2 text-muted-foreground">
+                  {benefit.description}
+                </p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
