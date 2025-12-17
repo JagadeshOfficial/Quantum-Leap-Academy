@@ -166,7 +166,7 @@ export default function Home() {
     { title: "Lifetime LMS Access", icon: <Briefcase className="h-8 w-8" /> },
   ];
 
-  const heroImage = getImage("hero-background-2");
+  const heroImage = getImage("benefits-image");
   const benefitsImage = getImage("benefits-image");
 
   return (
