@@ -125,16 +125,29 @@ export default function Home() {
     { title: "Lifetime LMS Access", icon: <Briefcase className="h-6 w-6"/> },
   ];
 
+  const heroImage = getImage("hero-background");
+
   return (
     <div className="flex flex-col">
-      <section className="py-20 md:py-32">
-        <div className="container mx-auto px-4">
+      <section className="relative h-[80vh] min-h-[600px] w-full">
+        {heroImage && (
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            data-ai-hint={heroImage.imageHint}
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/0" />
+        <div className="container relative z-10 mx-auto flex h-full items-center px-4">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <div className="space-y-6">
-              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
+            <div className="space-y-6 text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-md md:text-5xl lg:text-6xl">
                 Transform into a Future-Ready Professional, Powered by AI.
               </h1>
-              <p className="text-lg text-muted-foreground md:text-xl">
+              <p className="text-lg drop-shadow md:text-xl">
                 Learn with AI-driven, industry-relevant courses in Data
                 Science, AI/ML, and more — and unlock your dream career in tech.
               </p>
@@ -147,7 +160,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <Card className="p-6 shadow-xl">
+            <Card className="bg-white/90 p-6 shadow-2xl backdrop-blur-sm">
               <CardHeader>
                 <CardTitle>Book a Free Live Class</CardTitle>
                 <CardDescription>
