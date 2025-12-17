@@ -29,6 +29,7 @@ import type { Course } from "@/lib/courses";
 import { courses } from "@/lib/courses";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { cn } from "@/lib/utils";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -221,18 +222,31 @@ export default function Home() {
           <p className="mb-8 text-muted-foreground">
             Our learners are hired by the best in the industry.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            {companyLogos.map((logo) => (
-              <Image
-                key={logo.id}
-                src={logo.imageUrl}
-                alt={logo.description}
-                data-ai-hint={logo.imageHint}
-                width={120}
-                height={40}
-                className="object-contain"
-              />
-            ))}
+          <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+            <div
+              className="w-max animate-infinite-scroll flex"
+              style={{
+                animationPlayState: 'running',
+                animationDelay: '0s',
+                animationDirection: 'normal',
+              }}
+            >
+              {[...companyLogos, ...companyLogos].map((logo, index) => (
+                <div
+                  className="mx-4 flex w-[150px] shrink-0 items-center justify-center py-2"
+                  key={index}
+                >
+                  <Image
+                    src={logo.imageUrl}
+                    alt={logo.description}
+                    data-ai-hint={logo.imageHint}
+                    width={120}
+                    height={40}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -246,24 +260,38 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredCourses.map((course: Course) => (
-              <Card
-                key={course.slug}
-                className="transition-shadow hover:shadow-xl"
-              >
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    {course.name}
-                  </CardTitle>
-                  <CardDescription>{course.tagline}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button asChild className="w-full">
-                    <Link href={`/courses/${course.slug}`}>View Details</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {featuredCourses.map((course: Course) => {
+              const courseImage = getImage(course.imageId);
+              return (
+                <Card
+                  key={course.slug}
+                  className="flex flex-col overflow-hidden transition-shadow hover:shadow-xl"
+                >
+                  {courseImage && (
+                    <div className="relative h-40 w-full">
+                      <Image
+                        src={courseImage.imageUrl}
+                        alt={course.name}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={courseImage.imageHint}
+                      />
+                    </div>
+                  )}
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      {course.name}
+                    </CardTitle>
+                    <CardDescription>{course.tagline}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex flex-grow flex-col justify-end">
+                    <Button asChild className="mt-auto w-full">
+                      <Link href={`/courses/${course.slug}`}>View Details</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
