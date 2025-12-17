@@ -24,7 +24,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
-        <div className="mr-4 flex items-center">
+        <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <GraduationCap className="h-6 w-6 text-primary" />
             <span className="font-bold sm:inline-block">
@@ -32,30 +32,34 @@ export function Header() {
             </span>
           </Link>
         </div>
-        <nav className="hidden items-center space-x-6 text-sm font-medium md:flex">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="flex items-center gap-1">
-                Courses
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              {courses.map((course) => (
-                <DropdownMenuItem key={course.slug} asChild>
-                  <Link href={`/courses/${course.slug}`}>{course.name}</Link>
+        
+        <div className="flex-1 justify-center hidden md:flex">
+          <nav className="flex items-center space-x-6 text-sm font-medium">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center gap-1">
+                  Courses
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                {courses.map((course) => (
+                  <DropdownMenuItem key={course.slug} asChild>
+                    <Link href={`/courses/${course.slug}`}>{course.name}</Link>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/courses">All Courses</Link>
                 </DropdownMenuItem>
-              ))}
-              <DropdownMenuSeparator />
-              <DropdownMenuItem asChild>
-                <Link href="/courses">All Courses</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Link href="/personalized-path" className="transition-colors hover:text-foreground/80 text-foreground/60">Personalized Path</Link>
-          <Link href="/resume-builder" className="transition-colors hover:text-foreground/80 text-foreground/60">Resume Builder</Link>
-        </nav>
-        <div className="flex flex-1 items-center justify-end space-x-2">
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <Link href="/about" className="transition-colors hover:text-foreground/80 text-foreground/60">About</Link>
+            <Link href="/contact" className="transition-colors hover:text-foreground/80 text-foreground/60">Contact</Link>
+          </nav>
+        </div>
+
+        <div className="flex items-center justify-end space-x-2 md:flex-1">
            <div className="hidden md:flex items-center space-x-2">
               <Button variant="ghost" asChild>
                 <Link href="/login">Login</Link>
@@ -81,8 +85,8 @@ export function Header() {
                 </div>
                 <nav className="flex flex-col space-y-4 p-4 text-lg">
                     <Link href="/courses" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
-                    <Link href="/personalized-path" onClick={() => setMobileMenuOpen(false)}>Personalized Path</Link>
-                    <Link href="/resume-builder" onClick={() => setMobileMenuOpen(false)}>Resume Builder</Link>
+                    <Link href="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
+                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                 </nav>
                 <div className="mt-auto flex flex-col gap-4 border-t p-4">
                     <Button variant="ghost" asChild>
