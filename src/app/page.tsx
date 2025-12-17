@@ -492,7 +492,7 @@ export default function Home() {
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    <div className="absolute bottom-4 left-4 flex items-center gap-4">
+                    <div className="absolute -bottom-10 left-4">
                       {instructorImage && (
                         <Avatar className="h-20 w-20 border-4 border-background">
                           <AvatarImage
@@ -507,7 +507,7 @@ export default function Home() {
                       )}
                     </div>
                   </div>
-                  <CardContent className="p-6 pt-4">
+                  <CardContent className="p-6 pt-12">
                     <CardTitle className="text-xl">{instructor.name}</CardTitle>
                     <CardDescription className="mb-4">
                       {instructor.title}
@@ -542,3 +542,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
