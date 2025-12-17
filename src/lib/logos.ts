@@ -9,109 +9,109 @@ export const logos: Logo[] = [
     {
       "id": "logo-johnson-and-johnson",
       "description": "Johnson & Johnson Logo",
-      "imageUrl": "/images/jnj.png",
+      "imageUrl": "https://logo.clearbit.com/jnj.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-ubs",
       "description": "UBS Logo",
-      "imageUrl": "/images/ubs.png",
+      "imageUrl": "https://logo.clearbit.com/ubs.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-bank-of-america",
       "description": "Bank of America Logo",
-      "imageUrl": "/images/boa.png",
+      "imageUrl": "https://logo.clearbit.com/bankofamerica.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-spinnaker",
       "description": "Spinnaker Analytics Logo",
-      "imageUrl": "/images/spinnaker.png",
+      "imageUrl": "https://logo.clearbit.com/spinnakeranalytics.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-kpmg",
       "description": "KPMG Logo",
-      "imageUrl": "/images/kpmg.png",
+      "imageUrl": "https://logo.clearbit.com/kpmg.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-oracle",
       "description": "Oracle Logo",
-      "imageUrl": "/images/oracle.png",
+      "imageUrl": "https://logo.clearbit.com/oracle.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-microsoft",
       "description": "Microsoft Logo",
-      "imageUrl": "/images/microsoft.png",
+      "imageUrl": "https://logo.clearbit.com/microsoft.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-american-express",
       "description": "American Express Logo",
-      "imageUrl": "/images/amex.png",
+      "imageUrl": "https://logo.clearbit.com/americanexpress.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-google",
       "description": "Google Logo",
-      "imageUrl": "/images/google.png",
+      "imageUrl": "https://logo.clearbit.com/google.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-amazon",
       "description": "Amazon Logo",
-      "imageUrl": "/images/amazon.png",
+      "imageUrl": "https://logo.clearbit.com/amazon.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-deloitte",
       "description": "Deloitte Logo",
-      "imageUrl": "/images/deloitte.png",
+      "imageUrl": "https://logo.clearbit.com/deloitte.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-accenture",
       "description": "Accenture Logo",
-      "imageUrl": "/images/accenture.png",
+      "imageUrl": "https://logo.clearbit.com/accenture.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-tcs",
       "description": "TCS Logo",
-      "imageUrl": "/images/tcs.png",
+      "imageUrl": "https://logo.clearbit.com/tcs.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-pwc",
       "description": "PwC Logo",
-      "imageUrl": "/images/pwc.png",
+      "imageUrl": "https://logo.clearbit.com/pwc.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-ibm",
       "description": "IBM Logo",
-      "imageUrl": "/images/ibm.png",
+      "imageUrl": "https://logo.clearbit.com/ibm.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-wipro",
       "description": "Wipro Logo",
-      "imageUrl": "/images/wipro.png",
+      "imageUrl": "https://logo.clearbit.com/wipro.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-flipkart",
       "description": "Flipkart Logo",
-      "imageUrl": "/images/flipkart.png",
+      "imageUrl": "https://logo.clearbit.com/flipkart.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-zoho",
       "description": "Zoho Logo",
-      "imageUrl": "/images/zoho.png",
+      "imageUrl": "https://logo.clearbit.com/zoho.com",
       "imageHint": "company logo"
     }
 ];
