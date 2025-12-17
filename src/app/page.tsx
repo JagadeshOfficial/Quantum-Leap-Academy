@@ -201,16 +201,16 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <Card className="bg-background/95 p-6 shadow-2xl backdrop-blur-md">
+            <Card className="border-0 bg-black/60 p-6 text-white shadow-2xl backdrop-blur-sm">
               <CardHeader>
                 <CardTitle>Book a Live Class Now</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-gray-300">
                   Get a taste of our learning experience.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full text-black">
                     <svg
                       className="mr-2 h-4 w-4"
                       aria-hidden="true"
@@ -228,10 +228,10 @@ export default function Home() {
                     </svg>
                     Login w/ Google
                   </Button>
-                  <Input placeholder="Name" />
-                  <Input type="email" placeholder="Email" />
-                  <Input type="tel" placeholder="Phone" />
-                  <Input placeholder="Highest Qualification" />
+                  <Input placeholder="Name" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500"/>
+                  <Input type="email" placeholder="Email" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500" />
+                  <Input type="tel" placeholder="Phone" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500" />
+                  <Input placeholder="Highest Qualification" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500" />
                   <Button type="submit" className="w-full">
                     Book Now
                   </Button>
@@ -547,5 +547,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
