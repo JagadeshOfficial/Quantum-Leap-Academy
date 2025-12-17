@@ -510,7 +510,7 @@ export default function Home() {
                       {instructor.companies.map((companyId) => {
                         const companyLogo = getImage(companyId);
                         return companyLogo ? (
-                          <div key={companyId} className="flex h-6 w-16 items-center justify-center">
+                          <div key={companyId} className="flex h-6 w-16 shrink-0 items-center justify-center">
                             <Image
                               src={companyLogo.imageUrl}
                               alt={companyLogo.description}
