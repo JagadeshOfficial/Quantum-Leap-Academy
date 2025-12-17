@@ -125,15 +125,15 @@ export default function Home() {
   ];
 
   const whyChooseUs = [
-    { title: "Placement Assistance", icon: <Award className="h-6 w-6"/> },
-    { title: "Application-Oriented Learning", icon: <BrainCircuit className="h-6 w-6"/> },
-    { title: "Company-Specific Prep", icon: <Code className="h-6 w-6"/> },
-    { title: "AI-enabled Resume Builder", icon: <BookOpen className="h-6 w-6"/> },
-    { title: "Mock Interviews", icon: <Users className="h-6 w-6"/> },
-    { title: "Capstone Projects", icon: <Cpu className="h-6 w-6"/> },
-    { title: "Career Masterclasses", icon: <Star className="h-6 w-6"/> },
-    { title: "Personalized Guidance", icon: <ShieldCheck className="h-6 w-6"/> },
-    { title: "Lifetime LMS Access", icon: <Briefcase className="h-6 w-6"/> },
+    { title: "Placement Assistance", icon: <Award className="h-8 w-8" /> },
+    { title: "Application-Oriented Learning", icon: <BrainCircuit className="h-8 w-8" /> },
+    { title: "Company-Specific Prep", icon: <Code className="h-8 w-8" /> },
+    { title: "AI-enabled Resume Builder", icon: <BookOpen className="h-8 w-8" /> },
+    { title: "Mock Interviews", icon: <Users className="h-8 w-8" /> },
+    { title: "Capstone Projects", icon: <Cpu className="h-8 w-8" /> },
+    { title: "Career Masterclasses", icon: <Star className="h-8 w-8" /> },
+    { title: "Personalized Guidance", icon: <ShieldCheck className="h-8 w-8" /> },
+    { title: "Lifetime LMS Access", icon: <Briefcase className="h-8 w-8" /> },
   ];
 
   const heroImage = getImage("hero-background-2");
@@ -411,14 +411,16 @@ export default function Home() {
               Everything you need to launch your tech career.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item) => (
-              <div key={item.title} className="flex items-center gap-4">
-                <div className="rounded-lg bg-primary/10 p-3 text-primary">
+              <Card key={item.title} className="flex items-center gap-6 p-6">
+                <div className="rounded-lg bg-primary/10 p-4 text-primary">
                   {item.icon}
                 </div>
-                <h3 className="font-semibold">{item.title}</h3>
-              </div>
+                <div>
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                </div>
+              </Card>
             ))}
           </div>
         </div>
