@@ -323,7 +323,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="bg-background py-20">
+      <section className="bg-card py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Learner Benefits</h2>
@@ -347,7 +347,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-card py-20">
+      <section className="bg-background py-20">
         <div className="container mx-auto max-w-full px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Success Stories</h2>
