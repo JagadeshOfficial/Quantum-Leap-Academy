@@ -187,30 +187,47 @@ export default function Home() {
           <div className="grid items-center gap-12 md:grid-cols-2">
             <div className="space-y-6 text-white">
               <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-md md:text-5xl lg:text-6xl">
-                Transform into a Future-Ready Professional, Powered by AI.
+                Transform into a Future-Ready Data Scientist powered by AI.
               </h1>
               <p className="text-lg drop-shadow md:text-xl">
-                Learn with AI-driven, industry-relevant courses in Data
-                Science, AI/ML, and more — and unlock your dream career in tech.
+                Learn with AI-driven, industry-relevant courses in Data Analysis, Data Science, and AI/ML — and unlock your dream career in tech.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button asChild size="lg">
                   <Link href="/courses">Explore Courses</Link>
                 </Button>
                 <Button asChild variant="secondary" size="lg">
-                  <Link href="/signup">Sign Up Now</Link>
+                  <Link href="/signup">Sign Up</Link>
                 </Button>
               </div>
             </div>
             <Card className="bg-white/90 p-6 shadow-2xl backdrop-blur-sm">
               <CardHeader>
-                <CardTitle>Book a Free Live Class</CardTitle>
+                <CardTitle>Book a Live Class Now</CardTitle>
                 <CardDescription>
                   Get a taste of our learning experience.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
+                  <Button variant="outline" className="w-full">
+                    <svg
+                      className="mr-2 h-4 w-4"
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fab"
+                      data-icon="google"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 488 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M488 261.8C488 403.3 381.5 512 244 512 109.8 512 0 402.2 0 261.8 0 120.5 109.8 8 244 8c70.3 0 129.8 27.6 173.4 71.9l-67.4 64.9C333.1 106.1 292.8 88 244 88c-84.3 0-152.3 67.9-152.3 151.4s68 151.4 152.3 151.4c97.9 0 135.3-70.8 139.7-105.3H244v-73.4h239.5c2.3 12.7 3.8 26.1 3.8 40.2z"
+                      ></path>
+                    </svg>
+                    Login w/ Google
+                  </Button>
                   <Input placeholder="Name" />
                   <Input type="email" placeholder="Email" />
                   <Input type="tel" placeholder="Phone" />
