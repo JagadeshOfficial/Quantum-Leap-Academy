@@ -339,48 +339,57 @@ export default function Home() {
       </section>
 
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto max-w-full px-4">
           <div className="mb-12 text-center">
             <h2 className="text-4xl font-bold">Success Stories</h2>
             <p className="mt-2 text-lg text-muted-foreground">
               See how we&apos;ve changed lives.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {successStories.map((story) => {
-              const storyImage = getImage(story.imageId);
-              return (
-                <Card key={story.author} className="flex flex-col">
-                  <CardContent className="flex-grow p-6">
-                    <div className="mb-2 flex">
-                      {[...Array(story.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-5 w-5 fill-yellow-400 text-yellow-400"
-                        />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground">&quot;{story.text}&quot;</p>
-                  </CardContent>
-                  <CardHeader className="flex-row items-center gap-4 pt-0">
-                    {storyImage && (
-                      <Avatar>
-                        <AvatarImage
-                          src={storyImage.imageUrl}
-                          alt={story.author}
-                          data-ai-hint={storyImage.imageHint}
-                        />
-                        <AvatarFallback>{story.author.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                    )}
-                    <div>
-                      <CardTitle className="text-base">{story.author}</CardTitle>
-                      <CardDescription>{story.role}</CardDescription>
-                    </div>
-                  </CardHeader>
-                </Card>
-              );
-            })}
+          <div
+            className="group relative flex gap-8 overflow-hidden"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+            }}
+          >
+            <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
+              {[...successStories, ...successStories].map((story, index) => {
+                const storyImage = getImage(story.imageId);
+                return (
+                  <Card key={`${story.author}-${index}`} className="w-80 flex-shrink-0">
+                    <CardContent className="flex-grow p-6">
+                      <div className="mb-2 flex">
+                        {[...Array(story.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="h-5 w-5 fill-yellow-400 text-yellow-400"
+                          />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground">&quot;{story.text}&quot;</p>
+                    </CardContent>
+                    <CardHeader className="flex-row items-center gap-4 pt-0">
+                      {storyImage && (
+                        <Avatar>
+                          <AvatarImage
+                            src={storyImage.imageUrl}
+                            alt={story.author}
+                            data-ai-hint={storyImage.imageHint}
+                          />
+                          <AvatarFallback>
+                            {story.author.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                      )}
+                      <div>
+                        <CardTitle className="text-base">{story.author}</CardTitle>
+                        <CardDescription>{story.role}</CardDescription>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

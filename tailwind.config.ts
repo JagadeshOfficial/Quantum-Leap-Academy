@@ -88,7 +88,7 @@ export default {
             height: '0',
           },
         },
-        'infinite-scroll': {
+        'infinite-scroll-slow': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
@@ -96,7 +96,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        'infinite-scroll-slow': 'infinite-scroll-slow 40s linear infinite',
       },
     },
   },
