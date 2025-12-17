@@ -62,7 +62,7 @@ export default function TermsPage() {
                 <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline">
                   {item.title}
                 </AccordionTrigger>
-                <AccordionContent className="prose prose-lg max-w-none dark:prose-invert">
+                <AccordionContent className="prose prose-lg max-w-none text-muted-foreground dark:prose-invert">
                   {item.content}
                 </AccordionContent>
               </AccordionItem>
