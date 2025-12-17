@@ -1,4 +1,6 @@
+'use client';
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -66,11 +68,20 @@ const blogPosts = [
   },
 ];
 
-const categories = ["All", "AI/ML", "Data Science", "Emerging Tech", "Security", "Career"];
+const categories = ["All", "AI/ML", "Data Analysis", "Emerging Tech", "Security", "Career"];
 
 export default function BlogPage() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
   const featuredPost = blogPosts.find(p => p.featured);
-  const otherPosts = blogPosts.filter(p => !p.featured);
+  
+  const filteredPosts = blogPosts.filter(post => {
+    const isInCategory = selectedCategory === 'All' || post.category === selectedCategory;
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    return !post.featured && isInCategory && matchesSearch;
+  });
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -85,12 +96,21 @@ export default function BlogPage() {
 
        <div className="mb-12 flex flex-col items-center gap-4 md:flex-row">
         <div className="relative w-full max-w-sm">
-            <Input placeholder="Search articles..." className="pl-10"/>
+            <Input 
+              placeholder="Search articles..." 
+              className="pl-10"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
             <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground"/>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
             {categories.map(cat => (
-                <Button key={cat} variant={cat === 'All' ? 'default' : 'outline'}>
+                <Button 
+                  key={cat} 
+                  variant={selectedCategory === cat ? 'default' : 'outline'}
+                  onClick={() => setSelectedCategory(cat)}
+                >
                     {cat}
                 </Button>
             ))}
@@ -137,7 +157,7 @@ export default function BlogPage() {
 
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {otherPosts.map((post) => {
+        {filteredPosts.map((post) => {
            const postImage = getImage(post.postImageId);
            const authorImage = getImage(post.authorImageId);
            return (
@@ -180,6 +200,11 @@ export default function BlogPage() {
             </Card>
         )})}
       </div>
+      {filteredPosts.length === 0 && !featuredPost && (
+         <div className="mt-16 text-center text-muted-foreground">
+              <p>No articles found. Try adjusting your search or filter.</p>
+         </div>
+      )}
 
        <div className="mt-16 text-center">
             <Button variant="outline">Load More Articles</Button>
