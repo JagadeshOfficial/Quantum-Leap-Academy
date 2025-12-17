@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
 
@@ -13,15 +14,15 @@ export function Footer() {
   ];
 
   const companyLinks = [
-    { name: "About Us", href: "#" },
-    { name: "Blogs", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Careers", href: "/careers" },
+    { name: "Contact Us", href: "/contact" },
   ];
   
   const legalLinks = [
-    { name: "Terms & Conditions", href: "#" },
-    { name: "Privacy Policy", href: "#" },
+    { name: "Terms & Conditions", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy" },
   ];
 
   const moreLinks = [
@@ -61,7 +62,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold tracking-wider">Company</h3>
             <ul className="mt-4 space-y-2">
-              {[...companyLinks, ...legalLinks].map((item) => (
+              {[...companyLinks].map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -74,9 +75,9 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold tracking-wider">More</h3>
+            <h3 className="font-semibold tracking-wider">Legal</h3>
             <ul className="mt-4 space-y-2">
-              {moreLinks.map((item) => (
+              {legalLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
