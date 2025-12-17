@@ -42,17 +42,20 @@ const getImage = (id: string): ImagePlaceholder | undefined => {
 export default function Home() {
   const featuredCourses = courses.slice(0, 4);
   
-  const companyLogoIds = [
-    "logo-johnson-and-johnson",
-    "logo-ubs",
-    "logo-bank-of-america",
-    "logo-spinnaker",
-    "logo-kpmg",
-    "logo-oracle",
-    "logo-microsoft",
-    "logo-american-express",
+  const companyNames = [
+    "Johnson & Johnson",
+    "UBS",
+    "Bank of America",
+    "Spinnaker Analytics",
+    "KPMG",
+    "Oracle",
+    "Microsoft",
+    "American Express",
+    "Google",
+    "Amazon",
+    "Deloitte",
+    "Accenture",
   ];
-  const companyLogos = companyLogoIds.map(id => getLogoById(id)).filter((l): l is Logo => l !== undefined);
 
 
   const instructors = [
@@ -251,21 +254,11 @@ export default function Home() {
           <p className="mb-8 text-muted-foreground">
             Our learners are hired by the best in the industry.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-            {companyLogos.map((logo, index) => (
-              <div
-                className="flex h-12 w-36 items-center justify-center"
-                key={index}
-              >
-                <Image
-                  src={logo.imageUrl}
-                  alt={logo.description}
-                  data-ai-hint={logo.imageHint}
-                  width={144}
-                  height={48}
-                  className="object-contain"
-                />
-              </div>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {companyNames.map((name) => (
+              <Badge key={name} variant="outline" className="px-4 py-2 text-lg">
+                {name}
+              </Badge>
             ))}
           </div>
         </div>
