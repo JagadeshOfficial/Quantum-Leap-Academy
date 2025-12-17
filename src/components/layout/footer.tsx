@@ -26,9 +26,9 @@ export function Footer() {
   ];
 
   const moreLinks = [
-    { name: "Teach at Quantum Leap", href: "#" },
-    { name: "Hire from Us", href: "#" },
-    { name: "Refer & Earn", href: "#" },
+    { name: "Teach with Us", href: "/teach" },
+    { name: "Hire from Us", href: "/hire" },
+    { name: "Refer & Earn", href: "/refer" },
   ];
 
   return (
@@ -62,7 +62,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold tracking-wider">Company</h3>
             <ul className="mt-4 space-y-2">
-              {[...companyLinks].map((item) => (
+              {[...companyLinks, ...moreLinks.slice(0,1)].map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -75,9 +75,19 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold tracking-wider">Legal</h3>
+            <h3 className="font-semibold tracking-wider">Partners</h3>
             <ul className="mt-4 space-y-2">
-              {legalLinks.map((item) => (
+              {[...moreLinks.slice(1)].map((item) => (
+                 <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-muted-foreground hover:text-foreground"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+               {legalLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
