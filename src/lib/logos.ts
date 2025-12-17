@@ -7,7 +7,7 @@ export type Logo = {
 
 export const logos: Logo[] = [
     {
-      "id": "logo-johnson-and-johnson",
+      "id": "logo-johnson-&-johnson",
       "description": "Johnson & Johnson Logo",
       "imageUrl": "https://logo.clearbit.com/jnj.com",
       "imageHint": "company logo"
@@ -25,7 +25,7 @@ export const logos: Logo[] = [
       "imageHint": "company logo"
     },
     {
-      "id": "logo-spinnaker",
+      "id": "logo-spinnaker-analytics",
       "description": "Spinnaker Analytics Logo",
       "imageUrl": "https://logo.clearbit.com/spinnakeranalytics.com",
       "imageHint": "company logo"
@@ -113,9 +113,101 @@ export const logos: Logo[] = [
       "description": "Zoho Logo",
       "imageUrl": "https://logo.clearbit.com/zoho.com",
       "imageHint": "company logo"
+    },
+    {
+      "id": "logo-nvidia",
+      "description": "NVIDIA Logo",
+      "imageUrl": "https://logo.clearbit.com/nvidia.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-openai",
+      "description": "OpenAI Logo",
+      "imageUrl": "https://logo.clearbit.com/openai.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-amazon-web-services-(aws)",
+      "description": "AWS Logo",
+      "imageUrl": "https://logo.clearbit.com/aws.amazon.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-microsoft-quantum",
+      "description": "Microsoft Logo",
+      "imageUrl": "https://logo.clearbit.com/microsoft.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-amazon-braket",
+      "description": "Amazon Logo",
+      "imageUrl": "https://logo.clearbit.com/amazon.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-google-quantum-ai",
+      "description": "Google Logo",
+      "imageUrl": "https://logo.clearbit.com/google.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-capgemini",
+      "description": "Capgemini Logo",
+      "imageUrl": "https://logo.clearbit.com/capgemini.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-cisco",
+      "description": "Cisco Logo",
+      "imageUrl": "https://logo.clearbit.com/cisco.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-palo-alto-networks",
+      "description": "Palo Alto Networks Logo",
+      "imageUrl": "https://logo.clearbit.com/paloaltonetworks.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-check-point",
+      "description": "Check Point Logo",
+      "imageUrl": "https://logo.clearbit.com/checkpoint.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-snowflake",
+      "description": "Snowflake Logo",
+      "imageUrl": "https://logo.clearbit.com/snowflake.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-databricks",
+      "description": "Databricks Logo",
+      "imageUrl": "https://logo.clearbit.com/databricks.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-infosys",
+      "description": "Infosys Logo",
+      "imageUrl": "https://logo.clearbit.com/infosys.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-hcl-technologies",
+      "description": "HCL Technologies Logo",
+      "imageUrl": "https://logo.clearbit.com/hcltech.com",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-ey",
+      "description": "EY Logo",
+      "imageUrl": "https://logo.clearbit.com/ey.com",
+      "imageHint": "company logo"
     }
 ];
 
 export const getLogoById = (id: string): Logo | undefined => {
     return logos.find(logo => logo.id === id);
 }
+
+    
