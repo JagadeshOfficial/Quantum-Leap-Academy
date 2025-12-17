@@ -233,6 +233,12 @@
       "description": "Data Engineering Course Image",
       "imageUrl": "https://images.unsplash.com/photo-1572089479354-d280e47c12cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkYXRhJTIwcGlwZWxpbmV8ZW58MHx8fHwxNzY1OTI1MTQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "data pipeline"
+    },
+    {
+      "id": "map-image",
+      "description": "A stylized map showing a location.",
+      "imageUrl": "https://images.unsplash.com/photo-1569336415962-a42945a473ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "city map"
     }
   ]
 }
