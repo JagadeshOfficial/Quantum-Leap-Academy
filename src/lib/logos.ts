@@ -9,109 +9,109 @@ export const logos: Logo[] = [
     {
       "id": "logo-johnson-and-johnson",
       "description": "Johnson & Johnson Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/jnj.png",
+      "imageUrl": "/images/jnj.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-ubs",
       "description": "UBS Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/ubs.png",
+      "imageUrl": "/images/ubs.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-bank-of-america",
       "description": "Bank of America Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/boa.png",
+      "imageUrl": "/images/boa.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-spinnaker",
       "description": "Spinnaker Analytics Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/spinnaker.png",
+      "imageUrl": "/images/spinnaker.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-kpmg",
       "description": "KPMG Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/kpmg.png",
+      "imageUrl": "/images/kpmg.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-oracle",
       "description": "Oracle Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/oracle.png",
+      "imageUrl": "/images/oracle.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-microsoft",
       "description": "Microsoft Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/microsoft.png",
+      "imageUrl": "/images/microsoft.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-american-express",
       "description": "American Express Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/amex.png",
+      "imageUrl": "/images/amex.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-google",
       "description": "Google Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/google.png",
+      "imageUrl": "/images/google.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-amazon",
       "description": "Amazon Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/amazon.png",
+      "imageUrl": "/images/amazon.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-deloitte",
       "description": "Deloitte Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/deloitte.png",
+      "imageUrl": "/images/deloitte.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-accenture",
       "description": "Accenture Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/accenture.png",
+      "imageUrl": "/images/accenture.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-tcs",
       "description": "TCS Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/tcs.png",
+      "imageUrl": "/images/tcs.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-pwc",
       "description": "PwC Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/pwc.png",
+      "imageUrl": "/images/pwc.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-ibm",
       "description": "IBM Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/ibm.png",
+      "imageUrl": "/images/ibm.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-wipro",
       "description": "Wipro Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/wipro.png",
+      "imageUrl": "/images/wipro.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-flipkart",
       "description": "Flipkart Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/flipkart.png",
+      "imageUrl": "/images/flipkart.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-zoho",
       "description": "Zoho Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/zoho.png",
+      "imageUrl": "/images/zoho.png",
       "imageHint": "company logo"
     }
 ];
