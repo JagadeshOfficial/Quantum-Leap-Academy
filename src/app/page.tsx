@@ -285,10 +285,17 @@ export default function Home() {
             }}
           >
             <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
-                {[...companyNames, ...companyNames].map((name, index) => (
-                  <Badge key={`${name}-${index}`} variant="outline" className="px-6 py-3 text-lg whitespace-nowrap">
-                    {name}
-                  </Badge>
+                {[...logos, ...logos].map((logo) => (
+                  <div key={`${logo.id}-marquee`} className="flex h-10 items-center justify-center" title={logo.description.replace(' Logo', '')}>
+                      <Image
+                          src={logo.imageUrl}
+                          alt={logo.description}
+                          width={100}
+                          height={40}
+                          className="object-contain"
+                          data-ai-hint={logo.imageHint}
+                      />
+                  </div>
                 ))}
             </div>
           </div>
@@ -547,3 +554,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

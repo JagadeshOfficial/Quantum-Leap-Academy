@@ -195,13 +195,13 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                      const logoName = recruiterId.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
                      const companyLogo = getLogoById(`logo-${logoName}`);
                      return (
-                         <div key={recruiterId} className="flex h-10 items-center justify-center rounded-md border bg-card p-4 transition-shadow hover:shadow-md" title={recruiterId}>
+                         <div key={recruiterId} className="flex h-16 items-center justify-center rounded-lg border bg-card p-4 transition-shadow hover:shadow-lg" title={recruiterId}>
                              {companyLogo ? (
                                 <Image
                                     src={companyLogo.imageUrl}
                                     alt={recruiterId}
-                                    width={80}
-                                    height={20}
+                                    width={100}
+                                    height={40}
                                     className="object-contain"
                                     data-ai-hint={companyLogo.imageHint}
                                 />

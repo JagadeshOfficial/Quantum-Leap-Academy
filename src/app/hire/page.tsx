@@ -17,6 +17,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { Award, TrendingUp, Building, BrainCircuit, Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { logos } from '@/lib/logos';
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -34,10 +35,6 @@ export default function HirePage() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const heroImage = getImage('benefits-image');
   
-  const companyNames = [
-    "Johnson & Johnson", "UBS", "Bank of America", "Spinnaker Analytics", "KPMG", "Oracle", "Microsoft", "American Express", "Google", "Amazon", "Deloitte", "Accenture", "TCS", "PwC", "IBM", "Wipro", "Flipkart", "Zoho"
-  ];
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { companyName: '', contactName: '', email: '', roles: '' },
@@ -117,17 +114,24 @@ export default function HirePage() {
                 Our learners are hired by the best in the industry.
             </p>
             <div
-                className="group relative flex gap-8 overflow-hidden"
+                className="group relative flex gap-12 overflow-hidden"
                 style={{
                 maskImage:
                     "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
                 }}
             >
-                <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
-                    {[...companyNames, ...companyNames].map((name, index) => (
-                    <Badge key={`${name}-${index}`} variant="outline" className="px-6 py-3 text-lg whitespace-nowrap">
-                        {name}
-                    </Badge>
+                <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-12 group-hover:[animation-play-state:paused]">
+                    {[...logos, ...logos].map((logo) => (
+                      <div key={`${logo.id}-marquee-hire`} className="flex h-10 items-center justify-center" title={logo.description.replace(' Logo', '')}>
+                          <Image
+                              src={logo.imageUrl}
+                              alt={logo.description}
+                              width={100}
+                              height={40}
+                              className="object-contain"
+                              data-ai-hint={logo.imageHint}
+                          />
+                      </div>
                     ))}
                 </div>
             </div>
@@ -200,3 +204,5 @@ export default function HirePage() {
     </div>
   );
 }
+
+    
