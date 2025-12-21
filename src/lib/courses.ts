@@ -24,6 +24,7 @@ export type Course = {
     text: string;
     author: string;
     role: string;
+    company?: string;
   }[];
   imageId: string;
 };
@@ -61,7 +62,7 @@ export const courses: Course[] = [
     ],
     recruiters: ["Amazon", "Google", "Deloitte", "Accenture", "TCS", "PwC", "IBM", "Wipro", "Flipkart", "Zoho"],
     reviews: [
-      { rating: 5, text: "The Data Science course helped me land a role as a Data Analyst at Infosys! The projects and mentor support were excellent.", author: "Aditya Sharma", role: "Career Switcher" },
+      { rating: 5, text: "The Data Science course helped me land a role as a Data Analyst at Infosys! The projects and mentor support were excellent.", author: "Aditya Sharma", role: "Career Switcher", company: "Infosys" },
       { rating: 4, text: "Curriculum is very practical. You actually build models and dashboards instead of just learning theory.", author: "Vikram Iyer", role: "MBA Graduate" },
     ],
   },
@@ -246,7 +247,7 @@ export const courses: Course[] = [
     ],
     recruiters: ["IBM", "Accenture", "Deloitte", "PwC", "TCS", "EY", "Capgemini", "Infosys", "Wipro", "Cisco", "Microsoft", "Palo Alto Networks", "Check Point"],
     reviews: [
-      { rating: 5, text: "The Cyber Security course helped me transition from IT support to a full-time Security Analyst role. The labs and mentors were top-notch!", author: "Sandeep Mehta", role: "Security Analyst at Deloitte" },
+      { rating: 5, text: "The Cyber Security course helped me transition from IT support to a full-time Security Analyst role. The labs and mentors were top-notch!", author: "Sandeep Mehta", role: "Security Analyst", company: "Deloitte" },
       { rating: 5, text: "Hands-on exposure to ethical hacking and SIEM tools made this course worth every minute.", author: "Priya Singh", role: "BCA Graduate" },
       { rating: 4, text: "Excellent certification alignment and practical coverage. Highly recommended for career switchers.", author: "Nikhil Reddy", role: "Network Engineer" },
     ],
@@ -287,7 +288,7 @@ export const courses: Course[] = [
     ],
     recruiters: ["Google", "Microsoft", "AWS", "Deloitte", "TCS", "Accenture", "PwC", "Infosys", "Zoho", "IBM", "Snowflake", "Databricks"],
     reviews: [
-      { rating: 5, text: "The Data Engineering course gave me the confidence to work on end-to-end pipelines. The mentors were fantastic!", author: "Meera Nair", role: "Data Engineer at Accenture" },
+      { rating: 5, text: "The Data Engineering course gave me the confidence to work on end-to-end pipelines. The mentors were fantastic!", author: "Meera Nair", role: "Data Engineer", company: "Accenture" },
       { rating: 5, text: "Excellent coverage of Spark, Airflow, and Cloud integration — the projects were industry-relevant.", author: "Kunal Joshi", role: "Cloud Data Analyst" },
       { rating: 4, text: "QuantumPod Technologies’s mentorship made my transition from developer to data engineer seamless.", author: "Priyanka Sharma", role: "Career Switcher" },
     ],

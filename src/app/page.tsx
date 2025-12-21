@@ -102,6 +102,7 @@ export default function Home() {
       role: "Career Switcher",
       imageId: "student-1",
       rating: 5,
+      company: "Infosys"
     },
     {
       text: "From zero experience to building dashboards — the course gave me confidence to work with real data.",
@@ -417,6 +418,8 @@ export default function Home() {
             <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
               {[...successStories, ...successStories].map((story, index) => {
                 const storyImage = getImage(story.imageId);
+                const companyLogo = story.company ? getLogoById(`logo-${story.company.toLowerCase().replace(/ /g, '-')}`) : null;
+
                 return (
                   <Card
                     key={`${story.author}-${index}`}
@@ -452,7 +455,20 @@ export default function Home() {
                         <CardTitle className="text-base">
                           {story.author}
                         </CardTitle>
-                        <CardDescription>{story.role}</CardDescription>
+                        <div className="flex items-center gap-2">
+                           <CardDescription>{story.role}</CardDescription>
+                            {companyLogo && (
+                              <div className="flex h-5 items-center">
+                                <Image 
+                                  src={companyLogo.imageUrl}
+                                  alt={`${story.company} logo`}
+                                  width={60}
+                                  height={20}
+                                  className="object-contain"
+                                />
+                               </div>
+                            )}
+                        </div>
                       </div>
                     </CardHeader>
                   </Card>

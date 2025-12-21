@@ -217,26 +217,42 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
            <section className="mb-12">
               <h2 className="mb-6 text-3xl font-bold">Hear From Our Learners</h2>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {course.reviews.map((review, index) => (
-                  <Card key={index} className="flex flex-col">
-                    <CardContent className="flex-grow p-6">
-                      <div className="mb-4 flex">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className={`h-5 w-5 ${i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground/30'}`} />
-                        ))}
-                      </div>
-                      <blockquote className="italic text-muted-foreground">
-                        &quot;{review.text}&quot;
-                      </blockquote>
-                    </CardContent>
-                     <CardHeader className="flex-row items-center gap-4 border-t bg-secondary/50 pt-6">
-                        <div>
-                          <CardTitle className="text-base">{review.author}</CardTitle>
-                          <CardDescription>{review.role}</CardDescription>
+                {course.reviews.map((review, index) => {
+                  const companyLogo = review.company ? getLogoById(`logo-${review.company.toLowerCase().replace(/ /g, '-')}`) : null;
+                  return (
+                    <Card key={index} className="flex flex-col">
+                      <CardContent className="flex-grow p-6">
+                        <div className="mb-4 flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className={`h-5 w-5 ${i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground/30'}`} />
+                          ))}
                         </div>
-                    </CardHeader>
-                  </Card>
-                ))}
+                        <blockquote className="italic text-muted-foreground">
+                          &quot;{review.text}&quot;
+                        </blockquote>
+                      </CardContent>
+                      <CardHeader className="flex-row items-center gap-4 border-t bg-secondary/50 pt-6">
+                          <div>
+                            <CardTitle className="text-base">{review.author}</CardTitle>
+                            <div className="flex items-center gap-2">
+                              <CardDescription>{review.role}</CardDescription>
+                              {companyLogo && (
+                                <div className="flex h-5 items-center">
+                                  <Image
+                                    src={companyLogo.imageUrl}
+                                    alt={`${review.company} logo`}
+                                    width={60}
+                                    height={20}
+                                    className="object-contain"
+                                  />
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                      </CardHeader>
+                    </Card>
+                  )
+                })}
               </div>
               <Button variant="link" className="mt-6 px-0">Read All Reviews <ChevronRight className="ml-2 h-4 w-4" /></Button>
             </section>
