@@ -37,7 +37,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 space-y-4 md:col-span-2">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="/logo-dark.png" alt="QuantumPod Technologies" width={180} height={30} />
+              <Image src="/logo.png" alt="QuantumPod Technologies" width={180} height={30} />
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground">
               Transform into a Future-Ready professional powered by AI.

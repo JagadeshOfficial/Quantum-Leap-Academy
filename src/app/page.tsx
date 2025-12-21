@@ -182,7 +182,7 @@ export default function Home() {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="container relative z-10 mx-auto flex h-full items-center px-4">
           <div className="grid items-center gap-12 md:grid-cols-2">
             <div className="space-y-6 text-white">
