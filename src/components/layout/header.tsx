@@ -24,7 +24,7 @@ export function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-card">
+    <header className="sticky top-0 z-50 w-full border-b bg-card text-card-foreground">
       <div className="container flex h-16 items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
@@ -74,19 +74,19 @@ export function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-0">
+            <SheetContent side="left" className="p-0 bg-card text-card-foreground">
                <div className="flex flex-col h-full">
-                <div className="border-b p-4">
+                <div className="border-b border-border p-4">
                   <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
-                      <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={180} height={30} />
+                      <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={180} height={30} className="object-contain" />
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 p-4 text-lg">
-                    <Link href="/courses" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
-                    <Link href="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
-                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+                    <Link href="/courses" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
+                    <Link href="/about" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>About</Link>
+                    <Link href="/contact" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                 </nav>
-                <div className="mt-auto flex flex-col gap-4 border-t p-4">
+                <div className="mt-auto flex flex-col gap-4 border-t border-border p-4">
                     <Button variant="ghost" asChild>
                         <Link href="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
                     </Button>

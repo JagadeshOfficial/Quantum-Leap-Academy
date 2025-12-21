@@ -32,7 +32,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t bg-card">
+    <footer className="border-t bg-card text-card-foreground">
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 space-y-4 md:col-span-2">
@@ -44,7 +44,7 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold tracking-wider">Our Offerings</h3>
+            <h3 className="font-semibold tracking-wider text-foreground/80">Our Offerings</h3>
             <ul className="mt-4 space-y-2">
               {offerings.slice(0, 5).map((item) => (
                 <li key={item.name}>
@@ -59,7 +59,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold tracking-wider">Company</h3>
+            <h3 className="font-semibold tracking-wider text-foreground/80">Company</h3>
             <ul className="mt-4 space-y-2">
               {[...companyLinks, ...moreLinks.slice(0,1)].map((item) => (
                 <li key={item.name}>
@@ -74,7 +74,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold tracking-wider">Partners</h3>
+            <h3 className="font-semibold tracking-wider text-foreground/80">Partners</h3>
             <ul className="mt-4 space-y-2">
               {[...moreLinks.slice(1)].map((item) => (
                  <li key={item.name}>
