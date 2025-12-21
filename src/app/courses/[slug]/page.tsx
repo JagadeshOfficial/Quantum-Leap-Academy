@@ -21,6 +21,8 @@ import Link from "next/link";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { getLogoById } from "@/lib/logos";
+import { getToolLogoByName } from "@/lib/tool-logos";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 export async function generateStaticParams() {
   return courses.map((course) => ({
@@ -159,12 +161,41 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           {/* Tools */}
           <section className="mb-12">
             <h2 className="mb-6 text-3xl font-bold">Tools & Technologies Covered</h2>
-            <div className="flex flex-wrap gap-3">
-              {course.tools.map((tool, index) => (
-                 <Badge key={index} variant="outline" className="px-4 py-2 text-sm">{tool}</Badge>
-              ))}
-            </div>
-            <Button variant="link" className="mt-6 px-0">Explore Full Curriculum <ChevronRight className="ml-2 h-4 w-4" /></Button>
+            <TooltipProvider>
+              <div className="flex flex-wrap gap-4">
+                {course.tools.map((toolName) => {
+                  const toolLogo = getToolLogoByName(toolName);
+                  return (
+                    <Tooltip key={toolName}>
+                      <TooltipTrigger asChild>
+                        <div className="flex h-16 w-16 items-center justify-center rounded-lg border bg-card p-2 transition-shadow hover:shadow-md">
+                          {toolLogo ? (
+                            <Image
+                              src={toolLogo.imageUrl}
+                              alt={toolLogo.name}
+                              width={40}
+                              height={40}
+                              className="object-contain"
+                              data-ai-hint={toolLogo.imageHint}
+                            />
+                          ) : (
+                            <span className="text-center text-xs font-semibold">
+                              {toolName}
+                            </span>
+                          )}
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{toolName}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  );
+                })}
+              </div>
+            </TooltipProvider>
+            <Button variant="link" className="mt-6 px-0">
+              Explore Full Curriculum <ChevronRight className="ml-2 h-4 w-4" />
+            </Button>
           </section>
           
           {/* Learning Path */}

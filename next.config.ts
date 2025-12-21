@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: 'logo.clearbit.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.worldvectorlogo.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
