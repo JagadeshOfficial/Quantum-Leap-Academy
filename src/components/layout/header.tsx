@@ -28,7 +28,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={200} height={33} />
+            <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={180} height={30} className="object-contain" />
           </Link>
         </div>
         
