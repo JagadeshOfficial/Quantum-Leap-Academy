@@ -121,8 +121,8 @@ export default function HirePage() {
                 }}
             >
                 <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-12 group-hover:[animation-play-state:paused]">
-                    {[...logos, ...logos].map((logo) => (
-                      <div key={`${logo.id}-marquee-hire`} className="flex h-10 items-center justify-center" title={logo.description.replace(' Logo', '')}>
+                    {[...logos, ...logos].map((logo, index) => (
+                      <div key={`${logo.id}-marquee-hire-${index}`} className="flex h-10 items-center justify-center" title={logo.description.replace(' Logo', '')}>
                           <Image
                               src={logo.imageUrl}
                               alt={logo.description}
@@ -204,5 +204,3 @@ export default function HirePage() {
     </div>
   );
 }
-
-    

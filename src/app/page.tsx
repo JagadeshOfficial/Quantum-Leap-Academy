@@ -285,8 +285,8 @@ export default function Home() {
             }}
           >
             <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
-                {[...logos, ...logos].map((logo) => (
-                  <div key={`${logo.id}-marquee`} className="flex h-10 items-center justify-center" title={logo.description.replace(' Logo', '')}>
+                {[...logos, ...logos].map((logo, index) => (
+                  <div key={`${logo.id}-marquee-${index}`} className="flex h-10 items-center justify-center" title={logo.description.replace(' Logo', '')}>
                       <Image
                           src={logo.imageUrl}
                           alt={logo.description}
