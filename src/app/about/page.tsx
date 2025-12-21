@@ -113,7 +113,7 @@ export default function AboutPage() {
         <div className="container relative z-10 mx-auto flex h-full items-center justify-center px-4">
           <div className="text-center text-white">
             <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-md md:text-6xl">
-              About Quantum Leap Academy
+              About QuantumPod Technologies
             </h1>
             <p className="mt-4 text-lg drop-shadow md:text-xl">
               Empowering the next generation of tech leaders.
@@ -128,7 +128,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold">Our Story</h2>
               <p className="mt-4 text-muted-foreground">
-                Quantum Leap Academy was founded with the vision of bridging
+                QuantumPod Technologies was founded with the vision of bridging
                 the gap between academic learning and industry requirements. We
                 saw countless talented individuals struggling to break into
                 the tech world due to a lack of practical, job-ready skills.

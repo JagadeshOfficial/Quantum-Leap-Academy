@@ -111,7 +111,7 @@ export default function Home() {
       rating: 5,
     },
     {
-      text: "Quantum Leap’s AI/ML course gave me real project experience. The mentors were outstanding and helped me land my first AI internship.",
+      text: "QuantumPod Technologies’s AI/ML course gave me real project experience. The mentors were outstanding and helped me land my first AI internship.",
       author: "Ritika Verma",
       role: "B.Tech Student",
       imageId: "student-3",
@@ -466,7 +466,7 @@ export default function Home() {
       <section className="bg-background py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold">Why Choose Quantum Leap</h2>
+            <h2 className="text-4xl font-bold">Why Choose QuantumPod Technologies</h2>
             <p className="mt-2 text-lg text-muted-foreground">
               Everything you need to launch your tech career.
             </p>
@@ -554,5 +554,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

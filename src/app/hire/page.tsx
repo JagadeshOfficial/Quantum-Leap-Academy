@@ -157,7 +157,7 @@ export default function HirePage() {
             <CardHeader>
               <CardTitle>Connect with our Talent Pool</CardTitle>
               <CardDescription>
-                Fill out the form to start hiring from Quantum Leap.
+                Fill out the form to start hiring from QuantumPod Technologies.
               </CardDescription>
             </CardHeader>
             <CardContent>

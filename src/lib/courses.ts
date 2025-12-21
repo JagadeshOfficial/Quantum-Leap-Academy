@@ -133,7 +133,7 @@ export const courses: Course[] = [
     ],
     recruiters: ["Google", "Microsoft", "NVIDIA", "Accenture", "TCS", "Infosys", "Zoho", "OpenAI", "Amazon Web Services (AWS)"],
     reviews: [
-        { rating: 5, text: "Quantum Pod Tech’s AI/ML course gave me real project experience. The mentors were outstanding and helped me land my first AI internship.", author: "Ritika Verma", role: "B.Tech Student" },
+        { rating: 5, text: "QuantumPod Technologies’s AI/ML course gave me real project experience. The mentors were outstanding and helped me land my first AI internship.", author: "Ritika Verma", role: "B.Tech Student" },
         { rating: 5, text: "The Agentic AI program opened my eyes to how autonomous systems work. I now lead an AI automation team!", author: "Amit Shah", role: "AI Developer" },
         { rating: 4, text: "Affordable, structured, and mentor-led — highly recommended for anyone serious about AI.", author: "Sonia Gupta", role: "Career Switcher" },
     ],
@@ -207,7 +207,7 @@ export const courses: Course[] = [
     ],
     recruiters: ["IBM", "Microsoft Quantum", "Amazon Braket", "Google Quantum AI", "TCS", "Deloitte", "Infosys", "Accenture", "Capgemini", "PwC"],
     reviews: [
-      { rating: 5, text: "Quantum Pod’s Quantum Computing course gave me the foundation I needed to transition from data science into quantum algorithm development.", author: "Riya Mehta", role: "Data Scientist (Career Switcher)" },
+      { rating: 5, text: "QuantumPod Technologies’s Quantum Computing course gave me the foundation I needed to transition from data science into quantum algorithm development.", author: "Riya Mehta", role: "Data Scientist (Career Switcher)" },
       { rating: 5, text: "The capstone project helped me understand how to implement quantum algorithms practically — and I even ran my code on real IBM Quantum hardware!", author: "Anirudh Bansal", role: "M.Tech Student" },
       { rating: 4, text: "Excellent mentorship and hands-on sessions. The Qiskit labs are the highlight of the program.", author: "Tanvi Agarwal", role: "Physics Graduate" },
     ],
@@ -289,7 +289,7 @@ export const courses: Course[] = [
     reviews: [
       { rating: 5, text: "The Data Engineering course gave me the confidence to work on end-to-end pipelines. The mentors were fantastic!", author: "Meera Nair", role: "Data Engineer at Accenture" },
       { rating: 5, text: "Excellent coverage of Spark, Airflow, and Cloud integration — the projects were industry-relevant.", author: "Kunal Joshi", role: "Cloud Data Analyst" },
-      { rating: 4, text: "Quantum Pod’s mentorship made my transition from developer to data engineer seamless.", author: "Priyanka Sharma", role: "Career Switcher" },
+      { rating: 4, text: "QuantumPod Technologies’s mentorship made my transition from developer to data engineer seamless.", author: "Priyanka Sharma", role: "Career Switcher" },
     ],
   },
 ];

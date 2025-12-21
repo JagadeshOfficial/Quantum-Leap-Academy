@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from "react";
@@ -87,7 +88,7 @@ export default function BlogPage() {
     <div className="container mx-auto px-4 py-12">
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          Quantum Pods Insights
+          QuantumPod Insights
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">
           Your source for the latest in tech, career advice, and learning.

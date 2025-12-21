@@ -11,7 +11,7 @@ export default function TermsPage() {
     {
       title: "1. Introduction",
       content:
-        "Welcome to Quantum Leap Academy. These Terms and Conditions govern your use of our website and services. By accessing or using our platform, you agree to be bound by these terms.",
+        "Welcome to QuantumPod Technologies. These Terms and Conditions govern your use of our website and services. By accessing or using our platform, you agree to be bound by these terms.",
     },
     {
       title: "2. User Accounts",
@@ -31,11 +31,11 @@ export default function TermsPage() {
     {
       title: "5. Intellectual Property",
       content:
-        "All content, including courses, text, graphics, and logos, is the property of Quantum Leap Academy or its content suppliers and is protected by international copyright laws. You may not reproduce, distribute, or create derivative works from any content without our express written permission."
+        "All content, including courses, text, graphics, and logos, is the property of QuantumPod Technologies or its content suppliers and is protected by international copyright laws. You may not reproduce, distribute, or create derivative works from any content without our express written permission."
     },
     {
         title: "6. Limitation of Liability",
-        content: "Quantum Leap Academy will not be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service."
+        content: "QuantumPod Technologies will not be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service."
     },
     {
         title: "7. Changes to Terms",

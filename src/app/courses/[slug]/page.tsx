@@ -189,7 +189,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
            {/* Recruiters */}
           <section className="mb-12">
              <h2 className="mb-6 text-3xl font-bold">Our Top Recruiters</h2>
-             <p className="mb-6 text-muted-foreground">Learners from Quantum Leap Academy have been placed at:</p>
+             <p className="mb-6 text-muted-foreground">Learners from QuantumPod Technologies have been placed at:</p>
              <div className="flex flex-wrap items-center gap-4">
                  {course.recruiters.slice(0,10).map((recruiterId) => {
                      const logoName = recruiterId.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
@@ -307,5 +307,3 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
     </div>
   );
 }
-
-    

@@ -86,7 +86,7 @@ export default function TeachPage() {
         <div className="container relative z-10 mx-auto flex h-full items-center justify-center px-4">
           <div className="text-center text-white">
             <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-md md:text-6xl">
-              Teach with Quantum Leap
+              Teach with QuantumPod Technologies
             </h1>
             <p className="mt-4 text-lg drop-shadow md:text-xl">
               Become a mentor and share your passion with the world.

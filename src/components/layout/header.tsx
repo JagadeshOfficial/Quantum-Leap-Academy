@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -9,7 +10,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, GraduationCap, Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { courses } from "@/lib/courses";
 import { useState } from "react";
 import {
@@ -17,19 +18,17 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Image from "next/image";
 
 export function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+      <div className="container flex h-16 items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <GraduationCap className="h-6 w-6 text-primary" />
-            <span className="font-bold sm:inline-block">
-              Quantum Leap Academy
-            </span>
+            <Image src="/logo-dark.png" alt="QuantumPod Technologies" width={200} height={33} />
           </Link>
         </div>
         
@@ -79,8 +78,7 @@ export function Header() {
                <div className="flex flex-col h-full">
                 <div className="border-b p-4">
                   <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
-                      <GraduationCap className="h-6 w-6 text-primary" />
-                      <span className="font-bold">Quantum Leap Academy</span>
+                      <Image src="/logo-dark.png" alt="QuantumPod Technologies" width={180} height={30} />
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 p-4 text-lg">

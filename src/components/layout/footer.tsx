@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { GraduationCap } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const offerings = [
@@ -37,8 +37,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 space-y-4 md:col-span-2">
             <Link href="/" className="flex items-center space-x-2">
-              <GraduationCap className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold">Quantum Leap Academy</span>
+              <Image src="/logo-dark.png" alt="QuantumPod Technologies" width={180} height={30} />
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground">
               Transform into a Future-Ready professional powered by AI.
@@ -101,7 +100,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Quantum Leap Academy. All rights reserved.
+          © {new Date().getFullYear()} QuantumPod Technologies. All rights reserved.
         </div>
       </div>
     </footer>
