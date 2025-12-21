@@ -28,7 +28,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Image src="/Logo.png" alt="QuantumPod Technologies" width={200} height={33} />
+            <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={200} height={33} />
           </Link>
         </div>
         
@@ -78,7 +78,7 @@ export function Header() {
                <div className="flex flex-col h-full">
                 <div className="border-b p-4">
                   <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
-                      <Image src="/Logo.png" alt="QuantumPod Technologies" width={180} height={30} />
+                      <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={180} height={30} />
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 p-4 text-lg">
