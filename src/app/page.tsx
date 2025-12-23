@@ -26,7 +26,14 @@ import {
   UserCheck,
   Building,
   CheckCircle,
+  PlayCircle,
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import type { Course } from "@/lib/courses";
 import { courses } from "@/lib/courses";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
@@ -34,6 +41,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { logos, getLogoById, type Logo } from "@/lib/logos";
+import { CourseCard } from "@/components/course/course-card";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -41,7 +49,7 @@ const getImage = (id: string): ImagePlaceholder | undefined => {
 
 export default function Home() {
   const featuredCourses = courses.slice(0, 4);
-  
+
   const companyNames = [
     "Johnson & Johnson",
     "UBS",
@@ -229,7 +237,7 @@ export default function Home() {
                     </svg>
                     Login w/ Google
                   </Button>
-                  <Input placeholder="Name" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500"/>
+                  <Input placeholder="Name" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500" />
                   <Input type="email" placeholder="Email" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500" />
                   <Input type="tel" placeholder="Phone" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500" />
                   <Input placeholder="Highest Qualification" className="bg-white/20 text-white placeholder:text-gray-300 border-gray-500" />
@@ -286,18 +294,20 @@ export default function Home() {
             }}
           >
             <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
-                {[...logos, ...logos].map((logo, index) => (
-                  <div key={`${logo.id}-marquee-${index}`} className="flex h-10 items-center justify-center" title={logo.description.replace(' Logo', '')}>
-                      <Image
-                          src={logo.imageUrl}
-                          alt={logo.description}
-                          width={100}
-                          height={40}
-                          className="object-contain"
-                          data-ai-hint={logo.imageHint}
-                      />
+              {[...logos, ...logos].map((logo, index) => (
+                <div key={`${logo.id}-marquee-${index}`} className="flex h-24 w-48 items-center justify-center rounded-xl bg-white p-2 shadow-sm transition-transform hover:scale-105" title={logo.description.replace(' Logo', '')}>
+                  <div className="relative h-16 w-32">
+                    <Image
+                      src={logo.imageUrl}
+                      alt={logo.description}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      data-ai-hint={logo.imageHint}
+                    />
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -312,54 +322,9 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {featuredCourses.map((course: Course) => {
-              const courseImage = getImage(course.imageId);
-              return (
-                <Card
-                  key={course.slug}
-                  className="flex flex-col overflow-hidden transition-shadow hover:shadow-xl"
-                >
-                  {courseImage && (
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={courseImage.imageUrl}
-                        alt={course.name}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={courseImage.imageHint}
-                      />
-                    </div>
-                  )}
-                  <CardContent className="flex flex-grow flex-col p-6">
-                    <h3 className="text-xl font-bold">{course.name}</h3>
-                    <div className="mt-4 flex-grow space-y-3 text-sm text-muted-foreground">
-                      <p>{course.duration}</p>
-                      <div className="flex items-center">
-                        <span className="font-semibold">{course.rating}</span>
-                        <Star className="ml-1 h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="ml-2">
-                          ({course.reviews.length}K+ Students)
-                        </span>
-                      </div>
-                      <Badge variant="secondary">
-                        DEDICATED CAREER SUPPORT
-                      </Badge>
-                      <p>{course.enrolledStudents}+ students enrolled</p>
-                    </div>
-                    <div className="mt-6 flex gap-4">
-                      <Button variant="outline" className="w-full">
-                        Brochure
-                      </Button>
-                      <Button asChild className="w-full">
-                        <Link href={`/courses/${course.slug}`}>
-                          View Course
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {featuredCourses.map((course: Course) => (
+              <CourseCard key={course.slug} course={course} />
+            ))}
           </div>
         </div>
       </section>
@@ -456,18 +421,18 @@ export default function Home() {
                           {story.author}
                         </CardTitle>
                         <div className="flex items-center gap-2">
-                           <CardDescription>{story.role}</CardDescription>
-                            {companyLogo && (
-                              <div className="flex h-5 items-center">
-                                <Image 
-                                  src={companyLogo.imageUrl}
-                                  alt={`${story.company} logo`}
-                                  width={60}
-                                  height={20}
-                                  className="object-contain"
-                                />
-                               </div>
-                            )}
+                          <CardDescription>{story.role}</CardDescription>
+                          {companyLogo && (
+                            <div className="flex h-5 items-center">
+                              <Image
+                                src={companyLogo.imageUrl}
+                                alt={`${story.company} logo`}
+                                width={60}
+                                height={20}
+                                className="object-contain"
+                              />
+                            </div>
+                          )}
                         </div>
                       </div>
                     </CardHeader>
@@ -556,7 +521,7 @@ export default function Home() {
                               className="object-contain"
                               data-ai-hint={companyLogo.imageHint}
                             />
-                           </div>
+                          </div>
                         ) : null;
                       })}
                     </div>

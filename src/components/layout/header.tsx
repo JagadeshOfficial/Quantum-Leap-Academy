@@ -23,14 +23,14 @@ export function Header() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-card text-card-foreground">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={180} height={65} className="object-contain" />
+            <Image src="/Logo1.png" alt="QuantumPod Technologies" width={180} height={65} className="object-contain" />
           </Link>
         </div>
-        
+
         <div className="flex-1 justify-center hidden md:flex">
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <DropdownMenu>
@@ -58,14 +58,14 @@ export function Header() {
         </div>
 
         <div className="flex items-center justify-end space-x-2 md:flex-1">
-           <div className="hidden md:flex items-center space-x-2">
-              <Button variant="ghost" asChild>
-                <Link href="/login">Login</Link>
-              </Button>
-              <Button asChild>
-                <Link href="/signup">Sign Up</Link>
-              </Button>
-           </div>
+          <div className="hidden md:flex items-center space-x-2">
+            <Button variant="ghost" asChild>
+              <Link href="/login">Login</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/signup">Sign Up</Link>
+            </Button>
+          </div>
           <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="outline" size="icon">
@@ -74,26 +74,26 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="p-0 bg-card text-card-foreground">
-               <div className="flex flex-col h-full">
+              <div className="flex flex-col h-full">
                 <div className="border-b border-border p-4">
                   <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
-                      <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={180} height={30} className="object-contain" />
+                    <Image src="/Logo1.png" alt="QuantumPod Technologies" width={180} height={30} className="object-contain" />
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 p-4 text-lg">
-                    <Link href="/courses" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
-                    <Link href="/about" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>About</Link>
-                    <Link href="/contact" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+                  <Link href="/courses" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
+                  <Link href="/about" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>About</Link>
+                  <Link href="/contact" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                 </nav>
                 <div className="mt-auto flex flex-col gap-4 border-t border-border p-4">
-                    <Button variant="ghost" asChild>
-                        <Link href="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
-                    </Button>
-                    <Button asChild>
-                        <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>Sign Up</Link>
-                    </Button>
+                  <Button variant="ghost" asChild>
+                    <Link href="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>Sign Up</Link>
+                  </Button>
                 </div>
-               </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -6,6 +6,7 @@ import { courses } from "@/lib/courses";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
+import { DownloadBrochureButton, DownloadCurriculumButton } from "@/components/course/download-buttons";
 import {
   Card,
   CardContent,
@@ -16,13 +17,29 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Clock, Star, Users, Award, Calendar, Newspaper, FileText, ChevronRight, Briefcase } from "lucide-react";
+import {
+  CheckCircle,
+  Clock,
+  Star,
+  Users,
+  Award,
+  Calendar,
+  Newspaper,
+  ChevronRight,
+  Briefcase,
+  Download,
+  Phone,
+  HelpCircle,
+  ChevronDown
+} from "lucide-react";
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { getLogoById } from "@/lib/logos";
 import { getToolLogoByName } from "@/lib/tool-logos";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { CourseNavigation } from "@/components/course/course-navigation";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export async function generateStaticParams() {
   return courses.map((course) => ({
@@ -44,313 +61,341 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
   if (!course) {
     notFound();
   }
-  
+
   const courseImage = getImage(course.imageId);
 
   return (
-    <div className="bg-background">
-      {/* Hero Section */}
-      <header className="relative bg-card py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-            <div className="text-center md:text-left">
-              <Badge variant="secondary" className="mb-4">{course.category}</Badge>
-              <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl">
+    <div className="min-h-screen bg-background font-sans">
+      {/* Top Banner / Hero */}
+      <header className="relative overflow-hidden bg-slate-950 py-16 text-white md:py-24">
+        {/* Abstract Background Element */}
+        <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-primary/20 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl"></div>
+
+        <div className="container relative mx-auto px-4">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="space-y-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <Badge className="bg-yellow-500 text-black hover:bg-yellow-600">Ranked #1 in India</Badge>
+                <div className="flex items-center gap-1 text-sm font-medium text-yellow-400">
+                  <Star className="h-4 w-4 fill-current" />
+                  <span>{course.rating}/5 Rating</span>
+                </div>
+              </div>
+
+              <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
                 {course.name}
               </h1>
-              <p className="mb-6 text-lg text-muted-foreground md:text-xl">{course.tagline}</p>
-              <p className="mb-8 font-semibold text-primary">
-                Join {course.enrolledStudents.toLocaleString()}+ Students Already Enrolled
+
+              <p className="text-lg text-slate-300 md:text-xl">
+                {course.tagline}
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row sm:justify-center md:justify-start">
-                <Button size="lg">Request a Call Back</Button>
-                <Button size="lg" variant="outline">
-                   <Newspaper className="mr-2 h-5 w-5" />
-                  Download Brochure
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 backdrop-blur-sm">
+                  <Clock className="h-5 w-5 text-yellow-400" />
+                  <span>{course.duration}</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 backdrop-blur-sm">
+                  <Users className="h-5 w-5 text-yellow-400" />
+                  <span>{course.enrolledStudents.toLocaleString()}+ Enrolled</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4 pt-6 sm:flex-row">
+                <Button size="lg" className="h-14 bg-primary px-8 text-lg font-bold hover:bg-primary/90">
+                  Request Call Back
                 </Button>
+                <DownloadBrochureButton
+                  course={course}
+                  variant="outline"
+                  className="h-14 border-white/20 bg-transparent px-8 text-lg text-white hover:bg-white/10 hover:text-white"
+                />
               </div>
             </div>
-             <div className="hidden md:block">
-               {courseImage && (
-                <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg">
-                  <Image
-                    src={courseImage.imageUrl}
-                    alt={course.name}
-                    data-ai-hint={courseImage.imageHint}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
+
+            {/* Hero Card / Form */}
+            <div className="hidden lg:block">
+              <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md">
+                {courseImage && (
+                  <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
+                    <Image
+                      src={courseImage.imageUrl}
+                      alt={course.name}
+                      fill
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4">
+                      <p className="font-semibold text-white">Featured Program</p>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </header>
-      
-       {/* Quick Info Bar */}
-      <section className="border-b bg-secondary">
-        <div className="container mx-auto grid grid-cols-1 gap-8 px-4 py-8 text-center md:grid-cols-3">
-          <div className="flex items-center justify-center gap-4">
-            <Users className="h-8 w-8 text-primary" />
-            <div>
-              <p className="text-2xl font-bold">{course.enrolledStudents.toLocaleString()}+</p>
-              <p className="text-sm text-muted-foreground">Students Enrolled</p>
-            </div>
-          </div>
-           <div className="flex items-center justify-center gap-4">
-            <Clock className="h-8 w-8 text-primary" />
-            <div>
-              <p className="text-2xl font-bold">{course.duration}</p>
-              <p className="text-sm text-muted-foreground">Course Duration</p>
-            </div>
-          </div>
-           <div className="flex items-center justify-center gap-4">
-            <Briefcase className="h-8 w-8 text-primary" />
-            <div>
-              <p className="text-2xl font-bold">{course.learningHours}</p>
-              <p className="text-sm text-muted-foreground">Learning Hours</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Main Content */}
-      <div className="container mx-auto grid grid-cols-1 gap-12 px-4 py-16 lg:grid-cols-3">
-        <div className="lg:col-span-2">
-           {/* Highlights */}
-          <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold">Program Highlights</h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {course.highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <CheckCircle className="h-5 w-5" />
-                    </div>
-                    <p className="text-muted-foreground">{highlight}</p>
+      {/* Sticky Navigation */}
+      <CourseNavigation />
+
+      <main className="container mx-auto grid grid-cols-1 gap-12 px-4 py-12 lg:grid-cols-3">
+        {/* Left Column (Content) */}
+        <div className="space-y-16 lg:col-span-2">
+
+          {/* Overview */}
+          <section id="overview" className="scroll-mt-24 space-y-6">
+            <h2 className="text-3xl font-bold text-slate-900">Program Overview</h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {course.highlights.map((highlight, index) => (
+                <div key={index} className="flex gap-4 rounded-xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <CheckCircle className="h-5 w-5" />
                   </div>
-                ))}
+                  <div>
+                    <h3 className="font-semibold text-slate-900">Key Highlight</h3>
+                    <p className="text-sm text-muted-foreground">{highlight}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-             <Button className="mt-8">Join the Next Batch <ChevronRight className="ml-2 h-4 w-4" /></Button>
           </section>
 
-          {/* Batch Details */}
-          <section className="mb-12 rounded-lg border bg-card p-6">
-             <h2 className="mb-6 text-3xl font-bold">Batch Details</h2>
-             <div className="space-y-4">
-                {course.batchDetails.map((batch, index) => (
-                    <div key={index} className="grid items-center gap-4 rounded-md border p-4 md:grid-cols-3">
-                        <div>
-                            <p className="font-semibold">{batch.name}</p>
-                            <p className="text-sm text-muted-foreground">Online</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                           <Calendar className="h-5 w-5 text-primary" />
-                           <span>{batch.startDate}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Clock className="h-5 w-5 text-primary" />
-                            <span>{batch.timings}</span>
-                        </div>
-                    </div>
-                ))}
-             </div>
-             <p className="mt-4 text-sm text-primary">Limited seats available. Early enrollments get exclusive bonuses!</p>
-             <Button variant="secondary" className="mt-6">Reserve Your Spot <ChevronRight className="ml-2 h-4 w-4" /></Button>
+          {/* Curriculum */}
+          <section id="curriculum" className="scroll-mt-24 space-y-6">
+            <h2 className="text-3xl font-bold text-slate-900">Curriculum & Learning Path</h2>
+            <div className="relative border-l-2 border-slate-200 pl-8 space-y-8">
+              {course.learningPath.map((step, index) => (
+                <div key={index} className="relative">
+                  <span className="absolute -left-[41px] top-1 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-primary text-sm font-bold text-white shadow-sm">
+                    {index + 1}
+                  </span>
+                  <div className="rounded-lg border bg-card p-6 shadow-sm">
+                    <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
+                    <ul className="space-y-2">
+                      {step.topics && step.topics.map((topic, i) => (
+                        <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+                          <span>{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <DownloadCurriculumButton course={course} className="w-full" />
           </section>
 
           {/* Tools */}
-          <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold">Tools & Technologies Covered</h2>
+          <section id="tools" className="scroll-mt-24 space-y-6">
+            <h2 className="text-3xl font-bold text-slate-900">Tools & Technologies</h2>
             <TooltipProvider>
-              <div className="flex flex-wrap gap-4">
+              <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5">
                 {course.tools.map((toolName) => {
                   const toolLogo = getToolLogoByName(toolName);
                   return (
                     <Tooltip key={toolName}>
                       <TooltipTrigger asChild>
-                        <div className="flex h-16 w-16 items-center justify-center rounded-lg border bg-card p-2 transition-shadow hover:shadow-md">
-                          {toolLogo ? (
-                            <Image
-                              src={toolLogo.imageUrl}
-                              alt={toolLogo.name}
-                              width={40}
-                              height={40}
-                              className="object-contain"
-                              data-ai-hint={toolLogo.imageHint}
-                            />
-                          ) : (
-                            <span className="text-center text-xs font-semibold">
-                              {toolName}
-                            </span>
-                          )}
+                        <div className="group flex flex-col items-center gap-3 rounded-xl border bg-white p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+                          <div className="relative h-12 w-12 grayscale transition-all group-hover:grayscale-0">
+                            {toolLogo ? (
+                              <Image
+                                src={toolLogo.imageUrl}
+                                alt={toolLogo.name}
+                                fill
+                                className="object-contain"
+                              />
+                            ) : (
+                              <div className="flex h-full w-full items-center justify-center bg-slate-100 rounded-full text-xs font-bold text-slate-500">
+                                {toolName[0]}
+                              </div>
+                            )}
+                          </div>
+                          <span className="text-center text-xs font-medium text-slate-600 group-hover:text-primary">
+                            {toolName}
+                          </span>
                         </div>
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{toolName}</p>
-                      </TooltipContent>
+                      <TooltipContent>{toolName}</TooltipContent>
                     </Tooltip>
                   );
                 })}
               </div>
             </TooltipProvider>
-            <Button variant="link" className="mt-6 px-0">
-              Explore Full Curriculum <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
-          </section>
-          
-          {/* Learning Path */}
-          <section className="mb-12">
-            <h2 className="mb-6 text-3xl font-bold">Your Learning Path</h2>
-            <div className="relative space-y-8 border-l-2 border-primary/20 pl-8">
-              {course.learningPath.map((step, index) => (
-                <div key={index} className="relative">
-                   <div className="absolute -left-[42px] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-primary font-bold text-primary-foreground">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold">{step.title}</h3>
-                    <p className="mt-1 text-muted-foreground">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-             <Button variant="link" className="mt-6 px-0">Download Learning Path <ChevronRight className="ml-2 h-4 w-4" /></Button>
           </section>
 
-           {/* Recruiters */}
-          <section className="mb-12">
-             <h2 className="mb-6 text-3xl font-bold">Our Top Recruiters</h2>
-             <p className="mb-6 text-muted-foreground">Learners from QuantumPod Technologies have been placed at:</p>
-             <div className="flex flex-wrap items-center gap-4">
-                 {course.recruiters.slice(0,10).map((recruiterId) => {
-                     const logoName = recruiterId.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
-                     const companyLogo = getLogoById(`logo-${logoName}`);
-                     return (
-                         <div key={recruiterId} className="flex h-16 items-center justify-center rounded-lg border bg-card p-4 transition-shadow hover:shadow-lg" title={recruiterId}>
-                             {companyLogo ? (
-                                <Image
-                                    src={companyLogo.imageUrl}
-                                    alt={recruiterId}
-                                    width={100}
-                                    height={40}
-                                    className="object-contain"
-                                    data-ai-hint={companyLogo.imageHint}
-                                />
-                             ) : <span className="text-sm font-semibold">{recruiterId}</span>}
-                         </div>
-                     )
-                 })}
-             </div>
-             <Button variant="link" className="mt-6 px-0">View All Placement Partners <ChevronRight className="ml-2 h-4 w-4" /></Button>
+          {/* Projects (Placeholder based on Highlights) */}
+          <section id="projects" className="scroll-mt-24 space-y-6">
+            <h2 className="text-3xl font-bold text-slate-900">Hands-on Projects</h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <Card className="overflow-hidden">
+                <div className="h-40 w-full bg-slate-100 relative">
+                  {/* Placeholder project image */}
+                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
+                    <Briefcase className="h-10 w-10" />
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-lg">Capstone Project</CardTitle>
+                  <CardDescription>Apply your learning in a real-world scenario.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">Work on industry-relevant datasets and problem statements to build a portfolio-worthy project.</p>
+                </CardContent>
+              </Card>
+              <Card className="overflow-hidden">
+                <div className="h-40 w-full bg-slate-100 relative">
+                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
+                    <Award className="h-10 w-10" />
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-lg">Live Business Case Studies</CardTitle>
+                  <CardDescription>Solve actual business problems.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">Analyze trends, forecast data, and provide actionable insights just like a professional.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Recruiters - Redesigned Grid */}
+          <section className="scroll-mt-24 space-y-8 rounded-2xl bg-slate-50 p-8 text-center">
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900">Alumni Working At Top Global Companies</h2>
+              <p className="mt-2 text-muted-foreground">Our learners are transforming industries worldwide.</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+              {course.recruiters.map((recruiterId) => {
+                const logoName = recruiterId.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
+                const companyLogo = getLogoById(`logo-${logoName}`);
+                return (
+                  <div key={recruiterId} className="relative h-12 w-32 grayscale transition-all hover:grayscale-0 hover:scale-110" title={recruiterId}>
+                    {companyLogo ? (
+                      <Image
+                        src={companyLogo.imageUrl}
+                        alt={recruiterId}
+                        fill
+                        className="object-contain"
+                      />
+                    ) : <span className="flex h-full w-full items-center justify-center text-sm font-bold text-slate-400">{recruiterId}</span>}
+                  </div>
+                )
+              })}
+            </div>
           </section>
 
           {/* Reviews */}
-           <section className="mb-12">
-              <h2 className="mb-6 text-3xl font-bold">Hear From Our Learners</h2>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {course.reviews.map((review, index) => {
-                  const companyLogo = review.company ? getLogoById(`logo-${review.company.toLowerCase().replace(/ /g, '-')}`) : null;
-                  return (
-                    <Card key={index} className="flex flex-col">
-                      <CardContent className="flex-grow p-6">
-                        <div className="mb-4 flex">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className={`h-5 w-5 ${i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-muted-foreground/30'}`} />
-                          ))}
-                        </div>
-                        <blockquote className="italic text-muted-foreground">
-                          &quot;{review.text}&quot;
-                        </blockquote>
-                      </CardContent>
-                      <CardHeader className="flex-row items-center gap-4 border-t bg-secondary/50 pt-6">
-                          <div>
-                            <CardTitle className="text-base">{review.author}</CardTitle>
-                            <div className="flex items-center gap-2">
-                              <CardDescription>{review.role}</CardDescription>
-                              {companyLogo && (
-                                <div className="flex h-5 items-center">
-                                  <Image
-                                    src={companyLogo.imageUrl}
-                                    alt={`${review.company} logo`}
-                                    width={60}
-                                    height={20}
-                                    className="object-contain"
-                                  />
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                      </CardHeader>
-                    </Card>
-                  )
-                })}
-              </div>
-              <Button variant="link" className="mt-6 px-0">Read All Reviews <ChevronRight className="ml-2 h-4 w-4" /></Button>
-            </section>
+          <section id="reviews" className="scroll-mt-24 space-y-6">
+            <h2 className="text-3xl font-bold text-slate-900">Student Success Stories</h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {course.reviews.map((review, index) => (
+                <Card key={index} className="bg-card">
+                  <CardHeader className="flex flex-row items-center gap-4 pb-2">
+                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-lg font-bold text-primary">
+                      {review.author[0]}
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">{review.author}</CardTitle>
+                      <CardDescription>{review.role}</CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-2 flex text-yellow-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className={`h-4 w-4 ${i < review.rating ? 'fill-current' : 'text-slate-200'}`} />
+                      ))}
+                    </div>
+                    <p className="italic text-muted-foreground">"{review.text}"</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section id="faq" className="scroll-mt-24 space-y-6">
+            <h2 className="text-3xl font-bold text-slate-900">Frequently Asked Questions</h2>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Who is this course for?</AccordionTrigger>
+                <AccordionContent>
+                  This course is designed for both beginners and professionals looking to upskill. Whether you are a student, recent graduate, or working professional, our curriculum starts from the basics and covers advanced topics.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger>Do you offer placement assistance?</AccordionTrigger>
+                <AccordionContent>
+                  Yes, we provide 100% placement assistance. This includes resume building, mock interviews, and connecting you with our hiring partners.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger>What if I miss a class?</AccordionTrigger>
+                <AccordionContent>
+                  All sessions are recorded and available in your learning portal for lifetime access. You can watch them at your convenience.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </section>
+
         </div>
 
-        {/* Sticky Sidebar */}
-        <aside className="space-y-8 self-start lg:col-span-1 sticky top-24">
-          <Card className="shadow-lg">
-             <CardHeader>
-                <CardTitle>Submit Inquiry</CardTitle>
-                <CardDescription>Have questions? We're here to help.</CardDescription>
+        {/* Right Column (Sticky Form) */}
+        <div className="relative">
+          <div className="sticky top-24 space-y-6">
+            <Card className="border-t-4 border-t-primary shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-2xl">Enquire Now</CardTitle>
+                <CardDescription>Fill out the form below and our counselor will contact you.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
-                  <div>
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your Name" />
+                  <div className="space-y-2">
+                    <Label htmlFor="s-name">Full Name</Label>
+                    <Input id="s-name" placeholder="John Doe" />
                   </div>
-                   <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" />
+                  <div className="space-y-2">
+                    <Label htmlFor="s-email">Email Address</Label>
+                    <Input id="s-email" type="email" placeholder="john@example.com" />
                   </div>
-                   <div>
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" type="tel" placeholder="Your Phone Number" />
+                  <div className="space-y-2">
+                    <Label htmlFor="s-phone">Phone Number</Label>
+                    <Input id="s-phone" type="tel" placeholder="+91 98765 43210" />
                   </div>
-                   <div>
-                    <Label htmlFor="course">Select Course</Label>
-                     <Select defaultValue={course.slug}>
-                      <SelectTrigger id="course">
-                        <SelectValue placeholder="Select a course" />
+                  <div className="space-y-2">
+                    <Label htmlFor="s-course">Interested Course</Label>
+                    <Select defaultValue={course.slug}>
+                      <SelectTrigger>
+                        <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
                         {courses.map(c => <SelectItem key={c.slug} value={c.slug}>{c.name}</SelectItem>)}
                       </SelectContent>
                     </Select>
                   </div>
-                   <div>
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" placeholder="Your question..." />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Submit Inquiry <ChevronRight className="ml-2 h-4 w-4" />
+                  <Button type="submit" className="w-full text-lg h-12">
+                    Submit Enquiry <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
+                <p className="mt-4 text-center text-xs text-muted-foreground">
+                  By submitting, you agree to our privacy policy.
+                </p>
               </CardContent>
-          </Card>
-        </aside>
-      </div>
+            </Card>
 
-       {/* Final CTA */}
-       <section className="border-t bg-card py-20">
-        <div className="container mx-auto text-center">
-          <h2 className="mb-4 text-3xl font-bold">Ready to Start Your Journey?</h2>
-          <p className="mb-8 text-lg text-muted-foreground">Enroll today and take the first step towards your dream career.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg">Request a Call Back</Button>
-            <Button size="lg" variant="secondary">
-              <Newspaper className="mr-2 h-5 w-5" />
-              Download Brochure
-            </Button>
-             <Button size="lg" variant="outline">
-              Enroll Now
-            </Button>
+            <div className="rounded-xl bg-blue-50 p-6 text-center text-blue-900">
+              <h4 className="font-bold">Need Help?</h4>
+              <p className="mt-2 text-sm">Call our admission team directly</p>
+              <a href="tel:+919876543210" className="mt-3 inline-flex items-center gap-2 text-lg font-bold hover:underline">
+                <Phone className="h-5 w-5" /> +91 98765 43210
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+      </main>
     </div>
   );
 }
