@@ -117,7 +117,7 @@ export default function ContactPage() {
               <div className="flex items-start gap-4">
                 <MapPin className="mt-1 h-6 w-6 shrink-0 text-primary" />
                 <div>
-                  <h3 className="font-semibold">QuantumPod Technologies</h3>
+                  <h3 className="font-semibold">Mathisi Academy</h3>
                   <p className="text-muted-foreground">
                     Capital Park, Image Garden Road, Madhapur, Hyderabad, Telangana 500081
                   </p>
@@ -135,7 +135,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold">Email Us</h3>
                   <p className="text-muted-foreground">
-                    hello@quantumpod.com
+                    akshjavahub@gmail.com
                   </p>
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 <Phone className="h-6 w-6 shrink-0 text-primary" />
                 <div>
                   <h3 className="font-semibold">Call Us</h3>
-                  <p className="text-muted-foreground">+91 98765 43210</p>
+                  <p className="text-muted-foreground">+91 90149 85626</p>
                 </div>
               </div>
             </CardContent>

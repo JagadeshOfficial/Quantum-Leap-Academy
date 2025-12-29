@@ -137,7 +137,7 @@ export function ChatWidget() {
     };
 
     const openWhatsApp = () => {
-        const adminNumber = "8688499956"; // User's requested phone number
+        const adminNumber = "919014985626"; // Updated admin number
         const text = `Hi Mathisi Academy, I am ${leadData.name}. I'm interested in ${leadData.inquiryType}. My email is ${leadData.email}. Please help me with more info.`;
         window.open(`https://wa.me/${adminNumber}?text=${encodeURIComponent(text)}`, '_blank');
     };
@@ -161,7 +161,7 @@ export function ChatWidget() {
                 response = "Enrollment is simple! You can download the brochure for detailed info or request a call back from our counselors.";
                 options = ["Request Call Back", "Download Brochure Help"];
             } else if (lowerInput.includes("support") || lowerInput.includes("talk") || lowerInput.includes("contact")) {
-                response = "Our support team is available 24/7. You can reach us at support@mathisi.info or via WhatsApp.";
+                response = "Our support team is available 24/7. You can reach us at akshjavahub@gmail.com or via WhatsApp.";
                 options = ["Talk to Support"];
             } else if (lowerInput.includes("data science")) {
                 response = "Our Data Science program covers Python, SQL, Machine Learning, and more. It's a 5-month job-ready course.";
@@ -236,8 +236,8 @@ export function ChatWidget() {
                                                 key={idx}
                                                 onClick={() => handleOptionClick(opt)}
                                                 className={`text-xs px-4 py-2 rounded-full transition-all font-medium border ${opt.includes("WhatsApp")
-                                                        ? "bg-emerald-500 border-emerald-500 text-white hover:bg-emerald-600"
-                                                        : "bg-white border-slate-200 text-slate-700 hover:border-primary hover:text-primary"
+                                                    ? "bg-emerald-500 border-emerald-500 text-white hover:bg-emerald-600"
+                                                    : "bg-white border-slate-200 text-slate-700 hover:border-primary hover:text-primary"
                                                     }`}
                                             >
                                                 {opt}

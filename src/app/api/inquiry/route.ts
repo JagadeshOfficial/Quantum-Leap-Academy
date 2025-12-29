@@ -30,7 +30,7 @@ export async function POST(req: Request) {
         const resend = new Resend(process.env.RESEND_API_KEY);
         await resend.emails.send({
           from: 'Mathisi Academy <onboarding@resend.dev>',
-          to: 'your-admin-email@example.com', // Replace with your email
+          to: 'akshjavahub@gmail.com', // Updated admin email
           subject: `New Lead: ${name} (${inquiryType})`,
           html: `
             <h1>New Inquiry from Mathisi Academy</h1>
