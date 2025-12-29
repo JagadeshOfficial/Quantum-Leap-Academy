@@ -20,6 +20,7 @@ jobs:
           username: mathisi.in
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
+          command_timeout: 60m
           script: |
             cd /home/mathisi.in/Quantum-Leap-Academy
             git pull origin main
