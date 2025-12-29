@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  quantum-leap-academy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quantum-leap-academy
+    restart: always
+    ports:
+      - "3005:3000"
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
