@@ -31,7 +31,7 @@ export default function AboutPage() {
   const heroImage = getImage("benefits-image");
   const instructors = [
     {
-      name: "Dr. Anjali",
+      name: "Dr. Anjali Sharma",
       title: "AI Research Scientist",
       imageId: "instructor-1",
     },
