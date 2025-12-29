@@ -17,11 +17,11 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
-          username: root
+          username: mathisi.in
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ~/Quantum-Leap-Academy
+            cd /home/mathisi.in/Quantum-Leap-Academy
             git pull origin main
             docker compose up -d --build
             docker image prune -f # Cleans up old unused images to save space
