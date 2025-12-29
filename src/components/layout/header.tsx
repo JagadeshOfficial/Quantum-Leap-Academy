@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, Github } from "lucide-react";
 import { courses } from "@/lib/courses";
 import { useState } from "react";
 import {
@@ -60,8 +60,17 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center justify-end space-x-2 md:flex-1">
-          <div className="hidden md:flex items-center space-x-2">
+        <div className="flex items-center justify-end space-x-4 md:flex-1">
+          <div className="hidden md:flex items-center space-x-4">
+            <Link
+              href="https://github.com/JagadeshOfficial/Quantum-Leap-Academy"
+              target="_blank"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              title="View on GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </Link>
+            <div className="h-4 w-px bg-border mx-2" />
             <Button variant="ghost" asChild>
               <Link href="/login">Login</Link>
             </Button>
