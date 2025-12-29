@@ -56,7 +56,7 @@ export function ChatWidget() {
     const addMessage = (role: "bot" | "user" | "system", content: string, options?: string[]) => {
         setMessages((prev) => [
             ...prev,
-            { id: Date.now().toString(), role, content, options },
+            { id: Math.random().toString(36).substring(2, 11), role, content, options },
         ]);
     };
 
