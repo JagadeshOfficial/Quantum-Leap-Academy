@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import Image from "next/image";
+import { MathisiLogo } from "@/components/brand/logo";
 
 export function Footer() {
   const offerings = [
@@ -19,7 +19,7 @@ export function Footer() {
     { name: "Careers", href: "/careers" },
     { name: "Contact Us", href: "/contact" },
   ];
-  
+
   const legalLinks = [
     { name: "Terms & Conditions", href: "/terms" },
     { name: "Privacy Policy", href: "/privacy" },
@@ -36,11 +36,11 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 space-y-4 md:col-span-2">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image src="/Logo.jpeg" alt="QuantumPod Technologies" width={180} height={30} className="object-contain"/>
+            <Link href="/" className="flex items-center">
+              <MathisiLogo className="h-10" />
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground">
-              Transform into a Future-Ready professional powered by AI.
+              Elite training in Data Science, Cybersecurity, Generative AI, and Quantum Computing.
             </p>
           </div>
           <div>
@@ -61,7 +61,7 @@ export function Footer() {
           <div>
             <h3 className="font-semibold tracking-wider text-foreground/80">Company</h3>
             <ul className="mt-4 space-y-2">
-              {[...companyLinks, ...moreLinks.slice(0,1)].map((item) => (
+              {[...companyLinks, ...moreLinks.slice(0, 1)].map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -77,7 +77,7 @@ export function Footer() {
             <h3 className="font-semibold tracking-wider text-foreground/80">Partners</h3>
             <ul className="mt-4 space-y-2">
               {[...moreLinks.slice(1)].map((item) => (
-                 <li key={item.name}>
+                <li key={item.name}>
                   <Link
                     href={item.href}
                     className="text-sm text-muted-foreground hover:text-foreground"
@@ -86,7 +86,7 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-               {legalLinks.map((item) => (
+              {legalLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
@@ -100,7 +100,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} QuantumPod Technologies. All rights reserved.
+          © {new Date().getFullYear()} Mathisi Academy. All rights reserved.
         </div>
       </div>
     </footer>

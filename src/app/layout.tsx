@@ -3,10 +3,11 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ChatWidget } from "@/components/chat/chat-widget";
 
 export const metadata: Metadata = {
-  title: "QuantumPod Technologies",
-  description: "Transform into a Future-Ready Professional powered by AI.",
+  title: "Mathisi | School of Technology & AI",
+  description: "Advanced training in Data Science, Cybersecurity, Generative AI, and Quantum Computing.",
 };
 
 export default function RootLayout({
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+        <ChatWidget />
       </body>
     </html>
   );

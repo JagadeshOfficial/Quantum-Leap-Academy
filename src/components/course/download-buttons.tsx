@@ -34,8 +34,8 @@ export function DownloadCurriculumButton({ course, className, variant = "outline
         doc.setProperties({
             title: `${course.name} Syllabus`,
             subject: course.tagline,
-            author: 'QuantumPod Technologies',
-            creator: 'QuantumPod Technologies'
+            author: 'Mathisi Academy',
+            creator: 'Mathisi Academy'
         });
 
         const pageWidth = doc.internal.pageSize.getWidth();
@@ -91,7 +91,7 @@ export function DownloadCurriculumButton({ course, className, variant = "outline
         const footerY = doc.internal.pageSize.getHeight() - 10;
         doc.setFontSize(8);
         doc.setTextColor(156, 163, 175);
-        doc.text("QuantumPod Technologies | www.quantumpod.com", pageWidth / 2, footerY, { align: "center" });
+        doc.text("Mathisi Academy | www.mathisi.info", pageWidth / 2, footerY, { align: "center" });
 
         savePdf(doc, `${course.slug}-syllabus.pdf`);
     };
@@ -116,8 +116,8 @@ export function DownloadBrochureButton({ course, className, variant = "default",
         doc.setProperties({
             title: `${course.name} Brochure`,
             subject: course.tagline,
-            author: 'QuantumPod Technologies',
-            creator: 'QuantumPod Technologies'
+            author: 'Mathisi Academy',
+            creator: 'Mathisi Academy'
         });
 
         const pageWidth = doc.internal.pageSize.getWidth();
@@ -130,7 +130,7 @@ export function DownloadBrochureButton({ course, className, variant = "default",
         // Logo / Brand
         doc.setTextColor(255, 255, 255);
         doc.setFontSize(12);
-        doc.text("QUANTUMPOD TECHNOLOGIES", pageWidth / 2, 20, { align: "center" });
+        doc.text("MATHISI ACADEMY", pageWidth / 2, 20, { align: "center" });
 
         // Course Title
         doc.setFontSize(28);
@@ -195,8 +195,8 @@ export function DownloadBrochureButton({ course, className, variant = "default",
         doc.setFontSize(10);
         doc.setTextColor(100, 116, 139);
         doc.text("Start your journey with us today!", 15, footerY);
-        doc.text("Contact: admissions@quantumpod.com", 15, footerY + 6);
-        doc.text("Website: www.quantumpod.com", 15, footerY + 12);
+        doc.text("Contact: admissions@mathisi.info", 15, footerY + 6);
+        doc.text("Website: www.mathisi.info", 15, footerY + 12);
 
         savePdf(doc, `${course.slug}-brochure.pdf`);
     };

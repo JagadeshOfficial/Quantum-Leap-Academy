@@ -278,34 +278,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-2 text-3xl font-bold">
-            Get Offers From Top Companies
-          </h2>
-          <p className="mb-8 text-muted-foreground">
-            Our learners are hired by the best in the industry.
-          </p>
-          <div
-            className="group relative flex gap-8 overflow-hidden"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-            }}
-          >
-            <div className="flex animate-infinite-scroll-slow flex-shrink-0 gap-8 group-hover:[animation-play-state:paused]">
-              {[...logos, ...logos].map((logo, index) => (
-                <div key={`${logo.id}-marquee-${index}`} className="flex h-24 w-48 items-center justify-center rounded-xl bg-white p-2 shadow-sm transition-transform hover:scale-105" title={logo.description.replace(' Logo', '')}>
-                  <div className="relative h-16 w-32">
-                    <Image
-                      src={logo.imageUrl}
-                      alt={logo.description}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      data-ai-hint={logo.imageHint}
-                    />
-                  </div>
+
+      <section className="border-y border-slate-800 bg-slate-950 py-16">
+        <div className="container mx-auto px-4">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-white">
+              Our Graduates Hire by Global Leaders
+            </h2>
+            <p className="mt-2 text-slate-400">
+              Trusted by leading IT companies and fast-growing startups
+            </p>
+          </div>
+          <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
+            <div className="flex animate-infinite-scroll-slow gap-16 group-hover:[animation-play-state:paused]">
+              {[...logos, ...logos].map((logo, idx) => (
+                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center rounded-xl bg-white px-6 py-4 shadow-sm transition-all hover:scale-105 hover:shadow-md">
+                  <Image
+                    src={logo.imageUrl}
+                    alt={logo.description}
+                    width={130}
+                    height={45}
+                    className="h-8 object-contain"
+                    data-ai-hint={logo.imageHint}
+                  />
+                </div>
+              ))}
+              {/* Add some text-based logos for variety if images are missing or for major names */}
+              {['Amazon', 'TCS', 'Accenture', 'Infosys', 'Flipkart', 'Zoho'].map((name, idx) => (
+                <div key={`text-logo-${idx}`} className="flex shrink-0 items-center justify-center rounded-xl bg-white px-6 py-4 shadow-sm transition-all hover:scale-105 hover:shadow-md">
+                  <span className="text-xl font-bold tracking-tighter text-slate-800">
+                    {name}
+                  </span>
                 </div>
               ))}
             </div>
@@ -447,7 +450,7 @@ export default function Home() {
       <section className="bg-background py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold">Why Choose QuantumPod Technologies</h2>
+            <h2 className="text-4xl font-bold">Why Choose Mathisi Academy</h2>
             <p className="mt-2 text-lg text-muted-foreground">
               Everything you need to launch your tech career.
             </p>

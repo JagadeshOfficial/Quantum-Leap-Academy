@@ -20,7 +20,7 @@ export function ChatWidget() {
         {
             id: "1",
             role: "bot",
-            content: "Hello! Welcome to QuantumPod Technologies. How can I assist you today?",
+            content: "Hello! Welcome to Mathisi Academy. How can I assist you today?",
             options: ["Explore Courses", "Enrollment Process", "Talk to Support"],
         },
     ]);
@@ -68,7 +68,7 @@ export function ChatWidget() {
                 response = "Enrollment is simple! You can download the brochure for detailed info or request a call back from our counselors.";
                 options = ["Request Call Back", "Download Brochure Help"];
             } else if (lowerInput.includes("support") || lowerInput.includes("talk") || lowerInput.includes("contact")) {
-                response = "Our support team is available 24/7. You can reach us at support@quantumpod.com or +91 99999 99999.";
+                response = "Our support team is available 24/7. You can reach us at support@mathisi.info or +91 99999 99999.";
             } else if (lowerInput.includes("data science")) {
                 response = "Our Data Science program covers Python, SQL, Machine Learning, and more. It's a 5-month job-ready course.";
                 options = ["View Data Science Page", "Enroll in Data Science"];
@@ -107,7 +107,7 @@ export function ChatWidget() {
                                 <Bot className="h-5 w-5" />
                             </div>
                             <div>
-                                <CardTitle className="text-base">Quantum Assistant</CardTitle>
+                                <CardTitle className="text-base">Mathisi Assistant</CardTitle>
                                 <CardDescription className="text-xs text-primary-foreground/80">
                                     Online - Replies instantly
                                 </CardDescription>
@@ -126,8 +126,8 @@ export function ChatWidget() {
                                     >
                                         <div
                                             className={`max-w-[80%] rounded-2xl px-4 py-2 text-sm ${msg.role === "user"
-                                                    ? "bg-primary text-primary-foreground rounded-tr-none"
-                                                    : "bg-white text-slate-800 shadow-sm border rounded-tl-none"
+                                                ? "bg-primary text-primary-foreground rounded-tr-none"
+                                                : "bg-white text-slate-800 shadow-sm border rounded-tl-none"
                                                 }`}
                                         >
                                             {msg.content}

@@ -588,4 +588,41 @@ export const courses: Course[] = [
       { rating: 5, text: "Excellent coverage of Spark and Cloud.", author: "Kunal Joshi", role: "Cloud Data Analyst" },
     ],
   },
+  {
+    name: "Corporate Training Program",
+    slug: "corporate-training",
+    category: "Corporate",
+    tagline: "Tailored skill-building programs for IT teams and professionals.",
+    enrolledStudents: 240,
+    duration: "2-12 Weeks",
+    learningHours: "40-200+ Hours",
+    rating: 5.0,
+    imageId: 'course-corporate',
+    highlights: [
+      "Customized Curriculum: Tools and tools tailored to your needs.",
+      "Industry Trainers: Experts with real-world IT experience.",
+      "Hands-on, Project-Based Training.",
+      "Team Deployment Ready from day one.",
+      "Flexible Delivery: Online or Onsite.",
+      "Continuous Dedicated Support."
+    ],
+    batchDetails: [
+      { name: "Batch A", startDate: "Custom Date", timings: "Availability Based" },
+      { name: "Batch B", startDate: "Custom Date", timings: "Flexible Hours" },
+    ],
+    tools: ["Python", "Data Engineering", "Prompt Engineering", "Cybersecurity", "AI/ML", "SQL", "Power BI", "Tableau", "Agentic AI", "GitHub"],
+    learningPath: [
+      { title: "Requirement Analysis", topics: ["Understand tech stack", "Identify skill gaps", "Define project goals"] },
+      { title: "Curriculum Design", topics: ["Custom modules", "Select tools", "Design practical labs"] },
+      { title: "Training Execution", topics: ["Hands-on learning", "Real datasets", "Custom environments"] },
+      { title: "Project Implementation", topics: ["Domain-specific Capstone", "Finance, Healthcare, E-commerce, etc."] },
+      { title: "Ready Assessment", topics: ["Tests & Evaluations", "Deployment feedback"] },
+      { title: "Ongoing Support", topics: ["Advanced modules", "Upskilling sessions", "Refresher modules"] },
+    ],
+    recruiters: ["Amazon", "Google", "Deloitte", "Accenture", "TCS", "PwC", "IBM", "Wipro", "Flipkart", "Zoho", "Infosys", "Capgemini", "HCL"],
+    reviews: [
+      { rating: 5, text: "Exceptional custom program! Our cloud team was deployment-ready in just 6 weeks.", author: "Rohit Nair", role: "Engineering Manager", company: "Infosys" },
+      { rating: 4, text: "The tailored curriculum aligned perfectly with our project needs.", author: "Shalini Verma", role: "HR Lead", company: "Wipro" },
+    ],
+  },
 ];

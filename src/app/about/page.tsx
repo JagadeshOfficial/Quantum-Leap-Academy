@@ -113,7 +113,7 @@ export default function AboutPage() {
         <div className="container relative z-10 mx-auto flex h-full items-center justify-center px-4">
           <div className="text-center text-white">
             <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-md md:text-6xl">
-              About QuantumPod Technologies
+              About Mathisi Academy
             </h1>
             <p className="mt-4 text-lg drop-shadow md:text-xl">
               Empowering the next generation of tech leaders.
@@ -128,7 +128,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold">Our Story</h2>
               <p className="mt-4 text-muted-foreground">
-                QuantumPod Technologies was founded with the vision of bridging
+                Mathisi Academy was founded with the vision of bridging
                 the gap between academic learning and industry requirements. We
                 saw countless talented individuals struggling to break into
                 the tech world due to a lack of practical, job-ready skills.
@@ -222,13 +222,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-       <section className="border-t bg-card py-20">
+      <section className="border-t bg-card py-20">
         <div className="container mx-auto text-center">
           <h2 className="mb-4 text-3xl font-bold">Ready to Start Your Journey?</h2>
           <p className="mb-8 text-lg text-muted-foreground">Enroll today and take the first step towards your dream career.</p>
           <div className="flex justify-center gap-4">
-             <Button size="lg" asChild>
-                <Link href="/courses">Explore Courses</Link>
+            <Button size="lg" asChild>
+              <Link href="/courses">Explore Courses</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/contact">Talk to an Advisor</Link>
