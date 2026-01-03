@@ -6,7 +6,8 @@ import { courses } from "@/lib/courses";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
-import { DownloadBrochureButton, DownloadCurriculumButton } from "@/components/course/download-buttons";
+import { DownloadBrochureButton } from "@/components/course/download-buttons";
+import { CourseEnquiryForm } from "@/components/course/course-enquiry-form";
 import {
   Card,
   CardContent,
@@ -40,6 +41,7 @@ import { getToolLogoByName } from "@/lib/tool-logos";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { CourseNavigation } from "@/components/course/course-navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { LearningPath } from "@/components/course/learning-path";
 
 export async function generateStaticParams() {
   return courses.map((course) => ({
@@ -117,19 +119,35 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             {/* Hero Card / Form */}
             <div className="hidden lg:block">
               <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md">
-                {courseImage && (
+                {course.videoPreview ? (
                   <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
-                    <Image
-                      src={courseImage.imageUrl}
-                      alt={course.name}
-                      fill
-                      className="object-cover transition-transform duration-700 hover:scale-105"
+                    <video
+                      src={course.videoPreview}
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      className="h-full w-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute bottom-4 left-4">
-                      <p className="font-semibold text-white">Featured Program</p>
+                      <p className="font-semibold text-white drop-shadow-md">Featured Program</p>
                     </div>
                   </div>
+                ) : (
+                  courseImage && (
+                    <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
+                      <Image
+                        src={courseImage.imageUrl}
+                        alt={course.name}
+                        fill
+                        className="object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4">
+                        <p className="font-semibold text-white">Featured Program</p>
+                      </div>
+                    </div>
+                  )
                 )}
               </div>
             </div>
@@ -146,46 +164,61 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
           {/* Overview */}
           <section id="overview" className="scroll-mt-24 space-y-6">
-            <h2 className="text-3xl font-bold text-slate-900">Program Overview</h2>
+            <h2 className="text-3xl font-bold text-slate-900">Why Choose This Course?</h2>
+
             <div className="grid gap-6 sm:grid-cols-2">
-              {course.highlights.map((highlight, index) => (
-                <div key={index} className="flex gap-4 rounded-xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
-                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">Key Highlight</h3>
-                    <p className="text-sm text-muted-foreground">{highlight}</p>
-                  </div>
+              {/* 1:1 Mentorship Card */}
+              <div className="flex gap-4 rounded-xl border border-indigo-100 bg-indigo-50/50 p-5 shadow-sm">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
+                  <Users className="h-5 w-5" />
                 </div>
-              ))}
+                <div>
+                  <h3 className="font-bold text-slate-900">1:1 Mentorship</h3>
+                  <p className="text-sm text-slate-600">Personalized guidance from industry experts to clear doubts and build your career path.</p>
+                </div>
+              </div>
+
+              {/* Real Projects Card */}
+              <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-600">
+                  <Briefcase className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900">Live Projects</h3>
+                  <p className="text-sm text-slate-600">Work on real-world case studies and build a portfolio that employers love.</p>
+                </div>
+              </div>
+
+              {/* Placement Support */}
+              <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                  <Award className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900">Placement Support</h3>
+                  <p className="text-sm text-slate-600">Dedicated placement cell to help you with resume building and mock interviews.</p>
+                </div>
+              </div>
+
+              {/* 24/7 Support */}
+              <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
+                  <HelpCircle className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900">24/7 Support</h3>
+                  <p className="text-sm text-slate-600">Never get stuck. Our support team is available round the clock to assist you.</p>
+                </div>
+              </div>
             </div>
           </section>
 
           {/* Curriculum */}
           <section id="curriculum" className="scroll-mt-24 space-y-6">
             <h2 className="text-3xl font-bold text-slate-900">Curriculum & Learning Path</h2>
-            <div className="relative border-l-2 border-slate-200 pl-8 space-y-8">
-              {course.learningPath.map((step, index) => (
-                <div key={index} className="relative">
-                  <span className="absolute -left-[41px] top-1 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-primary text-sm font-bold text-white shadow-sm">
-                    {index + 1}
-                  </span>
-                  <div className="rounded-lg border bg-card p-6 shadow-sm">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
-                    <ul className="space-y-2">
-                      {step.topics && step.topics.map((topic, i) => (
-                        <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                          <span>{topic}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+            <div className="mt-8">
+              <LearningPath steps={course.learningPath} />
             </div>
-            <DownloadCurriculumButton course={course} className="w-full" />
           </section>
 
           {/* Tools */}
@@ -348,38 +381,27 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           <div className="sticky top-24 space-y-6">
             <Card className="border-t-4 border-t-primary shadow-xl">
               <CardHeader>
-                <CardTitle className="text-2xl">Enquire Now</CardTitle>
+                <div className="mb-4">
+                  <p className="text-sm font-medium text-slate-500">Program Fees</p>
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl font-bold text-slate-900">{course.fees}</span>
+                    <span className="text-sm text-slate-400 line-through">{(parseInt(course.fees.replace(/[^0-9]/g, '')) * 1.2).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }).replace('.00', '')}</span>
+                  </div>
+                  {course.earlyBirdOffer && (
+                    <div className="mt-2 inline-block rounded-md bg-green-100 px-3 py-1 text-sm font-semibold text-green-700">
+                      {course.earlyBirdOffer}
+                    </div>
+                  )}
+                </div>
+                <CardTitle className="text-xl">Enquire Now</CardTitle>
                 <CardDescription>Fill out the form below and our counselor will contact you.</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="s-name">Full Name</Label>
-                    <Input id="s-name" placeholder="John Doe" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="s-email">Email Address</Label>
-                    <Input id="s-email" type="email" placeholder="john@example.com" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="s-phone">Phone Number</Label>
-                    <Input id="s-phone" type="tel" placeholder="+91 98765 43210" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="s-course">Interested Course</Label>
-                    <Select defaultValue={course.slug}>
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {courses.map(c => <SelectItem key={c.slug} value={c.slug}>{c.name}</SelectItem>)}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <Button type="submit" className="w-full text-lg h-12">
-                    Submit Enquiry <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </form>
+                <CourseEnquiryForm
+                  courseName={course.name}
+                  courseSlug={course.slug}
+                  allCourses={courses.map((c) => ({ name: c.name, slug: c.slug }))}
+                />
                 <p className="mt-4 text-center text-xs text-muted-foreground">
                   By submitting, you agree to our privacy policy.
                 </p>

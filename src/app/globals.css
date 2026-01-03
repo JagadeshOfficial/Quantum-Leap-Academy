@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 204 90% 50%;
+    --primary: 245 80% 60%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -22,22 +22,23 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 245 80% 60%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --radius: 1rem;
   }
 
   .dark {
-    --background: 222 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 224 71% 4%;
-    --card-foreground: 210 40% 98%;
-    --popover: 224 71% 4%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 204 90% 50%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263.4 70% 50.4%;
     --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -49,8 +50,8 @@
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 204 90% 50%;
-    --chart-1: 220 70% 50%;
+    --ring: 263.4 70% 50.4%;
+    --chart-1: 260 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
@@ -62,16 +63,18 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-  
+
   .light-theme .bg-card {
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
   }
 
-  img, video {
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }

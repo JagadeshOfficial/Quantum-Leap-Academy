@@ -31,6 +31,8 @@ export type Course = {
   brochureContent?: string; // Optional field for specific brochure content if meaningful
   brochureUrl?: string;
   syllabusUrl?: string;
+  fees: string;
+  earlyBirdOffer?: string;
 };
 
 export const courses: Course[] = [
@@ -45,8 +47,10 @@ export const courses: Course[] = [
     rating: 4.8,
     imageId: 'course-data-science',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    brochureUrl: "/downloads/data-science-brochure.pdf",
+    brochureUrl: "/Brouchers/DATA SCIENTIST FINAL broucher.pdf",
     syllabusUrl: "/downloads/data-science-syllabus.pdf",
+    fees: "₹45,000",
+    earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Top Faculty & Mentors: Learn from experience.",
       "Curriculum with Practical Exposure.",
@@ -58,7 +62,7 @@ export const courses: Course[] = [
       { name: "Batch 01 (Weekday)", startDate: "Nov 25, 2025", timings: "7 PM – 9 PM (IST)" },
       { name: "Batch 02 (Weekend)", startDate: "Dec 8, 2025", timings: "10 AM – 1 PM (IST)" },
     ],
-    tools: ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn", "SQL", "Power BI", "Tableau", "Excel", "TensorFlow", "Keras"],
+    tools: ["Python", "Pandas", "NumPy", "Matplotlib", "Scikit-learn", "SQL", "Power BI", "Tableau", "TensorFlow", "Keras"],
     learningPath: [
       {
         title: "Introduction to Data Science",
@@ -68,20 +72,6 @@ export const courses: Course[] = [
           "Lifecycle of Data Science",
           "Applications in Various Industries",
           "Key tools and frameworks"
-        ]
-      },
-      {
-        title: "Excel",
-        topics: [
-          "Basics of Excel - Overview, Data Entry, Formatting",
-          "Understanding Data Quality: Missing Values, Outliers",
-          "Text Functions (LEFT, RIGHT, MID, TRIM, CONCAT, TEXTSPLIT)",
-          "Power Query for Data Cleaning",
-          "Statistical, Logical, Mathematical, Lookup Functions",
-          "Pivot Tables and Charts",
-          "Data Visualization & Dashboarding",
-          "What-If Analysis: Goal Seek, Data Tables, Scenario Manager",
-          "Forecasting, Correlation, Trend Analysis, Linear Regression"
         ]
       },
       {
@@ -191,6 +181,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-data-analysis',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    brochureUrl: "/Brouchers/data analysis fian broucher .pdf",
+    syllabusUrl: "/downloads/data-analysis-syllabus.pdf",
+    fees: "₹40,000",
+    earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Industry Experts as Trainers.",
       "Curriculum with Practical Exposure.",
@@ -211,16 +205,6 @@ export const courses: Course[] = [
           "Types of data (Structured vs Unstructured)",
           "Analytics Methodology & problem-solving framework",
           "Stages of Analytics"
-        ]
-      },
-      {
-        title: "Excel",
-        topics: [
-          "Excel Interface, Formatting, Sorting, Filtering",
-          "Data Quality: Missing Values, Outliers, Duplicates",
-          "Text, Statistical, Logical, Math, Lookup Functions",
-          "Pivot Tables, Charts, Data Visualization",
-          "What-If Analysis, Forecasting, Linear Regression in Excel"
         ]
       },
       {
@@ -288,6 +272,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-ai-ml',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    brochureUrl: "/downloads/ai-ml-brochure.pdf",
+    syllabusUrl: "/downloads/ai-ml-syllabus.pdf",
+    fees: "₹50,000",
+    earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Top Industry Faculty & Trainers.",
       "Curriculum with Practical Exposure.",
@@ -375,6 +363,10 @@ export const courses: Course[] = [
     rating: 5,
     imageId: 'course-agentic-ai',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    brochureUrl: "/downloads/agentic-ai-brochure.pdf",
+    syllabusUrl: "/downloads/agentic-ai-syllabus.pdf",
+    fees: "₹55,000",
+    earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Learn from AI engineers and researchers.",
       "Hand-on exercises with LangChain & LangGraph.",
@@ -445,6 +437,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-quantum-computing',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    brochureUrl: "/downloads/quantum-computing-brochure.pdf",
+    syllabusUrl: "/downloads/quantum-computing-syllabus.pdf",
+    fees: "₹60,000",
+    earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Learn from Quantum Computing Experts.",
       "Hands-on Qiskit Projects.",
@@ -483,6 +479,10 @@ export const courses: Course[] = [
     rating: 4.8,
     imageId: 'course-cyber-security',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    brochureUrl: "/downloads/cyber-security-brochure.pdf",
+    syllabusUrl: "/downloads/cyber-security-syllabus.pdf",
+    fees: "₹42,000",
+    earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Master End-to-End Cyber Security.",
       "Hands-on Labs (Ethical Hacking, VAPT).",
@@ -537,6 +537,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-data-engineering',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+    brochureUrl: "/downloads/data-engineering-brochure.pdf",
+    syllabusUrl: "/downloads/data-engineering-syllabus.pdf",
+    fees: "₹48,000",
+    earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Learn from Top Industry Engineers.",
       "End-to-End Data Engineering Curriculum.",
@@ -598,6 +602,9 @@ export const courses: Course[] = [
     learningHours: "40-200+ Hours",
     rating: 5.0,
     imageId: 'course-corporate',
+    brochureUrl: "/downloads/corporate-training-brochure.pdf",
+    syllabusUrl: "/downloads/corporate-training-syllabus.pdf",
+    fees: "Custom",
     highlights: [
       "Customized Curriculum: Tools and tools tailored to your needs.",
       "Industry Trainers: Experts with real-world IT experience.",

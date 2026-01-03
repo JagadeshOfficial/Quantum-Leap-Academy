@@ -8,8 +8,8 @@
  * - PersonalizedLearningPathOutput - The return type for the personalizedLearningPath function.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { ai } from '@/ai/genkit';
+import { z } from 'genkit';
 
 const PersonalizedLearningPathInputSchema = z.object({
   currentJobProfile: z
@@ -51,8 +51,8 @@ export async function personalizedLearningPath(
 
 const personalizedLearningPathPrompt = ai.definePrompt({
   name: 'personalizedLearningPathPrompt',
-  input: {schema: PersonalizedLearningPathInputSchema},
-  output: {schema: PersonalizedLearningPathOutputSchema},
+  input: { schema: PersonalizedLearningPathInputSchema },
+  output: { schema: PersonalizedLearningPathOutputSchema },
   prompt: `You are an expert career coach specializing in technology careers.
 
 Based on the student's current job profile, desired career trajectory, and current progress, create a personalized learning path, suggest relevant resources, and generate a high-level roadmap to show the student a career vision.
@@ -61,7 +61,7 @@ Current Job Profile: {{{currentJobProfile}}}
 Desired Career Trajectory: {{{desiredCareerTrajectory}}}
 Current Progress: {{{studentProgress}}}
 
-Consider resources available on Quantum Pod Technologies when listing resources.
+Consider resources available on Mathisi School when listing resources.
 `,
 });
 
@@ -72,7 +72,7 @@ const personalizedLearningPathFlow = ai.defineFlow(
     outputSchema: PersonalizedLearningPathOutputSchema,
   },
   async input => {
-    const {output} = await personalizedLearningPathPrompt(input);
+    const { output } = await personalizedLearningPathPrompt(input);
     return output!;
   }
 );

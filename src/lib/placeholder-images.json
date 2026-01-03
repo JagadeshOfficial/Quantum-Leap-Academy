@@ -20,44 +20,44 @@
     },
     {
       "id": "instructor-1",
-      "description": "Anjali Sharma, AI Research Scientist",
-      "imageUrl": "https://images.unsplash.com/photo-1546961329-78bef0414d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NTkwMjk0OXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman portrait"
+      "description": "Dr. Sarah Mitchell, AI Research Scientist",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+      "imageHint": "woman professional"
     },
     {
       "id": "instructor-bg-1",
-      "description": "Abstract background for Anjali Sharma",
+      "description": "Abstract background for Sarah Mitchell",
       "imageUrl": "https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "abstract gradient"
     },
     {
       "id": "instructor-2",
-      "description": "Rohan Verma, Principal Data Scientist",
-      "imageUrl": "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjU5NDE0MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "man portrait"
+      "description": "David Ross, Principal Data Scientist",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
+      "imageHint": "man professional"
     },
     {
       "id": "instructor-bg-2",
-      "description": "Abstract background for Rohan Verma",
+      "description": "Abstract background for David Ross",
       "imageUrl": "https://images.unsplash.com/photo-1557682224-5b8590b9ec98?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "abstract gradient"
     },
     {
       "id": "instructor-3",
-      "description": "Priya Singh, Quantum Computing Expert",
-      "imageUrl": "https://images.unsplash.com/photo-1701096351544-7de3c7fa0272?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b21hbiUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3NjU5MDYzOTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Emily Zhang, Quantum Computing Expert",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
       "imageHint": "woman professional"
     },
     {
       "id": "instructor-bg-3",
-      "description": "Abstract background for Priya Singh",
+      "description": "Abstract background for Emily Zhang",
       "imageUrl": "https://images.unsplash.com/photo-1557683304-679a6b595d1b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "abstract gradient"
     },
     {
       "id": "instructor-4",
-      "description": "Amit Desai, Cybersecurity Lead",
-      "imageUrl": "https://images.unsplash.com/photo-1720672284660-cfecee298779?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzY1OTI5MDk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Michael Carter, Cybersecurity Lead",
+      "imageUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800",
       "imageHint": "man professional"
     },
     {

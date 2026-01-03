@@ -62,14 +62,45 @@ export default function HirePage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log(values);
-    setIsSubmitting(false);
-    form.reset();
-    toast({
-      title: 'Inquiry Submitted!',
-      description: 'Our talent acquisition team will reach out to you within 24 hours.',
-    });
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.contactName,
+          email: values.email,
+          whatsapp: values.phone,
+          inquiryType: "Hiring Partner Inquiry",
+          message: `Company: ${values.companyName}\nRole: ${values.roleToHire}\nPositions: ${values.positions}\nRequirements: ${values.requirements}`,
+          // We can map fields to the generic message or update API to handle more fields.
+          // For now, packing details into message is safe and robust.
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: 'Inquiry Submitted!',
+          description: 'Our talent acquisition team will reach out to you within 24 hours.',
+        });
+        form.reset();
+      } else {
+        toast({
+          title: 'Submission Failed',
+          description: data.error || 'Something went wrong. Please try again.',
+          variant: 'destructive',
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to connect to the server.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const careersStats = [
@@ -89,9 +120,9 @@ export default function HirePage() {
   ];
 
   const alumni = [
-    { name: 'Aisha', role: 'Data Analyst', company: 'Infosys', story: 'Aisha mastered Python and SQL with us and joined Infosys as a Data Analyst.' },
+    { name: 'Aisha', role: 'Data Analyst', company: 'Oracle', story: 'Aisha mastered Python and SQL with us and joined Oracle as a Data Analyst.' },
     { name: 'Rohit', role: 'Full-Stack Developer', company: 'Wipro', story: 'Rohit focused on MERN stack and secured a developmental role at Wipro.' },
-    { name: 'Meera', role: 'ML Engineer', company: 'SaaS Startup', story: 'Meera specialized in Computer Vision and joined a high-growth AI startup.' },
+    { name: 'Meera', role: 'ML Engineer', company: 'Salesforce', story: 'Meera specialized in Computer Vision and joined Salesforce as an AI Engineer.' },
   ];
 
   const testimonials = [
@@ -99,39 +130,23 @@ export default function HirePage() {
       stars: 5,
       content: "Exceptional talent pool! Candidates were well-trained and project-ready.",
       author: "HR Manager",
-      company: "Mid-Size IT Firm"
+      company: "Deloitte"
     },
     {
       stars: 4,
       content: "Quick hiring process and great support from the team.",
       author: "Tech Recruiter",
-      company: "SaaS Company"
+      company: "Salesforce"
     },
     {
       stars: 5,
       content: "The candidates fit perfectly into our tech stack — highly recommended.",
       author: "Engineering Lead",
-      company: "Startup"
+      company: "Cisco"
     }
   ];
 
-  // Helper to get partner logos - using existing logos from public folder
-  const partnerLogos = [
-    { id: 'ext-amazon', description: 'Amazon', imageUrl: '#' },
-    { id: 'ext-tcs', description: 'TCS', imageUrl: '#' },
-    { id: 'logo-deloitte', description: 'Deloitte', imageUrl: '/Deloitte.png' },
-    { id: 'ext-infosys', description: 'Infosys', imageUrl: '#' },
-    { id: 'logo-ibm', description: 'IBM', imageUrl: '/ibm.webp' },
-    { id: 'logo-wipro', description: 'Wipro', imageUrl: '/Wipro.png' },
-    { id: 'logo-cisco', description: 'Cisco', imageUrl: '/Cisco.png' },
-    { id: 'logo-salesforce', description: 'Salesforce', imageUrl: '/Salesforce.png' },
-    { id: 'logo-oracle', description: 'Oracle', imageUrl: '/oracle.png' },
-    { id: 'ext-accenture', description: 'Accenture', imageUrl: '#' },
-    { id: 'ext-cognizant', description: 'Cognizant', imageUrl: '#' },
-    { id: 'ext-capgemini', description: 'Capgemini', imageUrl: '#' },
-    { id: 'ext-zoho', description: 'Zoho', imageUrl: '#' },
-    { id: 'ext-flipkart', description: 'Flipkart', imageUrl: '#' },
-  ];
+
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
@@ -146,7 +161,7 @@ export default function HirePage() {
 
         <div className="container relative z-10 mx-auto max-w-5xl">
           <Badge variant="outline" className="mb-6 border-primary/50 bg-primary/10 px-4 py-1 text-primary backdrop-blur-sm">
-            Quantum Leap Academy • Talent Partner
+            Mathisi School • Talent Partner
           </Badge>
           <h1 className="mb-8 bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent drop-shadow-sm sm:text-7xl">
             Build Your Tech Team with <br className="hidden md:block" />
@@ -169,28 +184,33 @@ export default function HirePage() {
       </section>
 
       {/* Hiring Partners Section */}
-      <section className="border-y border-slate-800 bg-slate-950 py-16">
+      <section className="bg-slate-50 py-24 border-b border-slate-200">
         <div className="container mx-auto px-4">
-          <p className="mb-10 text-center text-sm font-medium uppercase tracking-widest text-slate-500">
-            Trusted by leading IT companies and fast-growing startups
-          </p>
-          <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
-            <div className="flex animate-infinite-scroll-slow gap-16 group-hover:[animation-play-state:paused]">
-              {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
-                <div key={`${logo.id}-${idx}`} className="flex shrink-0 items-center justify-center rounded-xl bg-white px-6 py-4 shadow-sm transition-all hover:scale-105 hover:shadow-md">
-                  {logo.imageUrl !== '#' ? (
-                    <Image
-                      src={logo.imageUrl}
-                      alt={logo.description}
-                      width={120}
-                      height={40}
-                      className="h-8 object-contain"
-                    />
-                  ) : (
-                    <span className="text-xl font-bold tracking-tighter text-slate-800">
-                      {logo.description}
-                    </span>
-                  )}
+          <div className="text-center mb-12">
+            <h3 className="text-lg font-bold text-slate-400 uppercase tracking-[0.2em]">
+              Trusted by leading IT companies and fast-growing startups
+            </h3>
+          </div>
+          <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+            <div className="flex animate-infinite-scroll-slow gap-16 group-hover:[animation-play-state:paused] items-center">
+              {[...logos, ...logos].map((logo, idx) => (
+                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center w-[160px] h-20 transition-all duration-300 hover:scale-110">
+                  <Image
+                    src={logo.imageUrl}
+                    alt={logo.description}
+                    width={140}
+                    height={60}
+                    className="max-h-12 w-auto max-w-[140px] object-contain"
+                    data-ai-hint={logo.imageHint}
+                  />
+                </div>
+              ))}
+              {/* Text logos from landing page style */}
+              {['Amazon', 'TCS', 'Accenture', 'Infosys', 'Flipkart', 'Zoho'].map((name, idx) => (
+                <div key={`text-logo-${idx}`} className="flex shrink-0 items-center justify-center w-[160px] h-20 transition-all duration-300 hover:scale-110">
+                  <span className="text-2xl font-black tracking-tight text-slate-700">
+                    {name}
+                  </span>
                 </div>
               ))}
             </div>
@@ -261,34 +281,44 @@ export default function HirePage() {
               Professionals trained with us are now leading tech innovations at:
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-8 opacity-60 grayscale filter">
-              {['Infosys', 'Google', 'Amazon', 'Accenture', 'TCS', 'Zoho', 'IBM', 'KPMG', 'PwC'].map(name => (
+              {['Oracle', 'Salesforce', 'Cisco', 'Deloitte', 'HP', 'IBM', 'Wipro'].map(name => (
                 <span key={name} className="text-lg font-bold tracking-tighter">{name}</span>
               ))}
             </div>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {alumni.map((person, idx) => (
-              <Card key={idx} className="bg-background transition-all hover:-translate-y-2 hover:shadow-xl">
-                <CardContent className="p-8">
-                  <Quote className="mb-4 h-8 w-8 text-primary/20" />
-                  <p className="mb-6 italic text-muted-foreground">{person.story}</p>
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-primary">
-                      {person.name[0]}
+            {alumni.map((person, idx) => {
+              const logoUrl = logos.find(p => p.description.includes(person.company))?.imageUrl;
+              return (
+                <Card key={idx} className="bg-background transition-all hover:-translate-y-2 hover:shadow-xl">
+                  <CardContent className="p-8">
+                    <Quote className="mb-4 h-8 w-8 text-primary/20" />
+                    <p className="mb-6 italic text-muted-foreground">{person.story}</p>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-xl font-bold text-primary">
+                        {person.name[0]}
+                      </div>
+                      <div>
+                        <div className="font-bold">{person.name}</div>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-sm text-primary font-medium">{person.role} at</span>
+                          {logoUrl ? (
+                            <img src={logoUrl} alt={person.company} className="h-5 w-auto object-contain" />
+                          ) : (
+                            <span className="text-sm font-bold">{person.company}</span>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-bold">{person.name}</div>
-                      <div className="text-sm text-primary font-medium">{person.role} @ {person.company}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Disciplines Section */}
+      {/* Disciplines Section - (Keeping as is, just context for replace) */}
       <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
@@ -321,23 +351,33 @@ export default function HirePage() {
         <div className="container mx-auto px-4">
           <h2 className="mb-16 text-center text-3xl font-bold">Hear From Our Recruiters</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {testimonials.map((t, idx) => (
-              <div key={idx} className="flex flex-col rounded-3xl bg-slate-900 p-8 border border-white/5 transition-colors hover:border-primary/20">
-                <div className="mb-4 flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`h-5 w-5 ${i < t.stars ? 'fill-yellow-500 text-yellow-500' : 'text-slate-700'}`} />
-                  ))}
-                </div>
-                <p className="mb-8 text-lg text-slate-300">“{t.content}”</p>
-                <div className="mt-auto flex items-center gap-4">
-                  <div className="h-0.5 w-8 bg-primary" />
-                  <div>
-                    <div className="font-bold">{t.author}</div>
-                    <div className="text-sm text-slate-500">{t.company}</div>
+            {testimonials.map((t, idx) => {
+              const logoUrl = logos.find(p => p.description.includes(t.company))?.imageUrl;
+              return (
+                <div key={idx} className="flex flex-col rounded-3xl bg-slate-900 p-8 border border-white/5 transition-colors hover:border-primary/20">
+                  <div className="mb-4 flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className={`h-5 w-5 ${i < t.stars ? 'fill-yellow-500 text-yellow-500' : 'text-slate-700'}`} />
+                    ))}
+                  </div>
+                  <p className="mb-8 text-lg text-slate-300">“{t.content}”</p>
+                  <div className="mt-auto flex items-center gap-4">
+                    <div className="h-0.5 w-8 bg-primary" />
+                    <div>
+                      <div className="font-bold">{t.author}</div>
+                      {logoUrl ? (
+                        <div className="mt-1 h-6 relative w-24">
+                          {/* Using standard img tag for simplicity within this context as Next Image might require width/height or fill wrapping */}
+                          <img src={logoUrl} alt={t.company} className="h-full w-auto object-contain brightness-0 invert opacity-70" />
+                        </div>
+                      ) : (
+                        <div className="text-sm text-slate-500">{t.company}</div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -468,7 +508,7 @@ export default function HirePage() {
         <div className="container mx-auto max-w-4xl px-4 text-center">
           <h2 className="mb-6 text-3xl font-bold sm:text-5xl">Ready to Scale Your Team?</h2>
           <p className="mb-10 text-xl text-muted-foreground">
-            Join 200+ companies already hiring from Quantum Leap Academy.
+            Join 200+ companies already hiring from Mathisi School.
           </p>
           <Button size="lg" className="h-16 px-12 text-xl font-bold shadow-xl" asChild>
             <Link href="#inquiry-form">Start Hiring Now</Link>

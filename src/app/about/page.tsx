@@ -31,22 +31,22 @@ export default function AboutPage() {
   const heroImage = getImage("benefits-image");
   const instructors = [
     {
-      name: "Dr. Anjali Sharma",
+      name: "Dr. Sarah Mitchell",
       title: "AI Research Scientist",
       imageId: "instructor-1",
     },
     {
-      name: "Rohan Verma",
+      name: "David Ross",
       title: "Principal Data Scientist",
       imageId: "instructor-2",
     },
     {
-      name: "Priya Singh",
+      name: "Emily Zhang",
       title: "Quantum Computing Expert",
       imageId: "instructor-3",
     },
     {
-      name: "Amit Desai",
+      name: "Michael Carter",
       title: "Cybersecurity Lead",
       imageId: "instructor-4",
     },
@@ -113,7 +113,7 @@ export default function AboutPage() {
         <div className="container relative z-10 mx-auto flex h-full items-center justify-center px-4">
           <div className="text-center text-white">
             <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-md md:text-6xl">
-              About Mathisi Academy
+              About Mathisi School
             </h1>
             <p className="mt-4 text-lg drop-shadow md:text-xl">
               Empowering the next generation of tech leaders.
@@ -128,7 +128,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold">Our Story</h2>
               <p className="mt-4 text-muted-foreground">
-                Mathisi Academy was founded with the vision of bridging
+                Mathisi School was founded with the vision of bridging
                 the gap between academic learning and industry requirements. We
                 saw countless talented individuals struggling to break into
                 the tech world due to a lack of practical, job-ready skills.

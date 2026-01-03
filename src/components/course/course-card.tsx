@@ -42,31 +42,31 @@ export function CourseCard({ course }: CourseCardProps) {
     };
 
     return (
-        <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-xl">
+        <Card className="group flex flex-col overflow-hidden border-0 bg-white shadow-lg shadow-slate-200/50 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-200/50">
             <div
-                className="relative h-48 w-full cursor-pointer group"
+                className="relative h-56 w-full cursor-pointer overflow-hidden"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
-                {/* Static Image (always rendered behind to prevent white flash) */}
+                {/* Static Image */}
                 {courseImage && (
                     <Image
                         src={courseImage.imageUrl}
                         alt={course.name}
                         fill
-                        className={`object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}
+                        className={`object-cover transition-all duration-500 group-hover:scale-105 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}
                         data-ai-hint={courseImage.imageHint}
                     />
                 )}
 
-                {/* Play Icon Overlay (visible when not playing) */}
-                <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>
-                    <div className="rounded-full bg-white/20 p-2 backdrop-blur-sm transition-transform group-hover:scale-110">
-                        <PlayCircle className="h-10 w-10 text-white fill-white/20" />
+                {/* Play Icon Overlay */}
+                <div className={`absolute inset-0 flex items-center justify-center bg-black/10 transition-all duration-300 group-hover:bg-black/20 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                        <PlayCircle className="h-6 w-6 text-blue-600 fill-blue-600/10" />
                     </div>
                 </div>
 
-                {/* Video Element (visible when playing) */}
+                {/* Video */}
                 <video
                     ref={videoRef}
                     src={course.videoPreview}
@@ -75,36 +75,41 @@ export function CourseCard({ course }: CourseCardProps) {
                     playsInline
                     loop
                 />
+
+                <div className="absolute bottom-3 left-3 flex gap-2">
+                    <Badge variant="secondary" className="bg-white/90 text-xs font-semibold text-slate-800 backdrop-blur-md hover:bg-white">
+                        Placement Assistance
+                    </Badge>
+                </div>
             </div>
 
             <CardContent className="flex flex-grow flex-col p-6">
-                <h3 className="text-xl font-bold line-clamp-2 min-h-[56px]">{course.name}</h3>
-                <div className="mt-4 flex-grow space-y-3 text-sm text-muted-foreground">
-                    <p className="flex items-center gap-2">
-                        <span className="font-semibold text-foreground">Duration:</span> {course.duration}
-                    </p>
-                    <div className="flex items-center">
-                        <span className="font-bold text-foreground">{course.rating}</span>
-                        <Star className="ml-1 h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="ml-2">({course.reviews.length}K+ Reviews)</span>
-                    </div>
-                    <Badge variant="secondary" className="w-fit">
-                        Placement Assistance
-                    </Badge>
-                    <p className="text-xs text-muted-foreground pt-1">
-                        {course.enrolledStudents.toLocaleString()}+ students currently enrolled
-                    </p>
+                <div className="mb-2 flex items-center justify-between text-xs font-medium text-slate-500">
+                    <span className="flex items-center gap-1"><span className="h-1.5 w-1.5 rounded-full bg-green-500"></span> Live Classes</span>
+                    <span>{course.duration}</span>
                 </div>
-                <div className="mt-6 grid grid-cols-2 gap-3">
+
+                <h3 className="mb-2 min-h-[56px] text-xl font-bold leading-tight text-slate-900 group-hover:text-blue-600 transition-colors">{course.name}</h3>
+
+                <div className="mb-6 flex items-center gap-2 text-sm">
+                    <div className="flex items-center text-yellow-500">
+                        <span className="font-bold">{course.rating}</span>
+                        <Star className="ml-1 h-3.5 w-3.5 fill-current" />
+                    </div>
+                    <span className="text-slate-400">|</span>
+                    <span className="text-slate-500">{course.reviews.length}K+ reviews</span>
+                </div>
+
+                <div className="mt-auto grid grid-cols-2 gap-3">
                     <Button
                         variant="outline"
-                        className="w-full text-xs font-semibold uppercase tracking-wider h-10 border-primary/20 hover:border-primary hover:bg-primary/5"
+                        className="h-10 w-full border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-600 hover:border-blue-600 hover:text-blue-600"
                     >
                         Brochure
                     </Button>
                     <Button
                         asChild
-                        className="w-full text-xs font-semibold uppercase tracking-wider h-10"
+                        className="h-10 w-full bg-slate-900 text-xs font-bold uppercase tracking-wider text-white hover:bg-blue-600 shadow-md shadow-slate-200"
                     >
                         <Link href={`/courses/${course.slug}`}>View Course</Link>
                     </Button>

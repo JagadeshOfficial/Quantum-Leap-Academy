@@ -1,4 +1,4 @@
-import type {Config} from 'tailwindcss';
+import type { Config } from 'tailwindcss';
 
 export default {
   darkMode: ['class'],
@@ -71,32 +71,50 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'infinite-scroll-slow': 'infinite-scroll-slow 60s linear infinite',
+        'spin-slow': 'spin 10s linear infinite',
+        shimmer: 'shimmer 2s linear infinite',
+        float: 'float 6s ease-in-out infinite',
+        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
+        'background-shine': 'background-shine 2s linear infinite',
+      },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
         },
         'infinite-scroll-slow': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        'infinite-scroll-slow': 'infinite-scroll-slow 60s linear infinite',
+        shimmer: {
+          from: { backgroundPosition: '0 0' },
+          to: { backgroundPosition: '-200% 0' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'border-beam': {
+          '100%': {
+            'offset-distance': '100%',
+          },
+        },
+        'background-shine': {
+          from: {
+            backgroundPosition: '0 0',
+          },
+          to: {
+            backgroundPosition: '-200% 0',
+          },
+        },
       },
     },
   },

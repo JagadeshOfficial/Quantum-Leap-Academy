@@ -1,0 +1,9 @@
+STEP 1: Create a new file in this directory named ".env.local"
+STEP 2: Paste the following content into it:
+
+# Email Configuration for Nodemailer
+# Use an App Password if using Gmail (https://myaccount.google.com/apppasswords)
+EMAIL_USER=akshjavahub@gmail.com
+EMAIL_PASS=your_app_password_here
+
+STEP 3: Replace 'your_app_password_here' with your actual Gmail App Password.

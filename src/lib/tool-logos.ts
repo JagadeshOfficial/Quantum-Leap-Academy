@@ -24,6 +24,7 @@ export const toolLogos: ToolLogo[] = [
   { name: "Google Sheets", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/512px-Google_Sheets_logo_%282014-2020%29.svg.png", imageHint: "Google Sheets logo" },
   { name: "Python (Intro)", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", imageHint: "Python language logo" },
   { name: "Data Studio", imageUrl: "https://www.gstatic.com/analytics-suite/header/suite/v2/ic_analytics.svg", imageHint: "Google Analytics/Data Studio logo" },
+  { name: "ChatGPT", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", imageHint: "ChatGPT logo" },
 
   // AI/ML
   { name: "TensorFlow", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", imageHint: "TensorFlow logo" },

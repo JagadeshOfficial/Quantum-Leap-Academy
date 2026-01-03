@@ -1,46 +1,71 @@
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function LoginPage() {
+  // Rich Coding Workspace Image - "Get to Work" vibe
+  const loginImage = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop";
+
   return (
-    <div className="flex items-center justify-center py-24">
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="m@example.com" required />
+    <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px] h-screen">
+      <div className="flex items-center justify-center py-12 bg-background animate-in slide-in-from-right-10 duration-700 fade-in">
+        <div className="mx-auto grid w-[350px] gap-6">
+          <div className="grid gap-2 text-center">
+            <h1 className="text-3xl font-bold tracking-tight">Login</h1>
+            <p className="text-balance text-muted-foreground text-sm">
+              Enter your email below to login to your account.
+            </p>
           </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" required />
+          <div className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <div className="flex items-center">
+                <Label htmlFor="password">Password</Label>
+                <Link
+                  href="/forgot-password"
+                  className="ml-auto inline-block text-sm underline text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
+              <Input id="password" type="password" required />
+            </div>
+            <Button type="submit" className="w-full">
+              Login
+            </Button>
           </div>
-        </CardContent>
-        <CardFooter className="flex flex-col gap-4">
-          <Button className="w-full">Sign in</Button>
-          <div className="text-center text-sm">
+          <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
-            <Link href="/signup" className="underline">
+            <Link href="/signup" className="underline font-medium hover:text-primary transition-colors">
               Sign up
             </Link>
           </div>
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
+      <div className="hidden lg:block relative overflow-hidden bg-slate-900 border-r border-slate-800 lg:order-first">
+        <div className="absolute inset-0 bg-indigo-500/10 mix-blend-overlay z-10" />
+        <Image
+          src={loginImage}
+          alt="Future of Learning"
+          fill
+          className="h-full w-full object-cover opacity-90 animate-in zoom-in-105 duration-[2000ms]"
+          priority
+        />
+        <div className="absolute bottom-10 right-10 z-20 max-w-md p-6 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 text-white text-right animate-in slide-in-from-bottom-10 fade-in duration-1000 delay-300">
+          <h3 className="text-xl font-bold mb-2">Welcome Back</h3>
+          <p className="text-sm text-slate-200">Continue your journey to mastery with Mathisi School.</p>
+        </div>
+      </div>
     </div>
   )
 }

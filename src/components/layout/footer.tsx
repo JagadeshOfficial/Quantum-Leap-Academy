@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import { MathisiLogo } from "@/components/brand/logo";
+import { Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
   const offerings = [
@@ -42,6 +43,28 @@ export function Footer() {
             <p className="max-w-xs text-sm text-muted-foreground">
               Elite training in Data Science, Cybersecurity, Generative AI, and Quantum Computing.
             </p>
+            <div className="flex space-x-4">
+              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </Link>
+              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Twitter className="h-5 w-5" />
+                <span className="sr-only">Twitter</span>
+              </Link>
+              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </Link>
+              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
+              </Link>
+              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+                <Youtube className="h-5 w-5" />
+                <span className="sr-only">YouTube</span>
+              </Link>
+            </div>
           </div>
           <div>
             <h3 className="font-semibold tracking-wider text-foreground/80">Our Offerings</h3>
@@ -100,7 +123,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Mathisi Academy. All rights reserved.
+          © {new Date().getFullYear()} Mathisi School. All rights reserved.
         </div>
       </div>
     </footer>

@@ -29,7 +29,7 @@ export function ChatWidget() {
         {
             id: "1",
             role: "bot",
-            content: "Hello! Welcome to Mathisi Academy. How can I assist you today?",
+            content: "Hello! Welcome to Mathisi School. How can I assist you today?",
             options: ["Explore Courses", "Enrollment Process", "Talk to Support"],
         },
     ]);
@@ -138,7 +138,7 @@ export function ChatWidget() {
 
     const openWhatsApp = () => {
         const adminNumber = "919014985626"; // Updated admin number
-        const text = `Hi Mathisi Academy, I am ${leadData.name}. I'm interested in ${leadData.inquiryType}. My email is ${leadData.email}. Please help me with more info.`;
+        const text = `Hi Mathisi School, I am ${leadData.name}. I'm interested in ${leadData.inquiryType}. My email is ${leadData.email}. Please help me with more info.`;
         window.open(`https://wa.me/${adminNumber}?text=${encodeURIComponent(text)}`, '_blank');
     };
 
