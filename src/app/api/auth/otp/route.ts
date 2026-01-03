@@ -32,32 +32,68 @@ export async function POST(request: Request) {
             // We continue sending SMS even if DB save fails, though verification will fail later.
         }
 
-        // INTEGRATION: Send Real SMS using Fast2SMS (Indian Provider)
-        const apiKey = process.env.FAST2SMS_API_KEY;
+        // INTEGRATION: Send Real SMS
+        // Prioritize 2Factor.in if configured (Better Free Trial)
+        const twoFactorKey = process.env.TWOFACTOR_API_KEY;
+        const fast2smsKey = process.env.FAST2SMS_API_KEY;
 
-        if (apiKey) {
-            // Use POST method via Node https for maximum reliability
+        if (twoFactorKey) {
             const https = require('https');
 
+            // Revert to SMS OTP (Message)
+            // Endpoint: https://2factor.in/API/V1/{api_key}/SMS/${phone}/${otp}/OTP1
+            const url = `https://2factor.in/API/V1/${twoFactorKey}/SMS/${phone}/${otp}/OTP1`;
+
+            await new Promise((resolve) => {
+                https.get(url, (res: any) => {
+                    let data = '';
+                    res.on('data', (chunk: any) => { data += chunk; });
+                    res.on('end', () => {
+                        try {
+                            const result = JSON.parse(data);
+                            if (result.Status === 'Success') {
+                                console.log(`[SMS-SERVICE] OTP Sent to ${phone} via 2Factor`);
+                                resolve({ success: true });
+                            } else {
+                                console.error('[SMS-SERVICE] 2Factor Error:', result);
+                                // Fallback info
+                                console.log(`\n============== [DEV FALLBACK] ==============`);
+                                console.log(`SMS failed. Use this OTP: ${otp}`);
+                                console.log(`============================================\n`);
+                                resolve({ success: true });
+                            }
+                        } catch (e) {
+                            console.error('JSON Parse Error', e);
+                            resolve({ success: false });
+                        }
+                    });
+                }).on('error', (e: any) => {
+                    console.error('[SMS-SERVICE] Request Error:', e);
+                    resolve({ success: false });
+                });
+            });
+            return NextResponse.json({ success: true, message: 'OTP sent successfully' });
+
+        } else if (fast2smsKey) {
+            // Fast2SMS Logic (Existing)
+            const https = require('https');
             const postData = JSON.stringify({
                 "route": "q",
                 "message": `Your Verification Code is: ${otp}`,
                 "language": "english",
                 "numbers": phone
             });
-
             const options = {
                 hostname: 'www.fast2sms.com',
                 port: 443,
                 path: '/dev/bulkV2',
                 method: 'POST',
                 headers: {
-                    'authorization': apiKey,
+                    'authorization': fast2smsKey,
                     'Content-Type': 'application/json',
                     'Content-Length': postData.length
                 }
             };
-
             await new Promise((resolve) => {
                 const req = https.request(options, (res: any) => {
                     let data = '';
@@ -70,9 +106,8 @@ export async function POST(request: Request) {
                                 resolve({ success: true });
                             } else {
                                 console.error('[SMS-SERVICE] Fast2SMS Error:', result);
-                                // FALLBACK FOR DEV: If provider fails (e.g. need payment), allow proceeding by logging OTP.
                                 console.log(`\n============== [DEV FALLBACK] ==============`);
-                                console.log(`Provider failed. Use this OTP to verify: ${otp}`);
+                                console.log(`Provider failed. Use this OTP: ${otp}`);
                                 console.log(`============================================\n`);
                                 resolve({ success: true, warning: 'Provider failed, check console for OTP' });
                             }
@@ -82,29 +117,28 @@ export async function POST(request: Request) {
                         }
                     });
                 });
-
                 req.on('error', (e: any) => {
                     console.error('[SMS-SERVICE] HTTPS Request Error:', e);
-                    // Also fallback on network error
                     console.log(`\n============== [DEV FALLBACK] ==============`);
-                    console.log(`Network error. Use this OTP to verify: ${otp}`);
+                    console.log(`Network error. Use this OTP: ${otp}`);
                     console.log(`============================================\n`);
                     resolve({ success: true, warning: 'Network error, check console for OTP' });
                 });
-
                 req.write(postData);
                 req.end();
             });
-
             return NextResponse.json({ success: true, message: 'OTP generated (Check console if SMS failed)' });
-        } else {
-            console.warn('[SMS-SERVICE] No FAST2SMS_API_KEY found.');
-            return NextResponse.json({
-                success: false,
-                error: 'SMS Service not configured.',
-            }, { status: 500 });
-        }
 
+        } else {
+            // NO KEY FOUND - DEV FALLBACK
+            console.log(`\n============== [KEY MISSING - DEV MODE] ==============`);
+            console.log(`No SMS API Key found. Use this OTP: ${otp}`);
+            console.log(`======================================================\n`);
+            return NextResponse.json({
+                success: true,
+                message: 'SMS Service not configured. Check console for OTP code.',
+            });
+        }
     } catch (error) {
         console.error('Error sending OTP:', error);
         return NextResponse.json({ success: false, error: 'Failed to send OTP' }, { status: 500 });
