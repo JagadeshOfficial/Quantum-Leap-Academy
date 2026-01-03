@@ -28,7 +28,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <MathisiLogo className="h-16" />
+            <MathisiLogo className="h-14" />
           </Link>
         </div>
 
