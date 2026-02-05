@@ -602,6 +602,7 @@ export const courses: Course[] = [
     learningHours: "40-200+ Hours",
     rating: 5.0,
     imageId: 'course-corporate',
+    videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
     brochureUrl: "/downloads/corporate-training-brochure.pdf",
     syllabusUrl: "/downloads/corporate-training-syllabus.pdf",
     fees: "Custom",

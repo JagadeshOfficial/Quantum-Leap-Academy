@@ -140,8 +140,8 @@ export function DownloadBrochureButton({ course, className, variant = "default",
         doc.setProperties({
             title: `${course.name} Brochure`,
             subject: course.tagline,
-            author: 'Quantum Leap Academy',
-            creator: 'Quantum Leap Academy'
+            author: 'Mathisi - School of AI',
+            creator: 'Mathisi - School of AI'
         });
 
         const pageWidth = doc.internal.pageSize.getWidth();
@@ -154,7 +154,7 @@ export function DownloadBrochureButton({ course, className, variant = "default",
         // Logo / Brand
         doc.setTextColor(255, 255, 255);
         doc.setFontSize(12);
-        doc.text("Quantum Leap Academy", pageWidth / 2, 20, { align: "center" });
+        doc.text("Mathisi - School of AI", pageWidth / 2, 20, { align: "center" });
 
         // Course Title
         doc.setFontSize(28);
@@ -219,8 +219,8 @@ export function DownloadBrochureButton({ course, className, variant = "default",
         doc.setFontSize(10);
         doc.setTextColor(100, 116, 139);
         doc.text("Start your journey with us today!", 15, footerY);
-        doc.text("Contact: admissions@quantumleapacademy.com", 15, footerY + 6);
-        doc.text("Website: www.quantumleapacademy.com", 15, footerY + 12);
+        doc.text("Contact: admissions@mathisiaiquantum.com", 15, footerY + 6);
+        doc.text("Website: www.mathisischool.in", 15, footerY + 12);
 
         savePdf(doc, `${course.slug}-brochure.pdf`);
     };

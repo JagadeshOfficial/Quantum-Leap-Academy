@@ -44,23 +44,19 @@ export function Footer() {
               Elite training in Data Science, Cybersecurity, Generative AI, and Quantum Computing.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+              <Link href="https://www.linkedin.com/company/mathisiedtech" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
-              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+              <Link href="https://x.com/MathisiEdtech" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+              <Link href="https://www.instagram.com/mathisi.edtech/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground transition-colors hover:text-primary">
+              <Link href="https://www.youtube.com/channel/UCtIyFuzPH8VwnB4MYyANBZw" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Youtube className="h-5 w-5" />
                 <span className="sr-only">YouTube</span>
               </Link>

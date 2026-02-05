@@ -57,6 +57,41 @@ export async function submitCareerSession(formData: FormData) {
       `,
     });
 
+    // --- Persistence Logic ---
+    try {
+      const fs = require('fs/promises');
+      const path = require('path');
+      const dataFilePath = path.join(process.cwd(), 'src', 'data', 'leads.json');
+
+      let currentData = [];
+      try {
+        const fileContent = await fs.readFile(dataFilePath, 'utf-8');
+        currentData = JSON.parse(fileContent);
+        if (!Array.isArray(currentData)) currentData = [];
+      } catch (err) {
+        // File might not exist or be empty, default to []
+        currentData = [];
+      }
+
+      const newLead = {
+        id: Date.now().toString(),
+        name,
+        email,
+        phone,
+        domain,
+        source: "Career Counseling Popup",
+        timestamp: new Date().toISOString()
+      };
+
+      currentData.push(newLead);
+      await fs.writeFile(dataFilePath, JSON.stringify(currentData, null, 2));
+
+    } catch (fsError) {
+      console.error("Failed to save lead to disk:", fsError);
+      // We don't block the response here, email might still persist
+    }
+    // -------------------------
+
     return { success: true, message: "Booking successful!" };
   } catch (error) {
     console.error("Email Error:", error);

@@ -193,6 +193,18 @@
       "imageHint": "company logo"
     },
     {
+      "id": "logo-facebook",
+      "description": "Facebook Logo",
+      "imageUrl": "/Facebook.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "logo-cisco",
+      "description": "Cisco Logo",
+      "imageUrl": "/Cisco.png",
+      "imageHint": "company logo"
+    },
+    {
       "id": "course-data-science",
       "description": "Data Science Course Image",
       "imageUrl": "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkYXRhJTIwbmV0d29ya3xlbnwwfHx8fDE3NjU5MDgzNTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -235,10 +247,70 @@
       "imageHint": "data pipeline"
     },
     {
+      "id": "course-corporate",
+      "description": "Corporate Training Course Image",
+      "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb3Jwb3JhdGUlMjBtZWV0aW5nfGVufDB8fHx8MTc2NTk3MzU5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate meeting"
+    },
+    {
+      "id": "icon-mentorship",
+      "description": "Menotorship Icon",
+      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/mentorship-5496739-4578135.png",
+      "imageHint": "mentoring 3d"
+    },
+    {
+      "id": "icon-real-projects",
+      "description": "Projects Icon",
+      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/project-management-4663842-3882747.png",
+      "imageHint": "project management 3d"
+    },
+    {
+      "id": "icon-placement",
+      "description": "Placement Icon",
+      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/job-search-5361288-4488663.png",
+      "imageHint": "job search 3d"
+    },
+    {
+      "id": "icon-support",
+      "description": "Support Icon",
+      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/customer-support-4309832-3580436.png",
+      "imageHint": "customer support 3d"
+    },
+    {
+      "id": "icon-capstone",
+      "description": "Capstone Project Image",
+      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+      "imageHint": "project team"
+    },
+    {
+      "id": "icon-case-study",
+      "description": "Case Study Image",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+      "imageHint": "data analysis"
+    },
+    {
       "id": "map-image",
       "description": "A stylized map showing a location.",
       "imageUrl": "https://images.unsplash.com/photo-1569336415962-a42945a473ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "city map"
+    },
+    {
+      "id": "trainer-maulika",
+      "description": "Maulika Modi",
+      "imageUrl": "/trainers/Maulika%20Modi.jpg",
+      "imageHint": "Maulika Modi"
+    },
+    {
+      "id": "trainer-tamanna",
+      "description": "Dr. Tamanna Sood",
+      "imageUrl": "/trainers/Tamanna%20Sood.jpg",
+      "imageHint": "Tamanna Sood"
+    },
+    {
+      "id": "trainer-keerthana",
+      "description": "Keerthana Eganathan",
+      "imageUrl": "/trainers/Keerthana%20Eganathan.jpg",
+      "imageHint": "Keerthana Eganathan"
     }
   ]
 }

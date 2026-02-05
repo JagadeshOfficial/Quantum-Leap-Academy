@@ -23,11 +23,11 @@ export function MathisiLogo({ className = "h-14", showTagline = true }: LogoProp
             {/* Brand Name Text */}
             <div className="flex flex-col justify-center">
                 <span className="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 leading-none">
-                    MATHISI
+                    Mathisi
                 </span>
                 {showTagline && (
-                    <span className="text-[0.65rem] font-bold tracking-[0.2em] text-indigo-600 dark:text-indigo-400 uppercase leading-tight ml-0.5">
-                        &mdash; SCHOOL
+                    <span className="text-sm font-bold tracking-wide text-indigo-600 dark:text-indigo-400 leading-tight">
+                        School of AI
                     </span>
                 )}
             </div>

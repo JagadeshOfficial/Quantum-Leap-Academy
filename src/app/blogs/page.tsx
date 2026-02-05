@@ -27,6 +27,7 @@ const blogPosts = [
     slug: "the-future-of-ai-in-education",
     title: "The Future of AI in Education: A 2025 Outlook",
     excerpt: "Explore how Artificial Intelligence is set to revolutionize the learning landscape, from personalized student paths to automated grading and beyond.",
+    content: "Artificial Intelligence is reshaping education by enabling hyper-personalized learning experiences. In 2025, we expect AI to move beyond simple tutoring systems to comprehensive adaptive learning platforms that adjust in real-time to a student's pace and style. This shift will democratize high-quality education, making it accessible to learners worldwide while freeing up educators to focus on mentorship and complex problem-solving.",
     category: "AI/ML",
     author: "Dr. Anjali Sharma",
     authorImageId: "instructor-1",
@@ -38,6 +39,7 @@ const blogPosts = [
     slug: "demystifying-quantum-computing",
     title: "Demystifying Quantum Computing: A Beginner's Guide",
     excerpt: "Quantum computing sounds like science fiction, but its impact is closer than you think. This guide breaks down the core concepts.",
+    content: "Quantum computing leverages the principles of quantum mechanics to solve problems that are intractable for classical computers. By using qubits instead of bits, these machines can perform massive parallel computations. Key concepts like superposition and entanglement are the building blocks of this technology, promising breakthroughs in cryptography, material science, and drug discovery.",
     category: "Emerging Tech",
     author: "Priya Singh",
     authorImageId: "instructor-3",
@@ -49,6 +51,7 @@ const blogPosts = [
     slug: "top-5-skills-for-data-analysts",
     title: "The Top 5 Skills Every Data Analyst Needs in 2025",
     excerpt: "The demand for data analysts is booming. We break down the top 5 essential skills you need to master to land your dream job.",
+    content: "As data becomes the new oil, the role of a Data Analyst is evolving. The top 5 skills for 2025 include: 1) Advanced SQL and Database Management, 2) Proficiency in Python or R for statistical analysis, 3) Data Visualization using tools like Tableau or PowerBI, 4) Understanding of Machine Learning basics, and 5) Strong storytelling abilities to communicate insights effectively to stakeholders.",
     category: "Data Analysis",
     author: "Rohan Verma",
     authorImageId: "instructor-2",
@@ -56,10 +59,11 @@ const blogPosts = [
     date: "Oct 5, 2025",
     featured: false,
   },
-    {
+  {
     slug: "building-secure-applications-in-the-cloud",
     title: "Building Secure Applications in the Cloud",
     excerpt: "Cloud security is more critical than ever. Learn the best practices for developing, deploying, and managing secure applications.",
+    content: "Security in the cloud is a shared responsibility. Building secure applications requires a 'security-first' mindset from the design phase. Best practices include implementing robust Identity and Access Management (IAM), encrypting data both at rest and in transit, regularly scanning for vulnerabilities, and adopting a DevSecOps culture where security is integrated into the CI/CD pipeline.",
     category: "Security",
     author: "Amit Desai",
     authorImageId: "instructor-4",
@@ -76,11 +80,11 @@ export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const featuredPost = blogPosts.find(p => p.featured);
-  
+
   const filteredPosts = blogPosts.filter(post => {
     const isInCategory = selectedCategory === 'All' || post.category === selectedCategory;
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
     return !post.featured && isInCategory && matchesSearch;
   });
 
@@ -95,121 +99,122 @@ export default function BlogPage() {
         </p>
       </div>
 
-       <div className="mb-12 flex flex-col items-center gap-4 md:flex-row">
+      <div className="mb-12 flex flex-col items-center gap-4 md:flex-row">
         <div className="relative w-full max-w-sm">
-            <Input 
-              placeholder="Search articles..." 
-              className="pl-10"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground"/>
+          <Input
+            placeholder="Search articles..."
+            className="pl-10"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
-            {categories.map(cat => (
-                <Button 
-                  key={cat} 
-                  variant={selectedCategory === cat ? 'default' : 'outline'}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                    {cat}
-                </Button>
-            ))}
+          {categories.map(cat => (
+            <Button
+              key={cat}
+              variant={selectedCategory === cat ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </Button>
+          ))}
         </div>
       </div>
-      
+
       {featuredPost && (
-         <Card className="mb-12 grid grid-cols-1 overflow-hidden md:grid-cols-2">
-            <div className="relative h-64 w-full md:h-auto">
-                {getImage(featuredPost.postImageId) && (
-                    <Image 
-                        src={getImage(featuredPost.postImageId)!.imageUrl} 
-                        alt={featuredPost.title} 
-                        fill
-                        className="object-cover"
-                        data-ai-hint={getImage(featuredPost.postImageId)!.imageHint}
-                    />
-                )}
-            </div>
-            <div className="flex flex-col p-6">
-                <Badge variant="secondary" className="mb-4 w-fit">{featuredPost.category}</Badge>
-                <h2 className="text-2xl font-bold">{featuredPost.title}</h2>
-                <p className="mt-2 flex-grow text-muted-foreground">{featuredPost.excerpt}</p>
-                <div className="mt-6 flex items-center justify-between">
-                     <div className="flex items-center gap-3">
-                        {getImage(featuredPost.authorImageId) && <Avatar className="h-10 w-10">
-                            <AvatarImage src={getImage(featuredPost.authorImageId)?.imageUrl} alt={featuredPost.author} />
-                            <AvatarFallback>{featuredPost.author.charAt(0)}</AvatarFallback>
-                        </Avatar>}
-                        <div>
-                            <p className="font-semibold">{featuredPost.author}</p>
-                            <p className="text-sm text-muted-foreground">{featuredPost.date}</p>
-                        </div>
-                    </div>
-                     <Button variant="link" asChild>
-                        <Link href={`/blogs/${featuredPost.slug}`}>
-                            Read More <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                    </Button>
+        <Card className="mb-12 grid grid-cols-1 overflow-hidden md:grid-cols-2">
+          <div className="relative h-64 w-full md:h-auto">
+            {getImage(featuredPost.postImageId) && (
+              <Image
+                src={getImage(featuredPost.postImageId)!.imageUrl}
+                alt={featuredPost.title}
+                fill
+                className="object-cover"
+                data-ai-hint={getImage(featuredPost.postImageId)!.imageHint}
+              />
+            )}
+          </div>
+          <div className="flex flex-col p-6">
+            <Badge variant="secondary" className="mb-4 w-fit">{featuredPost.category}</Badge>
+            <h2 className="text-2xl font-bold">{featuredPost.title}</h2>
+            <p className="mt-2 flex-grow text-muted-foreground">{featuredPost.excerpt}</p>
+            <div className="mt-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                {getImage(featuredPost.authorImageId) && <Avatar className="h-10 w-10">
+                  <AvatarImage src={getImage(featuredPost.authorImageId)?.imageUrl} alt={featuredPost.author} />
+                  <AvatarFallback>{featuredPost.author.charAt(0)}</AvatarFallback>
+                </Avatar>}
+                <div>
+                  <p className="font-semibold">{featuredPost.author}</p>
+                  <p className="text-sm text-muted-foreground">{featuredPost.date}</p>
                 </div>
+              </div>
+              <Button variant="link" asChild>
+                <Link href={`/blogs/${featuredPost.slug}`}>
+                  Read More <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
-         </Card>
+          </div>
+        </Card>
       )}
 
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {filteredPosts.map((post) => {
-           const postImage = getImage(post.postImageId);
-           const authorImage = getImage(post.authorImageId);
-           return (
+          const postImage = getImage(post.postImageId);
+          const authorImage = getImage(post.authorImageId);
+          return (
             <Card key={post.slug} className="group flex flex-col overflow-hidden">
-                 {postImage && <div className="relative h-48 w-full">
-                    <Image
-                        src={postImage.imageUrl}
-                        alt={post.title}
-                        data-ai-hint={postImage.imageHint}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                </div>}
-                <CardHeader>
-                    <Badge variant="secondary" className="mb-2 w-fit">{post.category}</Badge>
-                    <h3 className="text-xl font-bold group-hover:text-primary">
-                        <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
-                    </h3>
-                </CardHeader>
+              {postImage && <div className="relative h-48 w-full">
+                <Image
+                  src={postImage.imageUrl}
+                  alt={post.title}
+                  data-ai-hint={postImage.imageHint}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>}
+              <CardHeader>
+                <Badge variant="secondary" className="mb-2 w-fit">{post.category}</Badge>
+                <h3 className="text-xl font-bold group-hover:text-primary">
+                  <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
+                </h3>
+              </CardHeader>
               <CardContent className="flex-grow">
                 <p className="text-muted-foreground line-clamp-3">{post.excerpt}</p>
               </CardContent>
-               <CardFooter className="flex items-center justify-between">
-                 <div className="flex items-center gap-3">
-                    {authorImage && <Avatar className="h-8 w-8">
-                        <AvatarImage src={authorImage.imageUrl} alt={post.author} />
-                        <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
-                    </Avatar>}
-                    <div>
-                        <p className="text-sm font-semibold">{post.author}</p>
-                        <p className="text-xs text-muted-foreground">{post.date}</p>
-                    </div>
+              <CardFooter className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  {authorImage && <Avatar className="h-8 w-8">
+                    <AvatarImage src={authorImage.imageUrl} alt={post.author} />
+                    <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
+                  </Avatar>}
+                  <div>
+                    <p className="text-sm font-semibold">{post.author}</p>
+                    <p className="text-xs text-muted-foreground">{post.date}</p>
+                  </div>
                 </div>
-                 <Button variant="ghost" size="icon" asChild>
-                    <Link href={`/blogs/${post.slug}`}>
-                        <ArrowRight className="h-4 w-4" />
-                    </Link>
+                <Button variant="ghost" size="icon" asChild>
+                  <Link href={`/blogs/${post.slug}`}>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>
-        )})}
+          )
+        })}
       </div>
       {filteredPosts.length === 0 && !featuredPost && (
-         <div className="mt-16 text-center text-muted-foreground">
-              <p>No articles found. Try adjusting your search or filter.</p>
-         </div>
+        <div className="mt-16 text-center text-muted-foreground">
+          <p>No articles found. Try adjusting your search or filter.</p>
+        </div>
       )}
 
-       <div className="mt-16 text-center">
-            <Button variant="outline">Load More Articles</Button>
-        </div>
+      <div className="mt-16 text-center">
+        <Button variant="outline">Load More Articles</Button>
+      </div>
     </div>
   );
 }

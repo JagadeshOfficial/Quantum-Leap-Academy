@@ -164,13 +164,13 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
           {/* Overview */}
           <section id="overview" className="scroll-mt-24 space-y-6">
-            <h2 className="text-3xl font-bold text-slate-900">Why Choose This Course?</h2>
+            <h2 className="text-3xl font-bold text-slate-900">Why Choose Mathisi?</h2>
 
             <div className="grid gap-6 sm:grid-cols-2">
               {/* 1:1 Mentorship Card */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-indigo-50/50 p-5 shadow-sm">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
-                  <Users className="h-5 w-5" />
+                <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
+                  {getImage("icon-mentorship") && <Image src={getImage("icon-mentorship")!.imageUrl} alt="Mentorship" width={40} height={40} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">1:1 Mentorship</h3>
@@ -180,8 +180,8 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
               {/* Real Projects Card */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100 text-green-600">
-                  <Briefcase className="h-5 w-5" />
+                <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
+                  {getImage("icon-real-projects") && <Image src={getImage("icon-real-projects")!.imageUrl} alt="Projects" width={40} height={40} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">Live Projects</h3>
@@ -191,8 +191,8 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
               {/* Placement Support */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-                  <Award className="h-5 w-5" />
+                <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
+                  {getImage("icon-placement") && <Image src={getImage("icon-placement")!.imageUrl} alt="Placement" width={40} height={40} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">Placement Support</h3>
@@ -202,8 +202,8 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
               {/* 24/7 Support */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
-                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-600">
-                  <HelpCircle className="h-5 w-5" />
+                <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
+                  {getImage("icon-support") && <Image src={getImage("icon-support")!.imageUrl} alt="Support" width={40} height={40} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">24/7 Support</h3>
@@ -263,12 +263,17 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           <section id="projects" className="scroll-mt-24 space-y-6">
             <h2 className="text-3xl font-bold text-slate-900">Hands-on Projects</h2>
             <div className="grid gap-6 md:grid-cols-2">
-              <Card className="overflow-hidden">
-                <div className="h-40 w-full bg-slate-100 relative">
-                  {/* Placeholder project image */}
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                    <Briefcase className="h-10 w-10" />
-                  </div>
+              <Card className="overflow-hidden group">
+                <div className="h-48 w-full relative overflow-hidden">
+                  {getImage("icon-capstone") && (
+                    <Image
+                      src={getImage("icon-capstone")!.imageUrl}
+                      alt="Capstone Project"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <CardHeader>
                   <CardTitle className="text-lg">Capstone Project</CardTitle>
@@ -278,11 +283,17 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                   <p className="text-sm text-muted-foreground">Work on industry-relevant datasets and problem statements to build a portfolio-worthy project.</p>
                 </CardContent>
               </Card>
-              <Card className="overflow-hidden">
-                <div className="h-40 w-full bg-slate-100 relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                    <Award className="h-10 w-10" />
-                  </div>
+              <Card className="overflow-hidden group">
+                <div className="h-48 w-full relative overflow-hidden">
+                  {getImage("icon-case-study") && (
+                    <Image
+                      src={getImage("icon-case-study")!.imageUrl}
+                      alt="Live Business Case Studies"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <CardHeader>
                   <CardTitle className="text-lg">Live Business Case Studies</CardTitle>

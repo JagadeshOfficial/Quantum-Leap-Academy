@@ -103,6 +103,15 @@ const jobOpenings = {
         "We're looking for a data-driven Digital Marketing Manager to lead our growth strategy. You will be responsible for SEO, SEM, content marketing, and social media campaigns to drive student enrollments and build our brand presence. Proven experience in a high-growth startup environment is a plus.",
     },
   ],
+  'Internship Opportunities': [
+    { title: 'Business Development Intern', location: 'Remote', type: 'Internship', description: 'Assist in driving growth strategies, identifying new opportunities, and building strong client relationships.' },
+    { title: 'Digital Marketing Intern', location: 'Remote', type: 'Internship', description: 'Help execute marketing campaigns across social media, email, and digital channels to boost brand visibility.' },
+    { title: 'Campus Ambassador', location: 'Remote', type: 'Internship', description: 'Represent Mathisi on your campus, organize events, and build a vibrant community of tech enthusiasts.' },
+    { title: 'Community Building Intern', location: 'Remote', type: 'Internship', description: 'Engage with our student community, moderate discussions, and foster a collaborative learning environment.' },
+    { title: 'Student Volunteer', location: 'Remote', type: 'Volunteer', description: 'Contribute to various impactful projects, events, and initiatives while gaining valuable experience.' },
+    { title: 'Graphic Designer Intern', location: 'Remote', type: 'Internship', description: 'Create visually stunning designs for our marketing materials, social media posts, and website content.' },
+    { title: 'Content Writer Intern', location: 'Remote', type: 'Internship', description: 'Craft compelling content for our blogs, social media channels, and website to engage our audience.' },
+  ]
 };
 
 const benefits = [
@@ -193,7 +202,7 @@ export default function CareersPage() {
     setSelectedJob(title);
     setIsModalOpen(true);
   };
-  
+
   const resumeRef = form.register("resume");
 
   return (
@@ -264,23 +273,27 @@ export default function CareersPage() {
                     {jobs.map(job => (
                       <AccordionItem value={job.title} key={job.title}>
                         <AccordionTrigger className="group rounded-lg px-4 text-left transition-colors hover:bg-card hover:no-underline">
-                           <div className="flex w-full items-center justify-between">
-                               <div>
-                                <h4 className="text-xl font-semibold group-hover:text-primary">{job.title}</h4>
-                                <p className="mt-1 text-sm text-muted-foreground">
-                                  {job.location} • {job.type}
-                                </p>
-                              </div>
-                              <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform duration-300 group-data-[state=open]:rotate-90" />
-                           </div>
+                          <div className="flex w-full items-center justify-between">
+                            <div>
+                              <h4 className="text-xl font-semibold group-hover:text-primary">{job.title}</h4>
+                              <p className="mt-1 text-sm text-muted-foreground">
+                                {job.location} • {job.type}
+                              </p>
+                            </div>
+                            <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform duration-300 group-data-[state=open]:rotate-90" />
+                          </div>
                         </AccordionTrigger>
                         <AccordionContent className="border-t bg-card p-6">
-                            <p className="mb-6 text-muted-foreground">{job.description}</p>
-                            <DialogTrigger asChild>
-                                <Button onClick={() => handleApplyClick(job.title)}>
-                                Apply for this role
-                                </Button>
-                            </DialogTrigger>
+                          <p className="mb-6 text-muted-foreground">{job.description}</p>
+                          <Button asChild className="w-full sm:w-auto">
+                            <a
+                              href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Apply for this role
+                            </a>
+                          </Button>
                         </AccordionContent>
                       </AccordionItem>
                     ))}
@@ -325,7 +338,7 @@ export default function CareersPage() {
                       </FormItem>
                     )}
                   />
-                   <FormField
+                  <FormField
                     control={form.control}
                     name="phone"
                     render={({ field }) => (
@@ -338,7 +351,7 @@ export default function CareersPage() {
                       </FormItem>
                     )}
                   />
-                   <FormField
+                  <FormField
                     control={form.control}
                     name="message"
                     render={({ field }) => (
@@ -355,21 +368,21 @@ export default function CareersPage() {
                     control={form.control}
                     name="resume"
                     render={({ field }) => (
-                       <FormItem>
+                      <FormItem>
                         <FormLabel>Resume</FormLabel>
                         <FormControl>
                           <div
                             className="relative flex cursor-pointer items-center justify-center rounded-md border-2 border-dashed border-input bg-background p-6 hover:border-primary"
                             onClick={() => fileInputRef.current?.click()}
                           >
-                             <div className="text-center">
-                               <UploadCloud className="mx-auto h-12 w-12 text-muted-foreground" />
-                               <p className="mt-2 text-sm text-muted-foreground">
-                                 {field.value?.[0]?.name ? (
-                                    <span className="font-semibold text-primary">{field.value[0].name}</span>
-                                 ) : 'Click to upload your resume'}
-                               </p>
-                               <p className="text-xs text-muted-foreground">PDF, DOC, DOCX up to 5MB</p>
+                            <div className="text-center">
+                              <UploadCloud className="mx-auto h-12 w-12 text-muted-foreground" />
+                              <p className="mt-2 text-sm text-muted-foreground">
+                                {field.value?.[0]?.name ? (
+                                  <span className="font-semibold text-primary">{field.value[0].name}</span>
+                                ) : 'Click to upload your resume'}
+                              </p>
+                              <p className="text-xs text-muted-foreground">PDF, DOC, DOCX up to 5MB</p>
                             </div>
                             <Input
                               type="file"
@@ -380,7 +393,7 @@ export default function CareersPage() {
                                 field.onChange(event.target.files);
                               }}
                             />
-                           </div>
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -393,7 +406,7 @@ export default function CareersPage() {
                       </Button>
                     </DialogClose>
                     <Button type="submit" disabled={isSubmitting}>
-                       {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                      {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                       Submit Application
                     </Button>
                   </DialogFooter>

@@ -34,7 +34,7 @@ export const logos: Logo[] = [
   {
     "id": "logo-facebook",
     "description": "Facebook Logo",
-    "imageUrl": "/Facebook.webp",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png",
     "imageHint": "company logo"
   },
   {
@@ -46,7 +46,7 @@ export const logos: Logo[] = [
   {
     "id": "logo-honeywell",
     "description": "Honeywell Logo",
-    "imageUrl": "/Honeywell.jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Honeywell_logo.svg/2560px-Honeywell_logo.svg.png",
     "imageHint": "company logo"
   },
   {
@@ -82,13 +82,13 @@ export const logos: Logo[] = [
   {
     "id": "logo-hp",
     "description": "HP Logo",
-    "imageUrl": "/hp.jpg",
+    "imageUrl": "/Hp.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-ibm",
     "description": "IBM Logo",
-    "imageUrl": "/ibm.webp",
+    "imageUrl": "/Ibm.png",
     "imageHint": "company logo"
   },
   {
@@ -107,6 +107,30 @@ export const logos: Logo[] = [
     "id": "logo-oracle",
     "description": "Oracle Logo",
     "imageUrl": "/oracle.png",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-google",
+    "description": "Google Logo",
+    "imageUrl": "/Google_v2.svg",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-microsoft",
+    "description": "Microsoft Logo",
+    "imageUrl": "/Microsoft_v2.svg",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-amazon",
+    "description": "Amazon Logo",
+    "imageUrl": "/Amazon_v2.svg",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-flipkart",
+    "description": "Flipkart Logo",
+    "imageUrl": "/Flipkart_v2.svg",
     "imageHint": "company logo"
   }
 ];

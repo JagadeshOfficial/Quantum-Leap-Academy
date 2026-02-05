@@ -7,38 +7,39 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 const videos = [
     {
         id: "1",
-        youtubeId: "SqoRAQskqbw", // Placeholder: Generic tech video
+        youtubeId: "SqoRAQskqbw", // Placeholder: Technical Seminar
         thumbnail: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop",
-        title: "How I switched from Support to Dev",
-        author: "Michael Chen",
-        role: "SDE II",
-        company: "Facebook",
-        logo: "/Facebook.png"
+        title: "Introduction to Agentic AI and Future Tech",
+        author: "Mathisi Faculty",
+        role: "School of AI",
+        company: "Mathisi",
+        logo: "/Logos/Mathisi_Logo.png"
     },
     {
         id: "2",
         youtubeId: "SqoRAQskqbw",
         thumbnail: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
-        title: "The Data Science Roadmap that works",
-        author: "Priya Sharma",
-        role: "Data Scientist",
-        company: "Wipro",
-        logo: "/Wipro.png"
+        title: "Data Science Career Roadmap 2026",
+        author: "Alumni Network",
+        role: "Success Story",
+        company: "Google",
+        logo: "/Google_v2.svg"
     },
     {
         id: "3",
         youtubeId: "SqoRAQskqbw",
         thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2670&auto=format&fit=crop",
-        title: "Why Mathisi's mentorship is different",
-        author: "James Wilson",
-        role: "Frontend Lead",
-        company: "Cisco",
-        logo: "/Cisco.png"
+        title: "Building Real-World AI Projects",
+        author: "Student Showcase",
+        role: "Project Demo",
+        company: "Microsoft",
+        logo: "/Microsoft_v2.svg"
     }
 ];
 
 export function VideoTestimonials() {
     const [activeVideo, setActiveVideo] = useState<string | null>(null);
+    // Re-trigger hydration check
 
     return (
         <section className="py-24 bg-white relative overflow-hidden">
@@ -49,9 +50,18 @@ export function VideoTestimonials() {
                 <div className="text-center mb-16">
                     <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">Student Voices</span>
                     <h2 className="text-4xl font-extrabold text-slate-900 mt-2">Hear directly from our Alumni</h2>
-                    <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+                    <p className="text-slate-500 mt-4 max-w-2xl mx-auto mb-6">
                         Discover how Mathisi School transformed their careers and lives.
                     </p>
+                    <a
+                        href="https://www.youtube.com/channel/UCtIyFuzPH8VwnB4MYyANBZw"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 px-4 py-2 rounded-full transition-colors"
+                    >
+                        <Play className="w-4 h-4 fill-current" />
+                        Visit our YouTube Channel
+                    </a>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">

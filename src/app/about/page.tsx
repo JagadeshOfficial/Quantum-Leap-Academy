@@ -31,24 +31,19 @@ export default function AboutPage() {
   const heroImage = getImage("benefits-image");
   const instructors = [
     {
-      name: "Dr. Sarah Mitchell",
-      title: "AI Research Scientist",
-      imageId: "instructor-1",
+      name: "Maulika Modi",
+      title: "Senior Data Science Trainer",
+      imageId: "trainer-maulika",
     },
     {
-      name: "David Ross",
-      title: "Principal Data Scientist",
-      imageId: "instructor-2",
+      name: "Dr. Tamanna Sood",
+      title: "AI Research Associate at Roundglass",
+      imageId: "trainer-tamanna",
     },
     {
-      name: "Emily Zhang",
-      title: "Quantum Computing Expert",
-      imageId: "instructor-3",
-    },
-    {
-      name: "Michael Carter",
-      title: "Cybersecurity Lead",
-      imageId: "instructor-4",
+      name: "Keerthana Eganathan",
+      title: "AI Developer at Bloom Value Corporation",
+      imageId: "trainer-keerthana",
     },
   ];
 
@@ -189,13 +184,13 @@ export default function AboutPage() {
               Learn from the best in the industry.
             </p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-8">
             {instructors.map((instructor) => {
               const instructorImage = getImage(instructor.imageId);
               return (
                 <Card
                   key={instructor.name}
-                  className="overflow-hidden text-center"
+                  className="w-full max-w-[320px] overflow-hidden text-center"
                 >
                   <div className="relative mx-auto mt-6 h-32 w-32">
                     {instructorImage && (

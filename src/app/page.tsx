@@ -48,6 +48,7 @@ import { CourseCard } from "@/components/course/course-card";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { CareerCounselingPopup } from "@/components/ui/career-counseling-popup";
 import { VideoTestimonials } from "@/components/section/video-testimonials";
+import { TrustedCount } from "@/components/ui/trusted-count";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
@@ -80,32 +81,25 @@ export default function Home() {
 
   const instructors = [
     {
-      name: "Dr. Sarah Mitchell",
-      title: "AI Research Scientist",
-      imageId: "instructor-1",
-      companies: ["logo-google", "logo-microsoft"],
+      name: "Maulika Modi",
+      title: "Senior Data Science Trainer",
+      imageId: "trainer-maulika",
+      companies: ["logo-microsoft", "logo-google"],
       backgroundImageId: "instructor-bg-1",
     },
     {
-      name: "David Ross",
-      title: "Principal Data Scientist",
-      imageId: "instructor-2",
-      companies: ["logo-amazon", "logo-flipkart"],
+      name: "Dr. Tamanna Sood",
+      title: "AI Research Associate at Roundglass",
+      imageId: "trainer-tamanna",
+      companies: ["logo-ibm", "logo-amazon"],
       backgroundImageId: "instructor-bg-2",
     },
     {
-      name: "Emily Zhang",
-      title: "Quantum Computing Expert",
-      imageId: "instructor-3",
-      companies: ["logo-ibm"],
+      name: "Keerthana Eganathan",
+      title: "AI Developer at Bloom Value Corporation",
+      imageId: "trainer-keerthana",
+      companies: ["logo-oracle", "logo-wipro"],
       backgroundImageId: "instructor-bg-3",
-    },
-    {
-      name: "Michael Carter",
-      title: "Cybersecurity Lead",
-      imageId: "instructor-4",
-      companies: ["logo-cisco", "logo-oracle"],
-      backgroundImageId: "instructor-bg-4",
     },
   ];
 
@@ -135,7 +129,7 @@ export default function Home() {
       imageId: "student-3",
       rating: 5,
       company: "Facebook",
-      logoId: "logo-facebook"
+      logoId: "logo-facebook" // Note: facebook logo might also be missing in json, checking...
     },
   ];
 
@@ -218,7 +212,7 @@ export default function Home() {
               {/* Heading */}
               <h1 className="text-5xl font-black tracking-tight text-white md:text-6xl lg:text-7xl leading-[1.1]">
                 Master the Art of <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient-x">Intelligent Tech</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient-x">Tech Intelligence</span>
               </h1>
 
               {/* Description */}
@@ -250,7 +244,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col">
                   <div className="flex text-yellow-500 text-sm">★★★★★</div>
-                  <span className="text-sm font-medium text-slate-400">Trusted by 10,000+ professionals</span>
+                  <TrustedCount />
                 </div>
               </div>
             </div>
@@ -422,7 +416,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Why Choose <span className="text-blue-600">Mathisi School</span>?
+              Why Choose <span className="text-blue-600">Mathisi</span>?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
               We&apos;ve engineered an ecosystem that guarantees your success.
@@ -502,12 +496,12 @@ export default function Home() {
               Success <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Stories</span>
             </h2>
             <p className="mt-6 text-xl text-slate-400 max-w-2xl mx-auto">
-              Join thousands of students who have transformed their careers with <span className="text-white font-semibold">Mathisi School</span>.
+              Join thousands of students who have transformed their careers with <span className="text-white font-semibold">Mathisi</span>.
             </p>
           </div>
 
           <div className="flex overflow-x-auto pb-12 gap-8 px-4 snap-x snap-mandatory no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            {[...successStories, ...successStories].map((story, index) => {
+            {successStories.map((story, index) => {
               const storyImage = getImage(story.imageId);
               const companyLogo = story.logoId ? getLogoById(story.logoId) : null;
 
@@ -544,7 +538,7 @@ export default function Home() {
                       {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                     </div>
                     <p className="text-slate-300 leading-relaxed italic line-clamp-4">
-                      "{story.text.replace(/Quantum Pod|Quantum Leap Academy/g, "Mathisi School")}"
+                      "{story.text.replace(/Quantum Pod|Quantum Leap Academy/g, "Mathisi")}"
                     </p>
                   </div>
 
@@ -583,13 +577,13 @@ export default function Home() {
               Our instructors are practitioners from top companies.
             </p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-8">
             {instructors.map((instructor) => {
               const instructorImage = getImage(instructor.imageId);
               return (
                 <Card
                   key={instructor.name}
-                  className="overflow-hidden text-center transition-shadow hover:shadow-xl"
+                  className="w-full max-w-[320px] overflow-hidden text-center transition-shadow hover:shadow-xl"
                 >
                   <CardContent className="flex flex-col items-center p-6">
                     {instructorImage && (
@@ -611,26 +605,7 @@ export default function Home() {
                     <CardDescription className="mb-4">
                       {instructor.title}
                     </CardDescription>
-                    <div className="flex flex-wrap items-center justify-center gap-2">
-                      <p className="w-full text-center text-xs font-semibold text-muted-foreground">
-                        Formerly at:
-                      </p>
-                      {instructor.companies.map((companyId) => {
-                        const companyLogo = getLogoById(companyId);
-                        return companyLogo ? (
-                          <div key={companyId} className="flex h-6 w-16 shrink-0 items-center justify-center" title={companyLogo.description.replace(' Logo', '')}>
-                            <Image
-                              src={companyLogo.imageUrl}
-                              alt={companyLogo.description}
-                              width={64}
-                              height={24}
-                              className="object-contain"
-                              data-ai-hint={companyLogo.imageHint}
-                            />
-                          </div>
-                        ) : null;
-                      })}
-                    </div>
+
                   </CardContent>
                 </Card>
               );

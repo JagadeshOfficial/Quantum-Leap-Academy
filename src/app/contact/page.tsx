@@ -134,6 +134,7 @@ export default function ContactPage() {
 
           {/* Right Column: Info Cards (Floating Ceramic) */}
           <div className="lg:col-span-2 space-y-6">
+
             {/* Contact Info Card */}
             <div className="bg-white/60 backdrop-blur-xl border border-white/60 rounded-3xl p-8 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-200/40 transition-all group cursor-pointer">
               <div className="h-12 w-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -141,9 +142,14 @@ export default function ContactPage() {
               </div>
               <h3 className="text-lg font-bold mb-1 text-slate-900">Email Us</h3>
               <p className="text-slate-500 text-sm mb-4">For general inquiries and support.</p>
-              <a href="mailto:akshjavahub@gmail.com" className="text-lg font-semibold text-slate-900 hover:text-indigo-600 transition-colors flex items-center group-hover:translate-x-1 duration-300">
-                akshjavahub@gmail.com <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              <div className="space-y-1">
+                <a href="mailto:info@mathisi.in" className="text-lg font-semibold text-slate-900 hover:text-indigo-600 transition-colors flex items-center group-hover:translate-x-1 duration-300">
+                  info@mathisi.in
+                </a>
+                <a href="mailto:support@mathisi.in" className="text-lg font-semibold text-slate-900 hover:text-indigo-600 transition-colors flex items-center group-hover:translate-x-1 duration-300">
+                  support@mathisi.in
+                </a>
+              </div>
             </div>
 
             {/* Phone Info Card */}
@@ -153,9 +159,17 @@ export default function ContactPage() {
               </div>
               <h3 className="text-lg font-bold mb-1 text-slate-900">Call Us</h3>
               <p className="text-slate-500 text-sm mb-4">Mon-Fri from 9am to 6pm.</p>
-              <a href="tel:+919014985626" className="text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors flex items-center group-hover:translate-x-1 duration-300">
-                +91 90149 85626 <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              <div className="space-y-1">
+                <a href="tel:+917090000311" className="block text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors group-hover:translate-x-1 duration-300">
+                  +91 709 0000 311
+                </a>
+                <a href="tel:+917090000611" className="block text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors group-hover:translate-x-1 duration-300">
+                  +91 709 0000 611
+                </a>
+                <a href="tel:+919880289192" className="block text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors group-hover:translate-x-1 duration-300">
+                  +91 988 0289 192
+                </a>
+              </div>
             </div>
 
             {/* Location Card */}
@@ -166,9 +180,12 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold mb-2 text-slate-900">Visit HQ</h3>
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    Capital Park, Image Garden Road, Madhapur, Hyderabad, Telangana 500081
+                  <p className="text-slate-600 leading-relaxed text-sm mb-2">
+                    Dex Co Work Space, 4th block, HBR Layout, 1st Stage, Bengaluru
                   </p>
+                  <a href="https://www.mathisi.in" target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-semibold hover:underline">
+                    www.mathisi.in
+                  </a>
                 </div>
               </div>
             </div>
@@ -221,6 +238,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
