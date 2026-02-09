@@ -200,6 +200,7 @@ export default function HirePage() {
                     alt={logo.description}
                     width={140}
                     height={60}
+                    unoptimized={true}
                     className="max-h-12 w-auto max-w-[140px] object-contain"
                     data-ai-hint={logo.imageHint}
                   />

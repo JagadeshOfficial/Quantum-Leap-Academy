@@ -44,11 +44,12 @@ export default function CoursesPage() {
                     alt={course.name}
                     data-ai-hint={courseImage.imageHint}
                     fill
+                    unoptimized={true}
                     className="object-cover"
                   />
                 )}
                 <div className="absolute top-4 right-4">
-                   <Badge variant="secondary">{course.category}</Badge>
+                  <Badge variant="secondary">{course.category}</Badge>
                 </div>
               </div>
               <CardContent className="flex flex-grow flex-col p-6">
@@ -56,32 +57,32 @@ export default function CoursesPage() {
                 <p className="mt-2 text-sm text-muted-foreground">{course.tagline}</p>
 
                 <div className="my-4 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                        <Clock className="h-4 w-4" />
-                        <span>{course.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Users className="h-4 w-4" />
-                        <span>{course.enrolledStudents.toLocaleString()}+ Enrolled</span>
-                    </div>
-                     <div className="flex items-center gap-2">
-                        <Star className="h-4 w-4" />
-                        <span>{course.rating} ({course.reviews.length} reviews)</span>
-                    </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    <span>{course.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Users className="h-4 w-4" />
+                    <span>{course.enrolledStudents.toLocaleString()}+ Enrolled</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Star className="h-4 w-4" />
+                    <span>{course.rating} ({course.reviews.length} reviews)</span>
+                  </div>
                 </div>
 
                 <div className="mt-auto flex items-center justify-between">
-                    <div className="font-semibold">
-                      <Button variant="link" asChild className="p-0">
-                          <Link href={`/courses/${course.slug}`}>
-                              View Details
-                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                          </Link>
-                      </Button>
-                    </div>
-                    <Button asChild>
-                        <Link href={`/courses/${course.slug}#enroll`}>Enroll Now</Link>
+                  <div className="font-semibold">
+                    <Button variant="link" asChild className="p-0">
+                      <Link href={`/courses/${course.slug}`}>
+                        View Details
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
                     </Button>
+                  </div>
+                  <Button asChild>
+                    <Link href={`/courses/${course.slug}#enroll`}>Enroll Now</Link>
+                  </Button>
                 </div>
               </CardContent>
             </Card>

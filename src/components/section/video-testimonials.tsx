@@ -13,7 +13,7 @@ const videos = [
         author: "Mathisi Faculty",
         role: "School of AI",
         company: "Mathisi",
-        logo: "/Logos/Mathisi_Logo.png"
+        logo: "/logos/mathisi_logo.png"
     },
     {
         id: "2",
@@ -23,7 +23,7 @@ const videos = [
         author: "Alumni Network",
         role: "Success Story",
         company: "Google",
-        logo: "/Google_v2.svg"
+        logo: "/google.svg"
     },
     {
         id: "3",
@@ -33,7 +33,7 @@ const videos = [
         author: "Student Showcase",
         role: "Project Demo",
         company: "Microsoft",
-        logo: "/Microsoft_v2.svg"
+        logo: "/microsoft.svg"
     }
 ];
 

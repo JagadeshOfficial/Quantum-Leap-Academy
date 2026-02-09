@@ -130,7 +130,7 @@ export const logos: Logo[] = [
   {
     "id": "logo-honeywell",
     "description": "Honeywell Logo",
-    "imageUrl": "/Honeywell.png",
+    "imageUrl": "/honeywell.png",
     "imageHint": "company logo"
   }
 ];

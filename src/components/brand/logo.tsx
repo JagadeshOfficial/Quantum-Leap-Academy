@@ -12,7 +12,7 @@ export function MathisiLogo({ className = "h-14", showTagline = true }: LogoProp
             {/* Logo Image - Aspect ratio square for the icon */}
             <div className="relative h-full aspect-square">
                 <Image
-                    src="/Logos/Mathisi_Logo.png"
+                    src="/logos/mathisi_logo.png"
                     alt="Mathisi Logo"
                     fill
                     unoptimized={true}

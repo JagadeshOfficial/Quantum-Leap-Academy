@@ -221,6 +221,7 @@ export default function CorporateTrainingPage() {
                                             src={companyLogo.imageUrl}
                                             alt={name}
                                             fill
+                                            unoptimized={true}
                                             className="object-contain"
                                         />
                                     ) : (
@@ -411,6 +412,7 @@ export default function CorporateTrainingPage() {
                                             src={t.imageUrl}
                                             alt={t.name}
                                             fill
+                                            unoptimized={true}
                                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         />
                                     </div>
@@ -447,6 +449,7 @@ export default function CorporateTrainingPage() {
                                                             src={company.imageUrl}
                                                             alt="Brand"
                                                             fill
+                                                            unoptimized={true}
                                                             className="object-contain"
                                                         />
                                                     </div>

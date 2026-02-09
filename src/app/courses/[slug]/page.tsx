@@ -260,6 +260,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                                 src={toolLogo.imageUrl}
                                 alt={toolLogo.name}
                                 fill
+                                unoptimized={true}
                                 className="object-contain"
                               />
                             ) : (
@@ -424,6 +425,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                         src={companyLogo.imageUrl}
                         alt={recruiterId}
                         fill
+                        unoptimized={true}
                         className="object-contain"
                       />
                     ) : <span className="flex h-full w-full items-center justify-center text-sm font-bold text-slate-400">{recruiterId}</span>}
