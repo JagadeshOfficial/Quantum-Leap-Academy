@@ -13,7 +13,11 @@ export const toolLogos: ToolLogo[] = [
   { name: "Matplotlib", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg", imageHint: "Matplotlib library logo" },
   { name: "Scikit-learn", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg", imageHint: "Scikit-learn library logo" },
   { name: "SQL", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", imageHint: "SQL language logo" },
+  { name: "MySQL", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", imageHint: "MySQL logo" },
+  { name: "mysql", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", imageHint: "MySQL logo" },
   { name: "Power BI", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/630px-New_Power_BI_Logo.svg.png", imageHint: "Power BI logo" },
+  { name: "PowerBI", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/630px-New_Power_BI_Logo.svg.png", imageHint: "Power BI logo" },
+  { name: "powerbi", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/630px-New_Power_BI_Logo.svg.png", imageHint: "Power BI logo" },
   { name: "Tableau", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png", imageHint: "Tableau logo" },
   { name: "Jupyter Notebook", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg", imageHint: "Jupyter Notebook logo" },
   { name: "Jupyter Notebooks", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg", imageHint: "Jupyter Notebook logo" },
@@ -39,6 +43,16 @@ export const toolLogos: ToolLogo[] = [
   { name: "Vector Databases", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", imageHint: "Vector DB (using PostgreSQL as proxy)" },
   { name: "Streamlit", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg", imageHint: "Streamlit logo" },
   { name: "FastAPI", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", imageHint: "FastAPI logo" },
+  { name: "LangGraph", imageUrl: "https://raw.githubusercontent.com/langchain-ai/langgraph/main/docs/static/img/langgraph_logo.png", imageHint: "LangGraph logo" },
+  { name: "langgraph", imageUrl: "https://raw.githubusercontent.com/langchain-ai/langgraph/main/docs/static/img/langgraph_logo.png", imageHint: "LangGraph logo" },
+  { name: "CrewAI", imageUrl: "https://raw.githubusercontent.com/joaomdmoura/crewAI/main/docs/static/img/logo.png", imageHint: "CrewAI logo" },
+  { name: "crewai", imageUrl: "https://raw.githubusercontent.com/joaomdmoura/crewAI/main/docs/static/img/logo.png", imageHint: "CrewAI logo" },
+  { name: "Phidata", imageUrl: "https://phidata-public.s3.amazonaws.com/assets/phidata-logo-dark.png", imageHint: "Phidata logo" },
+  { name: "phidata", imageUrl: "https://phidata-public.s3.amazonaws.com/assets/phidata-logo-dark.png", imageHint: "Phidata logo" },
+  { name: "AutoGen", imageUrl: "https://microsoft.github.io/autogen/img/ag.svg", imageHint: "AutoGen logo" },
+  { name: "autogen", imageUrl: "https://microsoft.github.io/autogen/img/ag.svg", imageHint: "AutoGen logo" },
+  { name: "AgentOps", imageUrl: "https://avatars.githubusercontent.com/u/153664790?s=200&v=4", imageHint: "AgentOps logo" },
+  { name: "agentops", imageUrl: "https://avatars.githubusercontent.com/u/153664790?s=200&v=4", imageHint: "AgentOps logo" },
 
   // Quantum
   { name: "Qiskit", imageUrl: "https://avatars.githubusercontent.com/u/30696987?s=200&v=4", imageHint: "Qiskit logo" }, // GitHub avatar
@@ -64,11 +78,14 @@ export const toolLogos: ToolLogo[] = [
 
   // Data Engineering
   { name: "Apache Spark", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg", imageHint: "Apache Spark logo" },
+  { name: "Spark", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg", imageHint: "Apache Spark logo" },
   { name: "Hadoop", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg", imageHint: "Hadoop logo" },
   { name: "Kafka", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg", imageHint: "Apache Kafka logo" },
   { name: "Airflow", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg", imageHint: "Apache Airflow logo" },
   { name: "AWS (S3, Redshift, Glue)", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", imageHint: "AWS logo" },
+  { name: "AWS", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", imageHint: "AWS logo" },
   { name: "Azure Data Lake", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg", imageHint: "Azure Data Lake logo" },
+  { name: "Azure", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg", imageHint: "Azure logo" },
   { name: "Snowflake", imageUrl: "https://logo.clearbit.com/snowflake.com", imageHint: "Snowflake logo" },
   { name: "Google BigQuery", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg", imageHint: "Google BigQuery logo" },
   { name: "Docker", imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", imageHint: "Docker logo" },

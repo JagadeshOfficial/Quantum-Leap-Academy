@@ -87,121 +87,121 @@
     {
       "id": "logo-johnson-and-johnson",
       "description": "Johnson & Johnson Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/jnj.png",
+      "imageUrl": "https://logo.clearbit.com/jnj.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-ubs",
       "description": "UBS Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/ubs.png",
+      "imageUrl": "https://logo.clearbit.com/ubs.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-bank-of-america",
       "description": "Bank of America Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/boa.png",
+      "imageUrl": "https://logo.clearbit.com/bankofamerica.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-spinnaker",
       "description": "Spinnaker Analytics Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/spinnaker.png",
+      "imageUrl": "https://logo.clearbit.com/spinnaker.ai",
       "imageHint": "company logo"
     },
     {
       "id": "logo-kpmg",
       "description": "KPMG Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/kpmg.png",
+      "imageUrl": "https://logo.clearbit.com/kpmg.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-oracle",
       "description": "Oracle Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/oracle.png",
+      "imageUrl": "/oracle.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-microsoft",
       "description": "Microsoft Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/microsoft.png",
+      "imageUrl": "/microsoft.svg",
       "imageHint": "company logo"
     },
     {
       "id": "logo-american-express",
       "description": "American Express Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/amex.png",
+      "imageUrl": "https://logo.clearbit.com/americanexpress.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-google",
       "description": "Google Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/google.png",
+      "imageUrl": "/google.svg",
       "imageHint": "company logo"
     },
     {
       "id": "logo-amazon",
       "description": "Amazon Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/amazon.png",
+      "imageUrl": "/amazon.svg",
       "imageHint": "company logo"
     },
     {
       "id": "logo-deloitte",
       "description": "Deloitte Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/deloitte.png",
+      "imageUrl": "/deloitte.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-accenture",
       "description": "Accenture Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/accenture.png",
+      "imageUrl": "https://logo.clearbit.com/accenture.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-tcs",
       "description": "TCS Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/tcs.png",
+      "imageUrl": "https://logo.clearbit.com/tcs.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-pwc",
       "description": "PwC Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/pwc.png",
+      "imageUrl": "https://logo.clearbit.com/pwc.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-ibm",
       "description": "IBM Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/ibm.png",
+      "imageUrl": "/ibm.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-wipro",
       "description": "Wipro Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/wipro.png",
+      "imageUrl": "/wipro.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-flipkart",
       "description": "Flipkart Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/flipkart.png",
+      "imageUrl": "/flipkart.svg",
       "imageHint": "company logo"
     },
     {
       "id": "logo-zoho",
       "description": "Zoho Logo",
-      "imageUrl": "https://firebasestudio-hosting.web.app/images/zoho.png",
+      "imageUrl": "https://logo.clearbit.com/zoho.com",
       "imageHint": "company logo"
     },
     {
       "id": "logo-facebook",
       "description": "Facebook Logo",
-      "imageUrl": "/Facebook.png",
+      "imageUrl": "/facebook.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-cisco",
       "description": "Cisco Logo",
-      "imageUrl": "/Cisco.png",
+      "imageUrl": "/cisco.png",
       "imageHint": "company logo"
     },
     {
@@ -255,25 +255,25 @@
     {
       "id": "icon-mentorship",
       "description": "Menotorship Icon",
-      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/mentorship-5496739-4578135.png",
+      "imageUrl": "https://img.icons8.com/3d-fluency/94/graduation-cap.png",
       "imageHint": "mentoring 3d"
     },
     {
       "id": "icon-real-projects",
       "description": "Projects Icon",
-      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/project-management-4663842-3882747.png",
+      "imageUrl": "https://img.icons8.com/3d-fluency/94/opened-folder.png",
       "imageHint": "project management 3d"
     },
     {
       "id": "icon-placement",
       "description": "Placement Icon",
-      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/job-search-5361288-4488663.png",
+      "imageUrl": "https://img.icons8.com/3d-fluency/94/briefcase.png",
       "imageHint": "job search 3d"
     },
     {
       "id": "icon-support",
       "description": "Support Icon",
-      "imageUrl": "https://cdn3d.iconscout.com/3d/premium/thumb/customer-support-4309832-3580436.png",
+      "imageUrl": "https://img.icons8.com/3d-fluency/94/headset.png",
       "imageHint": "customer support 3d"
     },
     {
@@ -297,19 +297,19 @@
     {
       "id": "trainer-maulika",
       "description": "Maulika Modi",
-      "imageUrl": "/trainers/Maulika%20Modi.jpg",
+      "imageUrl": "/trainers/maulika.jpg",
       "imageHint": "Maulika Modi"
     },
     {
       "id": "trainer-tamanna",
       "description": "Dr. Tamanna Sood",
-      "imageUrl": "/trainers/Tamanna%20Sood.jpg",
+      "imageUrl": "/trainers/tamanna.jpg",
       "imageHint": "Tamanna Sood"
     },
     {
       "id": "trainer-keerthana",
       "description": "Keerthana Eganathan",
-      "imageUrl": "/trainers/Keerthana%20Eganathan.jpg",
+      "imageUrl": "/trainers/keerthana.jpg",
       "imageHint": "Keerthana Eganathan"
     }
   ]

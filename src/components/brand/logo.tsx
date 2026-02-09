@@ -15,6 +15,7 @@ export function MathisiLogo({ className = "h-14", showTagline = true }: LogoProp
                     src="/Logos/Mathisi_Logo.png"
                     alt="Mathisi Logo"
                     fill
+                    unoptimized={true}
                     className="object-contain scale-125"
                     priority
                 />

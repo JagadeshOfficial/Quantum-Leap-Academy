@@ -57,6 +57,27 @@ const getCourseFromSlug = (slug: string): Course | undefined => {
   return courses.find((course) => course.slug === slug);
 };
 
+const instructors = [
+  {
+    name: "Maulika Modi",
+    title: "Senior Data Science Trainer",
+    imageId: "trainer-maulika",
+    companies: ["logo-microsoft", "logo-google"],
+  },
+  {
+    name: "Dr. Tamanna Sood",
+    title: "AI Research Associate at Roundglass",
+    imageId: "trainer-tamanna",
+    companies: ["logo-ibm", "logo-amazon"],
+  },
+  {
+    name: "Keerthana Eganathan",
+    title: "AI Developer at Bloom Value Corporation",
+    imageId: "trainer-keerthana",
+    companies: ["logo-oracle", "logo-wipro"],
+  },
+];
+
 export default function CoursePage({ params }: { params: { slug: string } }) {
   const course = getCourseFromSlug(params.slug);
 
@@ -105,8 +126,8 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               </div>
 
               <div className="flex flex-col gap-4 pt-6 sm:flex-row">
-                <Button size="lg" className="h-14 bg-primary px-8 text-lg font-bold hover:bg-primary/90">
-                  Request Call Back
+                <Button size="lg" className="h-14 bg-primary px-8 text-lg font-bold hover:bg-primary/90" asChild>
+                  <Link href="#enroll">Request Call Back</Link>
                 </Button>
                 <DownloadBrochureButton
                   course={course}
@@ -140,6 +161,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                         src={courseImage.imageUrl}
                         alt={course.name}
                         fill
+                        unoptimized={true}
                         className="object-cover transition-transform duration-700 hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -170,7 +192,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               {/* 1:1 Mentorship Card */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-indigo-50/50 p-5 shadow-sm">
                 <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
-                  {getImage("icon-mentorship") && <Image src={getImage("icon-mentorship")!.imageUrl} alt="Mentorship" width={40} height={40} className="object-contain" />}
+                  {getImage("icon-mentorship") && <Image src={getImage("icon-mentorship")!.imageUrl} alt="Mentorship" width={40} height={40} unoptimized={true} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">1:1 Mentorship</h3>
@@ -181,7 +203,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               {/* Real Projects Card */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
                 <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
-                  {getImage("icon-real-projects") && <Image src={getImage("icon-real-projects")!.imageUrl} alt="Projects" width={40} height={40} className="object-contain" />}
+                  {getImage("icon-real-projects") && <Image src={getImage("icon-real-projects")!.imageUrl} alt="Projects" width={40} height={40} unoptimized={true} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">Live Projects</h3>
@@ -192,7 +214,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               {/* Placement Support */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
                 <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
-                  {getImage("icon-placement") && <Image src={getImage("icon-placement")!.imageUrl} alt="Placement" width={40} height={40} className="object-contain" />}
+                  {getImage("icon-placement") && <Image src={getImage("icon-placement")!.imageUrl} alt="Placement" width={40} height={40} unoptimized={true} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">Placement Support</h3>
@@ -203,7 +225,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               {/* 24/7 Support */}
               <div className="flex gap-4 rounded-xl border border-indigo-100 bg-white p-5 shadow-sm">
                 <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 border border-indigo-100 shadow-sm">
-                  {getImage("icon-support") && <Image src={getImage("icon-support")!.imageUrl} alt="Support" width={40} height={40} className="object-contain" />}
+                  {getImage("icon-support") && <Image src={getImage("icon-support")!.imageUrl} alt="Support" width={40} height={40} unoptimized={true} className="object-contain" />}
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900">24/7 Support</h3>
@@ -258,6 +280,79 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               </div>
             </TooltipProvider>
           </section>
+
+          {/* Instructors Section - Advanced Orbital Profiles */}
+          <section id="trainers" className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-100">
+            <div className="absolute inset-0 bg-grid-slate-900/[0.02] mask-radial"></div>
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="mb-20 text-center">
+                <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors uppercase tracking-widest text-[10px] py-1 px-3">Expert Faculty</Badge>
+                <h2 className="text-4xl font-black text-slate-900 mb-6 tracking-tight">Meet Your <span className="text-primary italic">Instructors</span></h2>
+                <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed italic text-center">Learn the craft from builders who have led teams at world-class engineering organizations.</p>
+              </div>
+
+              <div className="grid gap-16 md:grid-cols-3">
+                {instructors.map((instructor: any) => {
+                  const instructorImage = getImage(instructor.imageId);
+                  return (
+                    <div key={instructor.name} className="group relative flex flex-col items-center">
+                      <div className="relative mb-10">
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-blue-500 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
+                        <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-blue-600 rounded-full animate-spin-slow opacity-10 group-hover:opacity-100 transition-opacity"></div>
+
+                        <div className="relative h-44 w-44 rounded-full border-8 border-white shadow-2xl overflow-hidden bg-slate-100 z-10">
+                          {instructorImage && (
+                            <Image
+                              src={instructorImage.imageUrl}
+                              alt={instructor.name}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                          )}
+                        </div>
+
+                        <div className="absolute -bottom-2 right-4 h-10 w-10 rounded-full bg-white shadow-xl flex items-center justify-center z-20 border-4 border-slate-50">
+                          <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
+                        </div>
+                      </div>
+
+                      <div className="w-full text-center space-y-4">
+                        <div className="space-y-1">
+                          <div className="text-[10px] font-black text-primary uppercase tracking-[0.2em] bg-primary/5 inline-block px-3 py-1 rounded-full">
+                            {instructor.title}
+                          </div>
+                          <h3 className="text-2xl font-black text-slate-900 tracking-tight italic text-center">
+                            {instructor.name}
+                          </h3>
+                        </div>
+
+                        <div className="pt-8 border-t border-slate-200/50">
+                          <div className="text-[9px] font-black text-slate-400 uppercase tracking-[0.4em] mb-4 text-center">Industry Background</div>
+                          <div className="flex justify-center items-center gap-8">
+                            {instructor.companies.map((compId: string) => {
+                              const companyLogo = getLogoById(compId);
+                              if (!companyLogo) return null;
+                              return (
+                                <div key={compId} className="relative h-5 w-14 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                                  <Image
+                                    src={companyLogo.imageUrl}
+                                    alt="Company"
+                                    fill
+                                    className="object-contain"
+                                  />
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
 
           {/* Projects (Placeholder based on Highlights) */}
           <section id="projects" className="scroll-mt-24 space-y-6">
@@ -390,7 +485,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         {/* Right Column (Sticky Form) */}
         <div className="relative">
           <div className="sticky top-24 space-y-6">
-            <Card className="border-t-4 border-t-primary shadow-xl">
+            <Card id="enroll" className="border-t-4 border-t-primary shadow-xl scroll-mt-24">
               <CardHeader>
                 <div className="mb-4">
                   <p className="text-sm font-medium text-slate-500">Program Fees</p>

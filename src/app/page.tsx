@@ -334,17 +334,10 @@ export default function Home() {
                     alt={logo.description}
                     width={140}
                     height={60}
+                    unoptimized={true}
                     className="max-h-12 w-auto max-w-[140px] object-contain"
                     data-ai-hint={logo.imageHint}
                   />
-                </div>
-              ))}
-              {/* Text logos converted to visual style */}
-              {['Amazon', 'TCS', 'Accenture', 'Infosys', 'Flipkart', 'Zoho'].map((name, idx) => (
-                <div key={`text-logo-${idx}`} className="flex shrink-0 items-center justify-center w-[160px] h-20 transition-all duration-300 hover:scale-110">
-                  <span className="text-2xl font-black tracking-tight text-slate-700">
-                    {name}
-                  </span>
                 </div>
               ))}
             </div>
@@ -550,6 +543,7 @@ export default function Home() {
                           src={companyLogo.imageUrl}
                           alt={companyLogo.description}
                           fill
+                          unoptimized={true}
                           className="object-contain brightness-0 invert opacity-80"
                         />
                       </div>
@@ -567,47 +561,69 @@ export default function Home() {
 
       <VideoTestimonials />
 
-      <section className="bg-secondary py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold">
-              Learn From The Best In The Industry
+      <section className="py-32 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-slate-900/[0.02] mask-radial"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="mb-24 text-center">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">
+              Learn From <span className="text-primary">Industry Elites</span>
             </h2>
-            <p className="mt-2 text-lg text-muted-foreground">
-              Our instructors are practitioners from top companies.
+            <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed italic">
+              Our instructors are lead researchers and architects from top global tech organizations.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="grid gap-16 md:grid-cols-3">
             {instructors.map((instructor) => {
               const instructorImage = getImage(instructor.imageId);
               return (
-                <Card
-                  key={instructor.name}
-                  className="w-full max-w-[320px] overflow-hidden text-center transition-shadow hover:shadow-xl"
-                >
-                  <CardContent className="flex flex-col items-center p-6">
-                    {instructorImage && (
-                      <Avatar className="mb-4 h-24 w-24 border-4 border-primary/20">
-                        <AvatarImage
+                <div key={instructor.name} className="group relative flex flex-col items-center">
+                  <div className="relative mb-8">
+                    <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-blue-500 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-blue-600 rounded-full animate-spin-slow opacity-10 group-hover:opacity-100 transition-opacity"></div>
+
+                    <div className="relative h-40 w-40 rounded-full border-8 border-white shadow-2xl overflow-hidden bg-slate-100 z-10">
+                      {instructorImage && (
+                        <Image
                           src={instructorImage.imageUrl}
                           alt={instructor.name}
-                          data-ai-hint={instructorImage.imageHint}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
-                        <AvatarFallback>
-                          {instructor.name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </AvatarFallback>
-                      </Avatar>
-                    )}
-                    <CardTitle className="text-xl">{instructor.name}</CardTitle>
-                    <CardDescription className="mb-4">
-                      {instructor.title}
-                    </CardDescription>
+                      )}
+                    </div>
+                  </div>
 
-                  </CardContent>
-                </Card>
+                  <div className="w-full text-center space-y-4">
+                    <div className="space-y-1">
+                      <div className="text-[10px] font-black text-primary uppercase tracking-[0.2em] bg-primary/5 inline-block px-3 py-1 rounded-full">
+                        {instructor.title}
+                      </div>
+                      <h3 className="text-2xl font-black text-slate-900 tracking-tight italic">
+                        {instructor.name}
+                      </h3>
+                    </div>
+
+                    <div className="pt-6 border-t border-slate-200/50">
+                      <div className="text-[9px] font-black text-slate-400 uppercase tracking-[0.4em] mb-4">Past Experience</div>
+                      <div className="flex justify-center items-center gap-6">
+                        {instructor.companies.map((compId) => {
+                          const company = getLogoById(compId);
+                          if (!company) return null;
+                          return (
+                            <div key={compId} className="relative h-5 w-14 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                              <Image
+                                src={company.imageUrl}
+                                alt="Brand"
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>

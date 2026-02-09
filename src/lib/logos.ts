@@ -10,85 +10,79 @@ export const logos: Logo[] = [
   {
     "id": "logo-algoworks",
     "description": "Algoworks Logo",
-    "imageUrl": "/Algoworks.png",
+    "imageUrl": "/algoworks.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-cisco",
     "description": "Cisco Logo",
-    "imageUrl": "/Cisco.png",
+    "imageUrl": "/cisco.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-dxc",
     "description": "DXC Logo",
-    "imageUrl": "/DXC.png",
+    "imageUrl": "/dxc.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-deloitte",
     "description": "Deloitte Logo",
-    "imageUrl": "/Deloitte.png",
+    "imageUrl": "/deloitte.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-facebook",
     "description": "Facebook Logo",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png",
+    "imageUrl": "/facebook.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-hexaware",
     "description": "Hexaware Logo",
-    "imageUrl": "/Hexaware.png",
-    "imageHint": "company logo"
-  },
-  {
-    "id": "logo-honeywell",
-    "description": "Honeywell Logo",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Honeywell_logo.svg/2560px-Honeywell_logo.svg.png",
+    "imageUrl": "/hexaware.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-nexgen",
     "description": "Nexgen Logo",
-    "imageUrl": "/Nexgen.png",
+    "imageUrl": "/nexgen.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-qualcomm",
     "description": "Qualcomm Logo",
-    "imageUrl": "/Qualcomm.png",
+    "imageUrl": "/qualcomm.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-reddy",
     "description": "Dr. Reddy's Logo",
-    "imageUrl": "/Reddy.png",
+    "imageUrl": "/reddy.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-salesforce",
     "description": "Salesforce Logo",
-    "imageUrl": "/Salesforce.png",
+    "imageUrl": "/salesforce.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-wipro",
     "description": "Wipro Logo",
-    "imageUrl": "/Wipro.png",
+    "imageUrl": "/wipro.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-hp",
     "description": "HP Logo",
-    "imageUrl": "/Hp.png",
+    "imageUrl": "/hp.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-ibm",
     "description": "IBM Logo",
-    "imageUrl": "/Ibm.png",
+    "imageUrl": "/ibm.png",
     "imageHint": "company logo"
   },
   {
@@ -112,25 +106,25 @@ export const logos: Logo[] = [
   {
     "id": "logo-google",
     "description": "Google Logo",
-    "imageUrl": "/Google_v2.svg",
+    "imageUrl": "/google.svg",
     "imageHint": "company logo"
   },
   {
     "id": "logo-microsoft",
     "description": "Microsoft Logo",
-    "imageUrl": "/Microsoft_v2.svg",
+    "imageUrl": "/microsoft.svg",
     "imageHint": "company logo"
   },
   {
     "id": "logo-amazon",
     "description": "Amazon Logo",
-    "imageUrl": "/Amazon_v2.svg",
+    "imageUrl": "/amazon.svg",
     "imageHint": "company logo"
   },
   {
     "id": "logo-flipkart",
     "description": "Flipkart Logo",
-    "imageUrl": "/Flipkart_v2.svg",
+    "imageUrl": "/flipkart.svg",
     "imageHint": "company logo"
   }
 ];

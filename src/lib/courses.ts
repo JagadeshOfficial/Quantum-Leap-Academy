@@ -164,7 +164,7 @@ export const courses: Course[] = [
         ]
       },
     ],
-    recruiters: ["IBM", "Oracle", "Deloitte", "Wipro", "DXC", "Honeywell", "Salesforce", "Facebook"],
+    recruiters: ["IBM", "Oracle", "Deloitte", "Wipro", "DXC", "Salesforce", "Facebook"],
     reviews: [
       { rating: 5, text: "The Data Science course helped me land a role as a Data Analyst at Infosys!", author: "Aditya Sharma", role: "Career Switcher", company: "Infosys" },
       { rating: 4, text: "Curriculum is very practical. You actually build models and dashboards.", author: "Vikram Iyer", role: "MBA Graduate" },
@@ -346,7 +346,7 @@ export const courses: Course[] = [
         topics: ["Flask/FastAPI", "Docker", "AWS/GCP/Azure deployment", "CI/CD pipelines", "MLflow"]
       },
     ],
-    recruiters: ["IBM", "Facebook", "Qualcomm", "Honeywell", "Oracle", "Cisco", "Algoworks", "Nexgen"],
+    recruiters: ["IBM", "Facebook", "Qualcomm", "Oracle", "Cisco", "Algoworks", "Nexgen"],
     reviews: [
       { rating: 5, text: "The course gave me real project experience. The mentors were outstanding.", author: "Ritika Verma", role: "B.Tech Student" },
       { rating: 5, text: "Opened my eyes to autonomous systems.", author: "Amit Shah", role: "AI Developer" },
@@ -462,7 +462,7 @@ export const courses: Course[] = [
       { title: "Advanced Features in Qiskit", topics: ["Backend access", "Job management", "Noise mitigation", "Error correction intro"] },
       { title: "Certification Prep & Capstone", topics: ["IBM Certified Associate Developer prep", "Grover/Deutsch–Jozsa implementation", "Mock assessments"] },
     ],
-    recruiters: ["IBM", "Honeywell", "Qualcomm", "Oracle"],
+    recruiters: ["IBM", "Qualcomm", "Oracle"],
     reviews: [
       { rating: 5, text: "Transitioned from data science to quantum algorithm development.", author: "Riya Mehta", role: "Data Scientist" },
       { rating: 5, text: "Implementation on real IBM Quantum hardware was amazing.", author: "Anirudh Bansal", role: "M.Tech Student" },

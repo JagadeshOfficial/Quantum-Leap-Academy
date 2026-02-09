@@ -29,7 +29,7 @@ import {
     Quote,
     Briefcase
 } from 'lucide-react';
-import { logos } from '@/lib/logos';
+import { logos, getLogoById } from '@/lib/logos';
 import { DownloadBrochureButton, DownloadCurriculumButton } from "@/components/course/download-buttons";
 import { courses } from "@/lib/courses";
 
@@ -77,9 +77,27 @@ export default function CorporateTrainingPage() {
     ];
 
     const trainers = [
-        { name: 'Dr. Anjali Sharma', role: 'AI & ML Expert', bio: 'Former AI Research Scientist at Google with 15+ years of industry experience.', imageUrl: 'https://images.unsplash.com/photo-1546961329-78bef0414d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NTkwMjk0OXww&ixlib=rb-4.1.0&q=80&w=1080' },
-        { name: 'Rohan Verma', role: 'Principal Data Scientist', bio: 'Expert in big data architectures and former lead at Amazon.', imageUrl: 'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjU5NDE0MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080' },
-        { name: 'Amit Desai', role: 'Cybersecurity Lead', bio: 'Specialist in penetration testing and cloud security for global MNCs.', imageUrl: 'https://images.unsplash.com/photo-1720672284660-cfecee298779?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzY1OTI5MDk3fDA&ixlib=rb-4.1.0&q=80&w=1080' },
+        {
+            name: "Maulika Modi",
+            role: "Senior Data Science Trainer",
+            bio: "Experienced Data Science professional specializing in predictive modeling and analytics, with a background at industry giants.",
+            imageUrl: "/trainers/maulika.jpg",
+            companies: ["logo-microsoft", "logo-google"]
+        },
+        {
+            name: "Dr. Tamanna Sood",
+            role: "AI Research Associate",
+            bio: "Renowned AI researcher focusing on next-generation machine learning architectures and autonomous systems.",
+            imageUrl: "/trainers/tamanna.jpg",
+            companies: ["logo-ibm", "logo-amazon"]
+        },
+        {
+            name: "Keerthana Eganathan",
+            role: "AI Developer",
+            bio: "Lead AI Developer specializing in large-scale model deployment and specialized agentic AI orchestration.",
+            imageUrl: "/trainers/keerthana.jpg",
+            companies: ["logo-oracle", "logo-wipro"]
+        },
     ];
 
     const testimonials = [
@@ -350,33 +368,79 @@ export default function CorporateTrainingPage() {
                 </div>
             </section>
 
-            {/* Trainers Section */}
-            <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
-                <div className="container mx-auto px-4">
-                    <div className="mb-16 text-center">
-                        <h2 className="text-4xl font-bold mb-4">Meet Our Expert Trainers</h2>
-                        <p className="text-lg text-slate-500">Industry practitioners with years of architectural experience.</p>
+            {/* Trainers Section - Advanced Orbital Profiles */}
+            <section className="py-32 bg-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-grid-slate-900/[0.02] mask-radial"></div>
+
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="mb-24 text-center">
+                        <Badge className="mb-6 bg-slate-900 text-white border-none py-1.5 px-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em]">The Faculty</Badge>
+                        <h2 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tighter">
+                            World Class <span className="text-primary tracking-normal">Architects.</span>
+                        </h2>
+                        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed italic">
+                            Led by practitioners who have shaped the technology landscape at the world's most innovative organizations.
+                        </p>
                     </div>
-                    <div className="grid gap-8 md:grid-cols-3">
+
+                    <div className="grid gap-16 md:grid-cols-3">
                         {trainers.map((t, i) => (
-                            <Card key={i} className="overflow-hidden border-none shadow-xl hover:-translate-y-2 transition-transform">
-                                <div className="h-64 relative">
-                                    <Image
-                                        src={t.imageUrl}
-                                        alt={t.name}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div key={i} className="group relative flex flex-col items-center">
+                                {/* Profile Orb */}
+                                <div className="relative mb-12">
+                                    <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-blue-500 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
+                                    <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-blue-600 rounded-full animate-spin-slow opacity-10 group-hover:opacity-100 transition-opacity"></div>
+
+                                    <div className="relative h-48 w-48 rounded-full border-8 border-white shadow-2xl overflow-hidden bg-slate-100 z-10">
+                                        <Image
+                                            src={t.imageUrl}
+                                            alt={t.name}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                    </div>
+
+                                    <div className="absolute -bottom-2 right-4 h-12 w-12 rounded-full bg-white shadow-xl flex items-center justify-center z-20 border-4 border-slate-50">
+                                        <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                                    </div>
                                 </div>
-                                <CardHeader className="text-center relative -mt-16 bg-white dark:bg-slate-900 mx-6 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800">
-                                    <CardTitle className="text-xl">{t.name}</CardTitle>
-                                    <CardDescription className="text-primary font-bold">{t.role}</CardDescription>
-                                </CardHeader>
-                                <CardContent className="text-center text-slate-500 pb-8 pt-4">
-                                    {t.bio}
-                                </CardContent>
-                            </Card>
+
+                                {/* Content Area */}
+                                <div className="w-full text-center space-y-6">
+                                    <div className="space-y-2">
+                                        <div className="text-[10px] font-black text-primary uppercase tracking-[0.2em] bg-primary/5 inline-block px-3 py-1 rounded-full">
+                                            {t.role}
+                                        </div>
+                                        <h3 className="text-3xl font-black text-slate-900 tracking-tight italic">
+                                            {t.name}
+                                        </h3>
+                                    </div>
+
+                                    <p className="text-slate-600 text-sm leading-relaxed font-bold px-4">
+                                        {t.bio}
+                                    </p>
+
+                                    <div className="pt-8 border-t border-slate-100">
+                                        <div className="text-[9px] font-black text-slate-400 uppercase tracking-[0.4em] mb-6">Expertise Roots</div>
+                                        <div className="flex justify-center items-center gap-10">
+                                            {t.companies.map((compId) => {
+                                                const company = getLogoById(compId);
+                                                if (!company) return null;
+                                                return (
+                                                    <div key={compId} className="relative h-6 w-16 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                                                        <Image
+                                                            src={company.imageUrl}
+                                                            alt="Brand"
+                                                            fill
+                                                            className="object-contain"
+                                                        />
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>

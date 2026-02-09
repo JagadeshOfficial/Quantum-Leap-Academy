@@ -100,6 +100,18 @@ const nextConfig: NextConfig = {
         hostname: 'cdn3d.iconscout.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.icons8.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

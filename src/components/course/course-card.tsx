@@ -54,6 +54,7 @@ export function CourseCard({ course }: CourseCardProps) {
                         src={courseImage.imageUrl}
                         alt={course.name}
                         fill
+                        unoptimized={true}
                         className={`object-cover transition-all duration-500 group-hover:scale-105 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}
                         data-ai-hint={courseImage.imageHint}
                     />
