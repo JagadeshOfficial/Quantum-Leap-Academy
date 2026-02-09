@@ -339,6 +339,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                                     src={companyLogo.imageUrl}
                                     alt="Company"
                                     fill
+                                    unoptimized={true}
                                     className="object-contain"
                                   />
                                 </div>
@@ -366,6 +367,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                       src={getImage("icon-capstone")!.imageUrl}
                       alt="Capstone Project"
                       fill
+                      unoptimized={true}
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   )}
@@ -386,6 +388,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                       src={getImage("icon-case-study")!.imageUrl}
                       alt="Live Business Case Studies"
                       fill
+                      unoptimized={true}
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   )}

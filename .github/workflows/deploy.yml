@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full history to avoid shallow fetch issues
 
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@v1.0.3
@@ -23,6 +25,26 @@ jobs:
           command_timeout: 60m
           script: |
             cd /home/mathisi.in/Quantum-Leap-Academy
-            git pull origin main
+            
+            # --- Cleanup Orphan Processes & Locks ---
+            echo "Cleaning up orphan processes and locks..."
+            pkill -9 git || true
+            pkill -9 docker-compose || true
+            rm -f .git/index.lock
+            
+            # --- Sync with Repo ---
+            echo "Syncing with repository..."
+            git fetch origin main
+            git reset --hard origin/main
+            git clean -fd
+            
+            # --- Docker Deploy ---
+            echo "Deploying with Docker..."
+            docker compose down --remove-orphans || true
             docker compose up -d --build
-            docker image prune -f # Cleans up old unused images to save space
+            
+            # --- Post-Deploy Cleanup ---
+            echo "Cleaning up..."
+            docker image prune -f
+            docker container prune -f || true
+

@@ -117,13 +117,13 @@
     {
       "id": "logo-oracle",
       "description": "Oracle Logo",
-      "imageUrl": "/oracle.png",
+      "imageUrl": "/logos/oracle.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-microsoft",
       "description": "Microsoft Logo",
-      "imageUrl": "/microsoft.svg",
+      "imageUrl": "/logos/microsoft.svg",
       "imageHint": "company logo"
     },
     {
@@ -135,19 +135,19 @@
     {
       "id": "logo-google",
       "description": "Google Logo",
-      "imageUrl": "/google.svg",
+      "imageUrl": "/logos/google.svg",
       "imageHint": "company logo"
     },
     {
       "id": "logo-amazon",
       "description": "Amazon Logo",
-      "imageUrl": "/amazon.svg",
+      "imageUrl": "/logos/amazon.svg",
       "imageHint": "company logo"
     },
     {
       "id": "logo-deloitte",
       "description": "Deloitte Logo",
-      "imageUrl": "/deloitte.png",
+      "imageUrl": "/logos/deloitte.png",
       "imageHint": "company logo"
     },
     {
@@ -171,19 +171,19 @@
     {
       "id": "logo-ibm",
       "description": "IBM Logo",
-      "imageUrl": "/ibm.png",
+      "imageUrl": "/logos/ibm.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-wipro",
       "description": "Wipro Logo",
-      "imageUrl": "/wipro.png",
+      "imageUrl": "/logos/wipro.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-flipkart",
       "description": "Flipkart Logo",
-      "imageUrl": "/flipkart.svg",
+      "imageUrl": "/logos/flipkart.svg",
       "imageHint": "company logo"
     },
     {
@@ -195,13 +195,13 @@
     {
       "id": "logo-facebook",
       "description": "Facebook Logo",
-      "imageUrl": "/facebook.png",
+      "imageUrl": "/logos/facebook.png",
       "imageHint": "company logo"
     },
     {
       "id": "logo-cisco",
       "description": "Cisco Logo",
-      "imageUrl": "/cisco.png",
+      "imageUrl": "/logos/cisco.png",
       "imageHint": "company logo"
     },
     {

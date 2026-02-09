@@ -112,6 +112,18 @@ const nextConfig: NextConfig = {
         hostname: 'i.pravatar.cc',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'phidata-public.s3.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'microsoft.github.io',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

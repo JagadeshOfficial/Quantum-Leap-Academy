@@ -10,127 +10,169 @@ export const logos: Logo[] = [
   {
     "id": "logo-algoworks",
     "description": "Algoworks Logo",
-    "imageUrl": "/algoworks.png",
+    "imageUrl": "/logos/algoworks.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-cisco",
     "description": "Cisco Logo",
-    "imageUrl": "/cisco.png",
+    "imageUrl": "/logos/cisco.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-dxc",
     "description": "DXC Logo",
-    "imageUrl": "/dxc.png",
+    "imageUrl": "/logos/dxc.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-deloitte",
     "description": "Deloitte Logo",
-    "imageUrl": "/deloitte.png",
+    "imageUrl": "/logos/deloitte.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-facebook",
     "description": "Facebook Logo",
-    "imageUrl": "/facebook.png",
+    "imageUrl": "/logos/facebook.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-hexaware",
     "description": "Hexaware Logo",
-    "imageUrl": "/hexaware.png",
+    "imageUrl": "/logos/hexaware.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-nexgen",
     "description": "Nexgen Logo",
-    "imageUrl": "/nexgen.png",
+    "imageUrl": "/logos/nexgen.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-qualcomm",
     "description": "Qualcomm Logo",
-    "imageUrl": "/qualcomm.png",
+    "imageUrl": "/logos/qualcomm.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-reddy",
     "description": "Dr. Reddy's Logo",
-    "imageUrl": "/reddy.png",
+    "imageUrl": "/logos/reddy.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-salesforce",
     "description": "Salesforce Logo",
-    "imageUrl": "/salesforce.png",
+    "imageUrl": "/logos/salesforce.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-wipro",
     "description": "Wipro Logo",
-    "imageUrl": "/wipro.png",
+    "imageUrl": "/logos/wipro.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-hp",
     "description": "HP Logo",
-    "imageUrl": "/hp.png",
+    "imageUrl": "/logos/hp.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-ibm",
     "description": "IBM Logo",
-    "imageUrl": "/ibm.png",
+    "imageUrl": "/logos/ibm.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-mindtree",
     "description": "Mindtree Logo",
-    "imageUrl": "/mindtree.png",
+    "imageUrl": "/logos/mindtree.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-mphasis",
     "description": "Mphasis Logo",
-    "imageUrl": "/mphasis.png",
+    "imageUrl": "/logos/mphasis.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-oracle",
     "description": "Oracle Logo",
-    "imageUrl": "/oracle.png",
+    "imageUrl": "/logos/oracle.png",
     "imageHint": "company logo"
   },
   {
     "id": "logo-google",
     "description": "Google Logo",
-    "imageUrl": "/google.svg",
+    "imageUrl": "/logos/google.svg",
     "imageHint": "company logo"
   },
   {
     "id": "logo-microsoft",
     "description": "Microsoft Logo",
-    "imageUrl": "/microsoft.svg",
+    "imageUrl": "/logos/microsoft.svg",
     "imageHint": "company logo"
   },
   {
     "id": "logo-amazon",
     "description": "Amazon Logo",
-    "imageUrl": "/amazon.svg",
+    "imageUrl": "/logos/amazon.svg",
     "imageHint": "company logo"
   },
   {
     "id": "logo-flipkart",
     "description": "Flipkart Logo",
-    "imageUrl": "/flipkart.svg",
+    "imageUrl": "/logos/flipkart.svg",
     "imageHint": "company logo"
   },
   {
     "id": "logo-honeywell",
     "description": "Honeywell Logo",
-    "imageUrl": "/honeywell.png",
+    "imageUrl": "/logos/honeywell.png",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-accenture",
+    "description": "Accenture Logo",
+    "imageUrl": "https://logo.clearbit.com/accenture.com",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-tcs",
+    "description": "TCS Logo",
+    "imageUrl": "https://logo.clearbit.com/tcs.com",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-pwc",
+    "description": "PwC Logo",
+    "imageUrl": "https://logo.clearbit.com/pwc.com",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-zoho",
+    "description": "Zoho Logo",
+    "imageUrl": "https://logo.clearbit.com/zoho.com",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-infosys",
+    "description": "Infosys Logo",
+    "imageUrl": "https://logo.clearbit.com/infosys.com",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-capgemini",
+    "description": "Capgemini Logo",
+    "imageUrl": "https://logo.clearbit.com/capgemini.com",
+    "imageHint": "company logo"
+  },
+  {
+    "id": "logo-hcl",
+    "description": "HCL Logo",
+    "imageUrl": "https://logo.clearbit.com/hcl.com",
     "imageHint": "company logo"
   }
 ];
