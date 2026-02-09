@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Play, X } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const videos = [
     {
@@ -39,7 +39,13 @@ const videos = [
 
 export function VideoTestimonials() {
     const [activeVideo, setActiveVideo] = useState<string | null>(null);
-    // Re-trigger hydration check
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
 
     return (
         <section className="py-24 bg-white relative overflow-hidden">
@@ -104,14 +110,18 @@ export function VideoTestimonials() {
 
                 {/* Video Modal */}
                 <Dialog open={!!activeVideo} onOpenChange={() => setActiveVideo(null)}>
-                    <DialogContent className="sm:max-w-[900px] p-0 bg-black border-none overflow-hidden aspect-video">
+                    <DialogContent className="sm:max-w-[1000px] p-0 bg-black border-none overflow-hidden aspect-video">
+                        <DialogHeader className="sr-only">
+                            <DialogTitle>Video Testimonial</DialogTitle>
+                        </DialogHeader>
                         {activeVideo && (
                             <iframe
                                 className="w-full h-full"
-                                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1`}
+                                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0`}
                                 title="YouTube video player"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen
+                                style={{ border: 0 }}
                             ></iframe>
                         )}
                     </DialogContent>

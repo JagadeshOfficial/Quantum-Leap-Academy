@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Course } from "@/lib/courses";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { DownloadBrochureButton } from "@/components/course/download-buttons";
 
 interface CourseCardProps {
     course: Course;
@@ -102,15 +103,15 @@ export function CourseCard({ course }: CourseCardProps) {
                 </div>
 
                 <div className="mt-auto grid grid-cols-2 gap-3">
-                    <Button
+                    <DownloadBrochureButton
+                        course={course}
                         variant="outline"
-                        className="h-10 w-full border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-600 hover:border-blue-600 hover:text-blue-600"
-                    >
-                        Brochure
-                    </Button>
+                        className="h-10 w-full border-slate-200 text-[10px] font-bold uppercase tracking-wider text-slate-600 hover:border-blue-600 hover:text-blue-600"
+                        text="Brochure"
+                    />
                     <Button
                         asChild
-                        className="h-10 w-full bg-slate-900 text-xs font-bold uppercase tracking-wider text-white hover:bg-blue-600 shadow-md shadow-slate-200"
+                        className="h-10 w-full bg-slate-900 text-[10px] font-bold uppercase tracking-wider text-white hover:bg-blue-600 shadow-md shadow-slate-200"
                     >
                         <Link href={`/courses/${course.slug}`}>View Course</Link>
                     </Button>
