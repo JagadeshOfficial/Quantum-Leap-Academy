@@ -126,6 +126,12 @@ export const logos: Logo[] = [
     "description": "Flipkart Logo",
     "imageUrl": "/flipkart.svg",
     "imageHint": "company logo"
+  },
+  {
+    "id": "logo-honeywell",
+    "description": "Honeywell Logo",
+    "imageUrl": "/Honeywell.png",
+    "imageHint": "company logo"
   }
 ];
 

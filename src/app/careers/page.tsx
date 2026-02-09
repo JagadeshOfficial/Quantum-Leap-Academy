@@ -111,6 +111,26 @@ const jobOpenings = {
     { title: 'Student Volunteer', location: 'Remote', type: 'Volunteer', description: 'Contribute to various impactful projects, events, and initiatives while gaining valuable experience.' },
     { title: 'Graphic Designer Intern', location: 'Remote', type: 'Internship', description: 'Create visually stunning designs for our marketing materials, social media posts, and website content.' },
     { title: 'Content Writer Intern', location: 'Remote', type: 'Internship', description: 'Craft compelling content for our blogs, social media channels, and website to engage our audience.' },
+  ],
+  'Blogs & Editorial': [
+    {
+      title: 'Technical Content Strategist',
+      location: 'Remote',
+      type: 'Full-time',
+      description: 'Lead our content engine by defining the roadmap for QuantumPod Insights. You will collaborate with researchers to translate complex technical architectures into engaging, high-value articles for our global audience.'
+    },
+    {
+      title: 'Technical Writer (AI/ML)',
+      location: 'Hybrid (Hyderabad)',
+      type: 'Full-time',
+      description: 'Document our cutting-edge AI research and create tutorials that help learners master advanced concepts. Requires a unique blend of engineering depth and editorial precision.'
+    },
+    {
+      title: 'Editorial Intern',
+      location: 'Remote',
+      type: 'Internship',
+      description: 'Support the blog team in editing, proofreading, and optimizing articles for SEO. Great opportunity to learn the ropes of technical publishing.'
+    }
   ]
 };
 

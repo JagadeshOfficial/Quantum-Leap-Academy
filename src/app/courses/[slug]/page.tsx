@@ -409,7 +409,13 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             </div>
             <div className="flex flex-wrap justify-center gap-8 md:gap-12">
               {course.recruiters.map((recruiterId) => {
-                const logoName = recruiterId.toLowerCase().replace(/ /g, '-').replace(/\./g, '');
+                // Handle cases like "DXC | Accelya" by taking the first brand or cleaning characters
+                const logoName = recruiterId
+                  .split('|')[0] // Take first part if there's a pipe
+                  .trim()
+                  .toLowerCase()
+                  .replace(/ /g, '-')
+                  .replace(/[^a-z0-9-]/g, ''); // Remove any other non-alphanumeric chars
                 const companyLogo = getLogoById(`logo-${logoName}`);
                 return (
                   <div key={recruiterId} className="relative h-12 w-32 grayscale transition-all hover:grayscale-0 hover:scale-110" title={recruiterId}>

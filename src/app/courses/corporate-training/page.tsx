@@ -210,10 +210,25 @@ export default function CorporateTrainingPage() {
                     <p className="mb-10 text-center text-sm font-semibold uppercase tracking-widest text-slate-500">
                         Trust partners who scaled their teams with us
                     </p>
-                    <div className="flex flex-wrap justify-center gap-10 md:gap-16 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
-                        {trustLogos.map(name => (
-                            <span key={name} className="text-xl font-black tracking-tighter text-white">{name}</span>
-                        ))}
+                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                        {trustLogos.map(name => {
+                            const logoId = `logo-${name.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')}`;
+                            const companyLogo = getLogoById(logoId);
+                            return (
+                                <div key={name} className="relative h-10 w-28 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                                    {companyLogo ? (
+                                        <Image
+                                            src={companyLogo.imageUrl}
+                                            alt={name}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    ) : (
+                                        <span className="text-xl font-black tracking-tighter text-white">{name}</span>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

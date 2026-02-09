@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from "react";
@@ -17,67 +16,20 @@ import { Input } from "@/components/ui/input";
 import { Search, ArrowRight } from "lucide-react";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { blogPosts } from "@/lib/blogs";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
 };
 
-const blogPosts = [
-  {
-    slug: "the-future-of-ai-in-education",
-    title: "The Future of AI in Education: A 2025 Outlook",
-    excerpt: "Explore how Artificial Intelligence is set to revolutionize the learning landscape, from personalized student paths to automated grading and beyond.",
-    content: "Artificial Intelligence is reshaping education by enabling hyper-personalized learning experiences. In 2025, we expect AI to move beyond simple tutoring systems to comprehensive adaptive learning platforms that adjust in real-time to a student's pace and style. This shift will democratize high-quality education, making it accessible to learners worldwide while freeing up educators to focus on mentorship and complex problem-solving.",
-    category: "AI/ML",
-    author: "Dr. Anjali Sharma",
-    authorImageId: "instructor-1",
-    postImageId: "course-ai-ml",
-    date: "Oct 15, 2025",
-    featured: true,
-  },
-  {
-    slug: "demystifying-quantum-computing",
-    title: "Demystifying Quantum Computing: A Beginner's Guide",
-    excerpt: "Quantum computing sounds like science fiction, but its impact is closer than you think. This guide breaks down the core concepts.",
-    content: "Quantum computing leverages the principles of quantum mechanics to solve problems that are intractable for classical computers. By using qubits instead of bits, these machines can perform massive parallel computations. Key concepts like superposition and entanglement are the building blocks of this technology, promising breakthroughs in cryptography, material science, and drug discovery.",
-    category: "Emerging Tech",
-    author: "Priya Singh",
-    authorImageId: "instructor-3",
-    postImageId: "course-quantum-computing",
-    date: "Oct 10, 2025",
-    featured: false,
-  },
-  {
-    slug: "top-5-skills-for-data-analysts",
-    title: "The Top 5 Skills Every Data Analyst Needs in 2025",
-    excerpt: "The demand for data analysts is booming. We break down the top 5 essential skills you need to master to land your dream job.",
-    content: "As data becomes the new oil, the role of a Data Analyst is evolving. The top 5 skills for 2025 include: 1) Advanced SQL and Database Management, 2) Proficiency in Python or R for statistical analysis, 3) Data Visualization using tools like Tableau or PowerBI, 4) Understanding of Machine Learning basics, and 5) Strong storytelling abilities to communicate insights effectively to stakeholders.",
-    category: "Data Analysis",
-    author: "Rohan Verma",
-    authorImageId: "instructor-2",
-    postImageId: "course-data-analysis",
-    date: "Oct 5, 2025",
-    featured: false,
-  },
-  {
-    slug: "building-secure-applications-in-the-cloud",
-    title: "Building Secure Applications in the Cloud",
-    excerpt: "Cloud security is more critical than ever. Learn the best practices for developing, deploying, and managing secure applications.",
-    content: "Security in the cloud is a shared responsibility. Building secure applications requires a 'security-first' mindset from the design phase. Best practices include implementing robust Identity and Access Management (IAM), encrypting data both at rest and in transit, regularly scanning for vulnerabilities, and adopting a DevSecOps culture where security is integrated into the CI/CD pipeline.",
-    category: "Security",
-    author: "Amit Desai",
-    authorImageId: "instructor-4",
-    postImageId: "course-cyber-security",
-    date: "Sep 28, 2025",
-    featured: false,
-  },
-];
-
 const categories = ["All", "AI/ML", "Data Analysis", "Emerging Tech", "Security", "Career"];
+
+const INITIAL_POST_COUNT = 3;
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [visibleCount, setVisibleCount] = useState(INITIAL_POST_COUNT);
 
   const featuredPost = blogPosts.find(p => p.featured);
 
@@ -88,33 +40,44 @@ export default function BlogPage() {
     return !post.featured && isInCategory && matchesSearch;
   });
 
+  const displayedPosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredPosts.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 3);
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          QuantumPod Insights
+        <h1 className="text-4xl font-black tracking-tight md:text-5xl lg:text-7xl mb-6">
+          QuantumPod <span className="text-primary italic">Insights</span>
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Your source for the latest in tech, career advice, and learning.
+        <p className="mt-4 text-xl text-slate-500 max-w-2xl mx-auto font-medium italic">
+          Deep dives into the architectures, methodologies, and careers shaping the future of computation.
         </p>
       </div>
 
-      <div className="mb-12 flex flex-col items-center gap-4 md:flex-row">
+      <div className="mb-12 flex flex-col items-center gap-6 md:flex-row justify-center">
         <div className="relative w-full max-w-sm">
           <Input
             placeholder="Search articles..."
-            className="pl-10"
+            className="pl-10 h-12 rounded-xl"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-3">
           {categories.map(cat => (
             <Button
               key={cat}
               variant={selectedCategory === cat ? 'default' : 'outline'}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => {
+                setSelectedCategory(cat);
+                setVisibleCount(INITIAL_POST_COUNT);
+              }}
+              className="rounded-full px-6"
             >
               {cat}
             </Button>
@@ -123,98 +86,111 @@ export default function BlogPage() {
       </div>
 
       {featuredPost && (
-        <Card className="mb-12 grid grid-cols-1 overflow-hidden md:grid-cols-2">
-          <div className="relative h-64 w-full md:h-auto">
+        <Card className="mb-16 grid grid-cols-1 overflow-hidden md:grid-cols-2 border-none shadow-2xl bg-slate-50 relative group">
+          <Link href={`/blogs/${featuredPost.slug}`} className="absolute inset-0 z-10" aria-label={featuredPost.title} />
+          <div className="relative h-64 w-full md:h-auto overflow-hidden">
             {getImage(featuredPost.postImageId) && (
               <Image
                 src={getImage(featuredPost.postImageId)!.imageUrl}
                 alt={featuredPost.title}
                 fill
-                className="object-cover"
-                data-ai-hint={getImage(featuredPost.postImageId)!.imageHint}
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                data-ai-hint={featuredPost.postImageId}
               />
             )}
           </div>
-          <div className="flex flex-col p-6">
-            <Badge variant="secondary" className="mb-4 w-fit">{featuredPost.category}</Badge>
-            <h2 className="text-2xl font-bold">{featuredPost.title}</h2>
-            <p className="mt-2 flex-grow text-muted-foreground">{featuredPost.excerpt}</p>
-            <div className="mt-6 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                {getImage(featuredPost.authorImageId) && <Avatar className="h-10 w-10">
+          <div className="flex flex-col p-10 justify-center">
+            <div className="z-20">
+              <Badge className="mb-6 w-fit uppercase tracking-widest text-[10px] py-1 px-3">{featuredPost.category}</Badge>
+              <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight leading-tight group-hover:text-primary transition-colors">{featuredPost.title}</h2>
+              <p className="mb-8 text-lg text-slate-600 leading-relaxed font-medium italic">{featuredPost.excerpt}</p>
+            </div>
+            <div className="flex items-center justify-between z-20">
+              <div className="flex items-center gap-4">
+                {getImage(featuredPost.authorImageId) && <Avatar className="h-12 w-12 border-2 border-white shadow-md">
                   <AvatarImage src={getImage(featuredPost.authorImageId)?.imageUrl} alt={featuredPost.author} />
                   <AvatarFallback>{featuredPost.author.charAt(0)}</AvatarFallback>
                 </Avatar>}
                 <div>
-                  <p className="font-semibold">{featuredPost.author}</p>
-                  <p className="text-sm text-muted-foreground">{featuredPost.date}</p>
+                  <p className="font-bold text-slate-900">{featuredPost.author}</p>
+                  <p className="text-sm text-slate-500 font-bold">{featuredPost.date}</p>
                 </div>
               </div>
-              <Button variant="link" asChild>
-                <Link href={`/blogs/${featuredPost.slug}`}>
-                  Read More <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <div className="flex items-center text-primary font-bold group-hover:translate-x-1 transition-transform">
+                Read More <ArrowRight className="ml-2 h-4 w-4" />
+              </div>
             </div>
           </div>
         </Card>
       )}
 
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {filteredPosts.map((post) => {
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        {displayedPosts.map((post) => {
           const postImage = getImage(post.postImageId);
           const authorImage = getImage(post.authorImageId);
           return (
-            <Card key={post.slug} className="group flex flex-col overflow-hidden">
-              {postImage && <div className="relative h-48 w-full">
+            <Card key={post.slug} className="group flex flex-col overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative">
+              <Link href={`/blogs/${post.slug}`} className="absolute inset-0 z-10" aria-label={post.title} />
+              {postImage && <div className="relative h-56 w-full overflow-hidden">
                 <Image
                   src={postImage.imageUrl}
                   alt={post.title}
-                  data-ai-hint={postImage.imageHint}
+                  data-ai-hint={postImage.id}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute top-4 left-4 z-20">
+                  <Badge variant="secondary" className="backdrop-blur-md bg-white/20 text-white border-none text-[9px] uppercase tracking-widest">{post.category}</Badge>
+                </div>
               </div>}
-              <CardHeader>
-                <Badge variant="secondary" className="mb-2 w-fit">{post.category}</Badge>
-                <h3 className="text-xl font-bold group-hover:text-primary">
-                  <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
+              <CardHeader className="pt-6 z-20">
+                <h3 className="text-2xl font-black tracking-tight group-hover:text-primary transition-colors leading-snug">
+                  {post.title}
                 </h3>
               </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground line-clamp-3">{post.excerpt}</p>
+              <CardContent className="flex-grow z-20">
+                <p className="text-slate-500 line-clamp-3 font-medium leading-relaxed italic">{post.excerpt}</p>
               </CardContent>
-              <CardFooter className="flex items-center justify-between">
+              <CardFooter className="flex items-center justify-between border-t border-slate-50 pt-6 z-20">
                 <div className="flex items-center gap-3">
-                  {authorImage && <Avatar className="h-8 w-8">
+                  {authorImage && <Avatar className="h-10 w-10">
                     <AvatarImage src={authorImage.imageUrl} alt={post.author} />
                     <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
                   </Avatar>}
                   <div>
-                    <p className="text-sm font-semibold">{post.author}</p>
-                    <p className="text-xs text-muted-foreground">{post.date}</p>
+                    <p className="text-sm font-black text-slate-800">{post.author}</p>
+                    <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">{post.date}</p>
                   </div>
                 </div>
-                <Button variant="ghost" size="icon" asChild>
-                  <Link href={`/blogs/${post.slug}`}>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
+                <div className="rounded-full bg-slate-100 p-2 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
               </CardFooter>
             </Card>
           )
         })}
       </div>
+
       {filteredPosts.length === 0 && !featuredPost && (
-        <div className="mt-16 text-center text-muted-foreground">
-          <p>No articles found. Try adjusting your search or filter.</p>
+        <div className="mt-16 text-center py-20 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
+          <p className="text-xl font-bold text-slate-400">No matching articles found.</p>
+          <Button variant="link" className="mt-2" onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}>Clear All Filters</Button>
         </div>
       )}
 
-      <div className="mt-16 text-center">
-        <Button variant="outline">Load More Articles</Button>
-      </div>
+      {hasMore && (
+        <div className="mt-20 text-center">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleLoadMore}
+            className="h-14 px-10 rounded-full font-bold border-2 hover:bg-slate-50 transition-all"
+          >
+            Load More Insights
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
