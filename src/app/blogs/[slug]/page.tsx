@@ -50,6 +50,7 @@ export default function BlogPostDetail() {
                         src={postImage.imageUrl}
                         alt={post.title}
                         fill
+                        unoptimized={true}
                         className="object-cover"
                         priority
                     />
@@ -100,8 +101,15 @@ export default function BlogPostDetail() {
                             <div className="flex flex-col sm:flex-row items-center gap-6">
                                 {authorImage && (
                                     <Avatar className="h-24 w-24 border-4 border-white dark:border-slate-800 shadow-xl">
-                                        <AvatarImage src={authorImage.imageUrl} alt={post.author} />
-                                        <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
+                                        <div className="relative h-full w-full">
+                                            <Image
+                                                src={authorImage.imageUrl}
+                                                alt={post.author}
+                                                fill
+                                                unoptimized={true}
+                                                className="object-cover"
+                                            />
+                                        </div>
                                     </Avatar>
                                 )}
                                 <div className="text-center sm:text-left">
@@ -118,18 +126,50 @@ export default function BlogPostDetail() {
                             <div className="flex items-center gap-4">
                                 <span className="font-bold text-sm uppercase tracking-wider text-slate-500">Share This</span>
                                 <div className="flex gap-2">
-                                    <Button variant="outline" size="icon" className="rounded-full shadow-sm">
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        className="rounded-full shadow-sm hover:text-blue-600 transition-colors"
+                                        onClick={() => {
+                                            const url = window.location.href;
+                                            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                                        }}
+                                    >
                                         <Facebook className="h-4 w-4" />
                                     </Button>
-                                    <Button variant="outline" size="icon" className="rounded-full shadow-sm">
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        className="rounded-full shadow-sm hover:text-sky-500 transition-colors"
+                                        onClick={() => {
+                                            const url = window.location.href;
+                                            const title = post.title;
+                                            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank');
+                                        }}
+                                    >
                                         <Twitter className="h-4 w-4" />
                                     </Button>
-                                    <Button variant="outline" size="icon" className="rounded-full shadow-sm">
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        className="rounded-full shadow-sm hover:text-blue-700 transition-colors"
+                                        onClick={() => {
+                                            const url = window.location.href;
+                                            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+                                        }}
+                                    >
                                         <Linkedin className="h-4 w-4" />
                                     </Button>
                                 </div>
                             </div>
-                            <Button variant="ghost" className="gap-2">
+                            <Button
+                                variant="ghost"
+                                className="gap-2 hover:text-primary transition-colors"
+                                onClick={() => {
+                                    navigator.clipboard.writeText(window.location.href);
+                                    // You could add a toast here if available, but copy to clipboard is the main task.
+                                }}
+                            >
                                 <Share2 className="h-4 w-4" /> Copy Link
                             </Button>
                         </div>

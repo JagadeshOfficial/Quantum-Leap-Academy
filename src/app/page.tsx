@@ -322,22 +322,25 @@ export default function Home() {
 
       <section className="bg-slate-50 py-24 border-b border-slate-200">
         <div className="container mx-auto px-4 pt-10">
-          <div className="text-center mb-12">
-            <h3 className="text-lg font-bold text-slate-400 uppercase tracking-[0.2em]">Our Graduates Work At</h3>
+          <div className="text-center mb-16">
+            <h3 className="text-lg font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">Our Graduates Work At</h3>
+            <div className="h-1 w-12 bg-primary mx-auto rounded-full" />
           </div>
-          <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-            <div className="flex animate-infinite-scroll-slow gap-16 group-hover:[animation-play-state:paused] items-center">
+          <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
+            <div className="flex animate-infinite-scroll-slow gap-20 group-hover:[animation-play-state:paused] items-center py-4">
               {[...logos, ...logos].map((logo, idx) => (
-                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center w-[160px] h-20 transition-all duration-300 hover:scale-110">
-                  <Image
-                    src={logo.imageUrl}
-                    alt={logo.description}
-                    width={140}
-                    height={60}
-                    unoptimized={true}
-                    className="max-h-12 w-auto max-w-[140px] object-contain"
-                    data-ai-hint={logo.imageHint}
-                  />
+                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center w-[180px] h-24 hover:scale-110 transition-all duration-300">
+                  <div className="relative w-full h-full flex items-center justify-center p-4">
+                    <Image
+                      src={logo.imageUrl}
+                      alt={logo.description}
+                      width={160}
+                      height={80}
+                      unoptimized={true}
+                      className="max-h-10 w-auto max-w-[140px] object-contain drop-shadow-sm"
+                      data-ai-hint={logo.imageHint}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -610,11 +613,12 @@ export default function Home() {
                           const company = getLogoById(compId);
                           if (!company) return null;
                           return (
-                            <div key={compId} className="relative h-5 w-14 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                            <div key={compId} className="relative h-6 w-16 hover:scale-110 transition-all duration-300">
                               <Image
                                 src={company.imageUrl}
                                 alt="Brand"
                                 fill
+                                unoptimized={true}
                                 className="object-contain"
                               />
                             </div>

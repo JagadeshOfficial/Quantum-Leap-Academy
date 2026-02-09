@@ -210,22 +210,24 @@ export default function CorporateTrainingPage() {
                     <p className="mb-10 text-center text-sm font-semibold uppercase tracking-widest text-slate-500">
                         Trust partners who scaled their teams with us
                     </p>
-                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-x-20 md:gap-y-12 max-w-6xl mx-auto">
                         {trustLogos.map(name => {
                             const logoId = `logo-${name.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '')}`;
                             const companyLogo = getLogoById(logoId);
                             return (
-                                <div key={name} className="relative h-10 w-28 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                                <div key={name} className="flex items-center justify-center w-32 h-12 hover:scale-110 transition-all duration-300">
                                     {companyLogo ? (
-                                        <Image
-                                            src={companyLogo.imageUrl}
-                                            alt={name}
-                                            fill
-                                            unoptimized={true}
-                                            className="object-contain"
-                                        />
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={companyLogo.imageUrl}
+                                                alt={name}
+                                                fill
+                                                unoptimized={true}
+                                                className="object-contain"
+                                            />
+                                        </div>
                                     ) : (
-                                        <span className="text-xl font-black tracking-tighter text-white">{name}</span>
+                                        <span className="text-xl font-black tracking-tighter text-white/40 whitespace-nowrap">{name}</span>
                                     )}
                                 </div>
                             );

@@ -133,48 +133,7 @@ export const logos: Logo[] = [
     "imageUrl": "/logos/honeywell.png",
     "imageHint": "company logo"
   },
-  {
-    "id": "logo-accenture",
-    "description": "Accenture Logo",
-    "imageUrl": "https://logo.clearbit.com/accenture.com",
-    "imageHint": "company logo"
-  },
-  {
-    "id": "logo-tcs",
-    "description": "TCS Logo",
-    "imageUrl": "https://logo.clearbit.com/tcs.com",
-    "imageHint": "company logo"
-  },
-  {
-    "id": "logo-pwc",
-    "description": "PwC Logo",
-    "imageUrl": "https://logo.clearbit.com/pwc.com",
-    "imageHint": "company logo"
-  },
-  {
-    "id": "logo-zoho",
-    "description": "Zoho Logo",
-    "imageUrl": "https://logo.clearbit.com/zoho.com",
-    "imageHint": "company logo"
-  },
-  {
-    "id": "logo-infosys",
-    "description": "Infosys Logo",
-    "imageUrl": "https://logo.clearbit.com/infosys.com",
-    "imageHint": "company logo"
-  },
-  {
-    "id": "logo-capgemini",
-    "description": "Capgemini Logo",
-    "imageUrl": "https://logo.clearbit.com/capgemini.com",
-    "imageHint": "company logo"
-  },
-  {
-    "id": "logo-hcl",
-    "description": "HCL Logo",
-    "imageUrl": "https://logo.clearbit.com/hcl.com",
-    "imageHint": "company logo"
-  }
+
 ];
 
 export const getLogoById = (id: string): Logo | undefined => {

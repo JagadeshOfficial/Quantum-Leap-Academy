@@ -191,27 +191,21 @@ export default function HirePage() {
               Trusted by leading IT companies and fast-growing startups
             </h3>
           </div>
-          <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-            <div className="flex animate-infinite-scroll-slow gap-16 group-hover:[animation-play-state:paused] items-center">
+          <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
+            <div className="flex animate-infinite-scroll-slow gap-20 group-hover:[animation-play-state:paused] items-center py-4">
               {[...logos, ...logos].map((logo, idx) => (
-                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center w-[160px] h-20 transition-all duration-300 hover:scale-110">
-                  <Image
-                    src={logo.imageUrl}
-                    alt={logo.description}
-                    width={140}
-                    height={60}
-                    unoptimized={true}
-                    className="max-h-12 w-auto max-w-[140px] object-contain"
-                    data-ai-hint={logo.imageHint}
-                  />
-                </div>
-              ))}
-              {/* Text logos from landing page style */}
-              {['Amazon', 'TCS', 'Accenture', 'Infosys', 'Flipkart', 'Zoho'].map((name, idx) => (
-                <div key={`text-logo-${idx}`} className="flex shrink-0 items-center justify-center w-[160px] h-20 transition-all duration-300 hover:scale-110">
-                  <span className="text-2xl font-black tracking-tight text-slate-700">
-                    {name}
-                  </span>
+                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center w-[180px] h-24 hover:scale-110 transition-all duration-300">
+                  <div className="relative w-full h-full flex items-center justify-center p-4">
+                    <Image
+                      src={logo.imageUrl}
+                      alt={logo.description}
+                      width={160}
+                      height={80}
+                      unoptimized={true}
+                      className="max-h-12 w-auto max-w-[140px] object-contain drop-shadow-sm transition-all"
+                      data-ai-hint={logo.imageHint}
+                    />
+                  </div>
                 </div>
               ))}
             </div>

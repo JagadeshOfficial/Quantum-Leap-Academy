@@ -94,6 +94,7 @@ export default function BlogPage() {
                 src={getImage(featuredPost.postImageId)!.imageUrl}
                 alt={featuredPost.title}
                 fill
+                unoptimized={true}
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                 data-ai-hint={featuredPost.postImageId}
               />
@@ -108,8 +109,15 @@ export default function BlogPage() {
             <div className="flex items-center justify-between z-20">
               <div className="flex items-center gap-4">
                 {getImage(featuredPost.authorImageId) && <Avatar className="h-12 w-12 border-2 border-white shadow-md">
-                  <AvatarImage src={getImage(featuredPost.authorImageId)?.imageUrl} alt={featuredPost.author} />
-                  <AvatarFallback>{featuredPost.author.charAt(0)}</AvatarFallback>
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={getImage(featuredPost.authorImageId)?.imageUrl || ""}
+                      alt={featuredPost.author}
+                      fill
+                      unoptimized={true}
+                      className="object-cover"
+                    />
+                  </div>
                 </Avatar>}
                 <div>
                   <p className="font-bold text-slate-900">{featuredPost.author}</p>
@@ -138,6 +146,7 @@ export default function BlogPage() {
                   alt={post.title}
                   data-ai-hint={postImage.id}
                   fill
+                  unoptimized={true}
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4 z-20">
@@ -155,8 +164,15 @@ export default function BlogPage() {
               <CardFooter className="flex items-center justify-between border-t border-slate-50 pt-6 z-20">
                 <div className="flex items-center gap-3">
                   {authorImage && <Avatar className="h-10 w-10">
-                    <AvatarImage src={authorImage.imageUrl} alt={post.author} />
-                    <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={authorImage.imageUrl}
+                        alt={post.author}
+                        fill
+                        unoptimized={true}
+                        className="object-cover"
+                      />
+                    </div>
                   </Avatar>}
                   <div>
                     <p className="text-sm font-black text-slate-800">{post.author}</p>

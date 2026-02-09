@@ -146,9 +146,17 @@ export default function ContactPage() {
                 <a href="mailto:info@mathisi.in" className="text-lg font-semibold text-slate-900 hover:text-indigo-600 transition-colors flex items-center group-hover:translate-x-1 duration-300">
                   info@mathisi.in
                 </a>
-                <a href="mailto:support@mathisi.in" className="text-lg font-semibold text-slate-900 hover:text-indigo-600 transition-colors flex items-center group-hover:translate-x-1 duration-300">
-                  support@mathisi.in
-                </a>
+              </div>
+              <div className="mt-6 pt-6 border-t border-slate-100">
+                <Button variant="outline" className="w-full justify-between group/btn" asChild>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Direct Support Form <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                  </a>
+                </Button>
               </div>
             </div>
 
@@ -162,9 +170,6 @@ export default function ContactPage() {
               <div className="space-y-1">
                 <a href="tel:+917090000311" className="block text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors group-hover:translate-x-1 duration-300">
                   +91 709 0000 311
-                </a>
-                <a href="tel:+917090000611" className="block text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors group-hover:translate-x-1 duration-300">
-                  +91 709 0000 611
                 </a>
                 <a href="tel:+919880289192" className="block text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors group-hover:translate-x-1 duration-300">
                   +91 988 0289 192
@@ -196,7 +201,7 @@ export default function ContactPage() {
         <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-2xl shadow-indigo-100 h-[400px] mb-20 relative group bg-white">
           <div className="absolute inset-0 bg-indigo-500/10 pointer-events-none z-10 group-hover:opacity-0 transition-opacity duration-500" />
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.491382496154!2d78.39339931487702!3d17.43633198804928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93d5f6e80b2f%3A0xbd36de45b37654f5!2sCapital%20Park!5e0!3m2!1sen!2sin!4v1724089858597!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.95383214!2d77.6322!3d13.0185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAxJzA2LjYiTiA3N8KwMzcnNTUuOSJF!5e0!3m2!1sen!2sin!4v1724089858597"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -226,15 +231,30 @@ export default function ContactPage() {
         <div className="mt-20 border-t border-slate-200 pt-10 text-center">
           <p className="text-slate-500 mb-6 font-medium">Connect with us on social media</p>
           <div className="flex justify-center gap-6">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-all hover:bg-indigo-600 hover:text-white hover:scale-110 shadow-sm"
-              >
-                {link.icon}
-              </a>
-            ))}
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-all hover:bg-sky-500 hover:text-white hover:scale-110 shadow-sm"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-all hover:bg-blue-600 hover:text-white hover:scale-110 shadow-sm"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-all hover:bg-blue-800 hover:text-white hover:scale-110 shadow-sm"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </div>
