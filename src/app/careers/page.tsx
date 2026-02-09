@@ -247,6 +247,20 @@ export default function CareersPage() {
             <p className="mt-4 text-lg drop-shadow md:text-xl">
               Shape the future of education and technology with us.
             </p>
+            <div className="mt-8 flex justify-center gap-4">
+              <Button size="lg" className="h-14 px-8 text-lg font-bold shadow-xl" asChild>
+                <Link href="#openings">View Openings</Link>
+              </Button>
+              <Button size="lg" variant="outline" className="h-14 border-white/30 bg-white/10 px-8 text-lg font-bold text-white backdrop-blur-md hover:bg-white/20" asChild>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Direct Internship Form
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -275,7 +289,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="bg-secondary py-20">
+      <section id="openings" className="bg-secondary py-20">
         <div className="container mx-auto max-w-4xl px-4">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold">Current Openings</h2>
@@ -305,15 +319,21 @@ export default function CareersPage() {
                         </AccordionTrigger>
                         <AccordionContent className="border-t bg-card p-6">
                           <p className="mb-6 text-muted-foreground">{job.description}</p>
-                          <Button asChild className="w-full sm:w-auto">
-                            <a
-                              href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Apply for this role
-                            </a>
-                          </Button>
+                          <div className="flex flex-col gap-4 sm:flex-row">
+                            <Button onClick={() => handleApplyClick(job.title)} className="w-full sm:w-auto font-bold">
+                              Apply Now
+                            </Button>
+                            <Button variant="outline" asChild className="w-full sm:w-auto border-primary text-primary hover:bg-primary/5">
+                              <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2"
+                              >
+                                Google Form Application <ArrowRight className="h-4 w-4" />
+                              </a>
+                            </Button>
+                          </div>
                         </AccordionContent>
                       </AccordionItem>
                     ))}

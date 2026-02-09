@@ -87,7 +87,7 @@ export default function BlogPage() {
 
       {featuredPost && (
         <Card className="mb-16 grid grid-cols-1 overflow-hidden md:grid-cols-2 border-none shadow-2xl bg-slate-50 relative group">
-          <Link href={`/blogs/${featuredPost.slug}`} className="absolute inset-0 z-10" aria-label={featuredPost.title} />
+          <Link href={`/blogs/${featuredPost.slug}`} className="absolute inset-0 z-30" aria-label={featuredPost.title} />
           <div className="relative h-64 w-full md:h-auto overflow-hidden">
             {getImage(featuredPost.postImageId) && (
               <Image
@@ -131,7 +131,7 @@ export default function BlogPage() {
           const authorImage = getImage(post.authorImageId);
           return (
             <Card key={post.slug} className="group flex flex-col overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative">
-              <Link href={`/blogs/${post.slug}`} className="absolute inset-0 z-10" aria-label={post.title} />
+              <Link href={`/blogs/${post.slug}`} className="absolute inset-0 z-30" aria-label={post.title} />
               {postImage && <div className="relative h-56 w-full overflow-hidden">
                 <Image
                   src={postImage.imageUrl}
