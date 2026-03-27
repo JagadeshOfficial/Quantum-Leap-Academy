@@ -46,20 +46,42 @@ export function Footer() {
             <div className="flex space-x-4">
               <Link href="https://www.linkedin.com/company/mathisiedtech" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
+                <span className="sr-only">Mathisi LinkedIn</span>
               </Link>
               <Link href="https://x.com/MathisiEdtech" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">Mathisi Twitter</span>
               </Link>
               <Link href="https://www.instagram.com/mathisi.edtech/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
+                <span className="sr-only">Mathisi Instagram</span>
               </Link>
               <Link href="https://www.youtube.com/channel/UCtIyFuzPH8VwnB4MYyANBZw" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Youtube className="h-5 w-5" />
-                <span className="sr-only">YouTube</span>
+                <span className="sr-only">Mathisi YouTube</span>
               </Link>
+            </div>
+            
+            <div className="pt-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80 mb-3">Our Technology Partner</p>
+              <div className="flex space-x-4">
+                <Link href="https://www.linkedin.com/company/quantumpod-technologies" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+                  <Linkedin className="h-4 w-4" />
+                  <span className="sr-only">Quantumpod LinkedIn</span>
+                </Link>
+                <Link href="https://x.com/QuantumpodT" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+                  <Twitter className="h-4 w-4" />
+                  <span className="sr-only">Quantumpod Twitter</span>
+                </Link>
+                <Link href="https://www.instagram.com/quantumpodtechnologies?igsh=Mzdkc2VlMTMzbzFj" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+                  <Instagram className="h-4 w-4" />
+                  <span className="sr-only">Quantumpod Instagram</span>
+                </Link>
+                <Link href="https://www.youtube.com/channel/UCwpwXiT91cPxk_v_OzClWtg" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+                  <Youtube className="h-4 w-4" />
+                  <span className="sr-only">Quantumpod YouTube</span>
+                </Link>
+              </div>
             </div>
           </div>
           <div>

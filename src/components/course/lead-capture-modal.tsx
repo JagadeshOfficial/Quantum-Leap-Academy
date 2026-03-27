@@ -21,6 +21,8 @@ interface LeadCaptureModalProps {
     title?: string;
     description?: string;
     courseName?: string;
+    courseSlug?: string;
+    buttonText?: string;
 }
 
 export function LeadCaptureModal({
@@ -30,6 +32,8 @@ export function LeadCaptureModal({
     title = "Unlock Course Materials",
     description = "Please fill in your details to download the complete course guide.",
     courseName,
+    courseSlug,
+    buttonText = "Unlock Download",
 }: LeadCaptureModalProps) {
     const { toast } = useToast();
     const [loading, setLoading] = useState(false);
@@ -64,6 +68,12 @@ export function LeadCaptureModal({
                     title: "Success",
                     description: "Your details have been verified.",
                 });
+
+                // Trigger brochure download if applicable
+                if (courseSlug && (title.toLowerCase().includes("brochure") || title.toLowerCase().includes("materials") || buttonText.toLowerCase().includes("download"))) {
+                    window.open(`/courses/${courseSlug}/brochure`, "_blank");
+                }
+
                 onSuccess();
                 onClose();
             } else {
@@ -137,7 +147,7 @@ export function LeadCaptureModal({
                         />
                     </div>
                     <Button type="submit" disabled={loading} className="w-full mt-2">
-                        {loading ? "Verifying..." : "Unlock Download"}
+                        {loading ? "Verifying..." : buttonText}
                     </Button>
                 </form>
             </DialogContent>

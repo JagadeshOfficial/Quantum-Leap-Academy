@@ -185,7 +185,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative flex min-h-[95vh] w-full items-center justify-center overflow-hidden bg-[#0B0F19] pt-20 lg:pt-0">
+      <section className="relative flex min-h-[95vh] w-full items-center justify-center bg-[#0B0F19] pt-20 pb-24 lg:pt-0">
 
         {/* Ambient Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
@@ -428,18 +428,16 @@ export default function Home() {
               <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-slate-50 p-8">
                 <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-blue-400/10 blur-3xl transition-transform group-hover:scale-150" />
                 <Award className="mb-6 h-12 w-12 text-blue-600" />
-                <h3 className="mb-2 text-2xl font-bold text-slate-900">100% Placement Support</h3>
-                <p className="text-slate-600">Our dedicated career success team works 24/7 to ensure you land your dream job. From resume building to mock interviews.</p>
-                <div className="mt-8 relative h-48 w-full overflow-hidden rounded-xl bg-white shadow-inner border border-slate-100">
-                  {/* Abstract visualization of placement success */}
-                  <div className="absolute inset-0 flex items-center justify-center p-4">
-                    <div className="grid w-full gap-2 opacity-80">
-                      {[1, 2, 3].map(i => (
-                        <div key={i} className="h-2 w-full animate-pulse rounded-full bg-slate-100"><div className="h-full w-2/3 rounded-full bg-blue-100"></div></div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <h3 className="mb-4 text-2xl font-bold text-slate-900">100% Placement Support</h3>
+                <p className="text-slate-600 mb-6">Our dedicated career success team works 24/7 to ensure you land your dream job in your desired tech domain.</p>
+                <ul className="space-y-3">
+                  {["Resume Building & Optimization", "Mock Interviews with Experts", "Direct Hiring Partner Referrals", "Career Coaching & Mentorship"].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-sm font-medium text-slate-700">
+                      <div className="h-2 w-2 rounded-full bg-blue-500" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 

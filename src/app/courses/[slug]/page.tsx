@@ -8,6 +8,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import { DownloadBrochureButton } from "@/components/course/download-buttons";
 import { CourseEnquiryForm } from "@/components/course/course-enquiry-form";
+import { RequestCallBackButton } from "@/components/course/request-callback-button";
 import {
   Card,
   CardContent,
@@ -42,6 +43,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { CourseNavigation } from "@/components/course/course-navigation";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LearningPath } from "@/components/course/learning-path";
+import { RandomEnrolledCount } from "@/components/course/random-enrolled-count";
 
 export async function generateStaticParams() {
   return courses.map((course) => ({
@@ -121,14 +123,15 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                 </div>
                 <div className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 backdrop-blur-sm">
                   <Users className="h-5 w-5 text-yellow-400" />
-                  <span>{course.enrolledStudents.toLocaleString()}+ Enrolled</span>
+                  <RandomEnrolledCount initialCount={course.enrolledStudents} />
                 </div>
               </div>
 
               <div className="flex flex-col gap-4 pt-6 sm:flex-row">
-                <Button size="lg" className="h-14 bg-primary px-8 text-lg font-bold hover:bg-primary/90" asChild>
-                  <Link href="#enroll">Request Call Back</Link>
-                </Button>
+                <RequestCallBackButton
+                  course={course}
+                  className="h-14 bg-primary px-8 text-lg font-bold hover:bg-primary/90 shadow-lg shadow-primary/20"
+                />
                 <DownloadBrochureButton
                   course={course}
                   variant="outline"
@@ -137,10 +140,23 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            {/* Hero Card / Form */}
+            {/* Hero Card / Form (Desktop) */}
             <div className="hidden lg:block">
               <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md">
-                {course.videoPreview ? (
+                {course.youtubeId ? (
+                  <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${course.youtubeId}?autoplay=0&mute=1&loop=1&playlist=${course.youtubeId}&rel=0`}
+                      title="Course Overview"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      style={{ border: 0 }}
+                      className="h-full w-full object-cover"
+                    ></iframe>
+                  </div>
+                ) : course.videoPreview ? (
                   <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
                     <video
                       src={course.videoPreview}
@@ -150,9 +166,6 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                       loop
                       className="h-full w-full object-cover"
                     />
-                    <div className="absolute bottom-4 left-4">
-                      <p className="font-semibold text-white drop-shadow-md">Featured Program</p>
-                    </div>
                   </div>
                 ) : (
                   courseImage && (
@@ -164,14 +177,42 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                         unoptimized={true}
                         className="object-cover transition-transform duration-700 hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4">
-                        <p className="font-semibold text-white">Featured Program</p>
-                      </div>
                     </div>
                   )
                 )}
               </div>
+            </div>
+
+            {/* Mobile Video Area */}
+            <div className="mt-8 lg:hidden">
+                <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-md">
+                    {course.youtubeId ? (
+                        <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
+                            <iframe
+                                width="100%"
+                                height="100%"
+                                src={`https://www.youtube.com/embed/${course.youtubeId}?autoplay=0&rel=0`}
+                                title="Course Overview"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                                style={{ border: 0 }}
+                                className="h-full w-full object-cover"
+                            ></iframe>
+                        </div>
+                    ) : (
+                        courseImage && (
+                            <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+                                <Image
+                                    src={courseImage.imageUrl}
+                                    alt={course.name}
+                                    fill
+                                    unoptimized={true}
+                                    className="object-cover"
+                                />
+                            </div>
+                        )
+                    )}
+                </div>
             </div>
           </div>
         </div>
@@ -525,12 +566,20 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               </CardContent>
             </Card>
 
-            <div className="rounded-xl bg-blue-50 p-6 text-center text-blue-900">
-              <h4 className="font-bold">Need Help?</h4>
-              <p className="mt-2 text-sm">Call our admission team directly</p>
-              <a href="tel:+919876543210" className="mt-3 inline-flex items-center gap-2 text-lg font-bold hover:underline">
-                <Phone className="h-5 w-5" /> +91 98765 43210
-              </a>
+            <div className="rounded-xl bg-blue-50 p-6 text-center text-blue-900 border border-blue-100 shadow-sm">
+              <h4 className="font-bold flex items-center justify-center gap-2">
+                <Phone className="h-4 w-4" /> Need Help?
+              </h4>
+              <p className="mt-2 text-sm opacity-80">Call our admission team directly</p>
+              <div className="mt-4 flex flex-col gap-2">
+                <a href="tel:+917090000311" className="inline-flex items-center justify-center gap-2 text-lg font-bold hover:text-blue-600 transition-colors">
+                  +91 709 0000 311
+                </a>
+                <div className="h-px w-full bg-blue-200/50" />
+                <a href="tel:+919880289192" className="inline-flex items-center justify-center gap-2 text-lg font-bold hover:text-blue-600 transition-colors">
+                  +91 988 0289 192
+                </a>
+              </div>
             </div>
           </div>
         </div>

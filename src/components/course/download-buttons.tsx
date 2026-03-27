@@ -120,6 +120,7 @@ export function DownloadCurriculumButton({ course, className, variant = "outline
                 title="Download Syllabus"
                 description="Enter your details to download the complete syllabus."
                 courseName={course.name}
+                courseSlug={course.slug}
             />
         </>
     );
@@ -134,95 +135,8 @@ export function DownloadBrochureButton({ course, className, variant = "default",
             return;
         }
 
-        const doc = new jsPDF();
-
-        // Set document properties
-        doc.setProperties({
-            title: `${course.name} Brochure`,
-            subject: course.tagline,
-            author: 'Mathisi - School of AI',
-            creator: 'Mathisi - School of AI'
-        });
-
-        const pageWidth = doc.internal.pageSize.getWidth();
-
-        // Title Page Styling
-        // Background
-        doc.setFillColor(15, 23, 42); // slate-900 background
-        doc.rect(0, 0, pageWidth, doc.internal.pageSize.getHeight(), "F");
-
-        // Logo / Brand
-        doc.setTextColor(255, 255, 255);
-        doc.setFontSize(12);
-        doc.text("Mathisi - School of AI", pageWidth / 2, 20, { align: "center" });
-
-        // Course Title
-        doc.setFontSize(28);
-        doc.setFont("helvetica", "bold");
-        const titleLines = doc.splitTextToSize(course.name, pageWidth - 40);
-        doc.text(titleLines, pageWidth / 2, 80, { align: "center" });
-
-        // Tagline
-        doc.setFontSize(14);
-        doc.setFont("helvetica", "normal");
-        doc.setTextColor(203, 213, 225); // slate-300
-        const taglineLines = doc.splitTextToSize(course.tagline, pageWidth - 60);
-        doc.text(taglineLines, pageWidth / 2, 110, { align: "center" });
-
-        // Course Key Info
-        doc.setFillColor(30, 41, 59); // lighter slate
-        doc.roundedRect(pageWidth / 2 - 80, 140, 160, 40, 3, 3, "F");
-
-        doc.setFontSize(11);
-        doc.setTextColor(255, 255, 255);
-        doc.text(`Duration: ${course.duration}`, pageWidth / 2, 155, { align: "center" });
-        doc.text(`Rating: ${course.rating}/5.0`, pageWidth / 2, 165, { align: "center" });
-
-        // Add a new page for meaningful content
-        doc.addPage();
-
-        // Page 2: Header
-        doc.setFillColor(241, 245, 249);
-        doc.rect(0, 0, pageWidth, 30, "F");
-        doc.setFontSize(16);
-        doc.setTextColor(15, 23, 42);
-        doc.text("Program Highlights", 15, 20);
-
-        // Highlights List
-        let yPos = 50;
-        doc.setFontSize(12);
-        course.highlights.forEach((highlight) => {
-            doc.setFillColor(15, 23, 42);
-            doc.circle(20, yPos - 1.5, 1, "F");
-            doc.text(highlight, 25, yPos);
-            yPos += 15;
-        });
-
-        // Tools
-        yPos += 10;
-        doc.setFontSize(16);
-        doc.setFont("helvetica", "bold");
-        doc.text("Tools We Cover", 15, yPos);
-
-        yPos += 15;
-        doc.setFontSize(11);
-        doc.setFont("helvetica", "normal");
-        const toolsText = course.tools.join(", ");
-        const splitTools = doc.splitTextToSize(toolsText, pageWidth - 30);
-        doc.text(splitTools, 15, yPos);
-
-        // Placement / Contact
-        const footerY = doc.internal.pageSize.getHeight() - 40;
-        doc.setDrawColor(203, 213, 225);
-        doc.line(15, footerY - 10, pageWidth - 15, footerY - 10);
-
-        doc.setFontSize(10);
-        doc.setTextColor(100, 116, 139);
-        doc.text("Start your journey with us today!", 15, footerY);
-        doc.text("Contact: admissions@mathisiaiquantum.com", 15, footerY + 6);
-        doc.text("Website: www.mathisischool.in", 15, footerY + 12);
-
-        savePdf(doc, `${course.slug}-brochure.pdf`);
+        // Open the beautiful printable brochure page
+        window.open(`/courses/${course.slug}/brochure`, "_blank");
     };
 
     const handleClick = () => {
@@ -245,6 +159,7 @@ export function DownloadBrochureButton({ course, className, variant = "default",
                 title="Download Brochure"
                 description="Get the full course brochure by verifying these details."
                 courseName={course.name}
+                courseSlug={course.slug}
             />
         </>
     );

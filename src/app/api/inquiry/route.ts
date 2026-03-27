@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import pool from '@/lib/db';
 
 export async function POST(req: Request) {
     try {
@@ -18,6 +19,19 @@ export async function POST(req: Request) {
         console.log('Type:', inquiryType);
         console.log('Course:', courseName);
         console.log('Message:', message);
+
+        // PERSIST TO DATABASE
+        try {
+            const [result] = await pool.execute(
+                'INSERT INTO inquiries (name, email, whatsapp, inquiry_type, course_name, message) VALUES (?, ?, ?, ?, ?, ?)',
+                [name, email, whatsapp, inquiryType || 'General Inquiry', courseName || 'N/A', message || 'N/A']
+            );
+            console.log('Database success:', result);
+        } catch (dbError) {
+            console.error('Database storage failed:', dbError);
+            // We continue even if DB fails so the user still gets email notifications if possible.
+            // Or we could return error if DB is mandatory. Given "data is stored" requirement, let's log it heavily.
+        }
 
         // Check for environment variables
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PlayCircle, Star } from "lucide-react";
@@ -10,9 +10,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import type { Course } from "@/lib/courses";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { DownloadBrochureButton } from "@/components/course/download-buttons";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Youtube } from "lucide-react";
 
 interface CourseCardProps {
     course: Course;
+}
+
+function RandomReviewCount() {
+    const [count, setCount] = useState("1.2K+");
+
+    useEffect(() => {
+        const random = (Math.random() * (4.9 - 1.2) + 1.2).toFixed(1);
+        setCount(`${random}K+`);
+    }, []);
+
+    return <span className="text-slate-500">{count} reviews</span>;
 }
 
 export function CourseCard({ course }: CourseCardProps) {
@@ -20,6 +33,8 @@ export function CourseCard({ course }: CourseCardProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     const courseImage = PlaceHolderImages.find((img) => img.id === course.imageId);
+
+    const [showYoutubeModal, setShowYoutubeModal] = useState(false);
 
     const handleMouseEnter = () => {
         setIsPlaying(true);
@@ -99,10 +114,10 @@ export function CourseCard({ course }: CourseCardProps) {
                         <Star className="ml-1 h-3.5 w-3.5 fill-current" />
                     </div>
                     <span className="text-slate-400">|</span>
-                    <span className="text-slate-500">{course.reviews.length}K+ reviews</span>
+                    <RandomReviewCount />
                 </div>
 
-                <div className="mt-auto grid grid-cols-2 gap-3">
+                <div className="mt-auto grid grid-cols-2 gap-3 mb-3">
                     <DownloadBrochureButton
                         course={course}
                         variant="outline"
@@ -116,6 +131,34 @@ export function CourseCard({ course }: CourseCardProps) {
                         <Link href={`/courses/${course.slug}`}>View Course</Link>
                     </Button>
                 </div>
+                
+                <Button
+                    variant="secondary"
+                    onClick={() => setShowYoutubeModal(true)}
+                    className="h-10 w-full border-slate-200 text-[10px] font-bold uppercase tracking-wider text-slate-600 hover:bg-red-50 hover:text-red-600 shadow-sm"
+                >
+                    <Youtube className="mr-2 h-4 w-4 text-red-600" /> Watch Intro
+                </Button>
+
+                <Dialog open={showYoutubeModal} onOpenChange={setShowYoutubeModal}>
+                    <DialogContent className="sm:max-w-[1000px] p-0 bg-black border-none overflow-hidden aspect-video">
+                        <DialogHeader className="sr-only">
+                            <DialogTitle>Course Introduction</DialogTitle>
+                        </DialogHeader>
+                        {course.youtubeId ? (
+                            <iframe
+                                className="w-full h-full"
+                                src={`https://www.youtube.com/embed/${course.youtubeId}?autoplay=1&rel=0`}
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                                style={{ border: 0 }}
+                            ></iframe>
+                        ) : (
+                            <div className="flex items-center justify-center h-full text-white">Video not available.</div>
+                        )}
+                    </DialogContent>
+                </Dialog>
             </CardContent>
         </Card>
     );

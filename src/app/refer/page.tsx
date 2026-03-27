@@ -42,7 +42,7 @@ const formSchema = z.object({
 export default function ReferPage() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const heroImage = getImage('instructor-bg-2');
+  const heroImage = getImage('hero-background');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

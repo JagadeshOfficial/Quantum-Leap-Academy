@@ -12,10 +12,13 @@ import type { ImagePlaceholder } from "@/lib/placeholder-images";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
 import { Star, Users, Clock, ArrowRight } from "lucide-react";
+import { RandomEnrolledCount } from "@/components/course/random-enrolled-count";
 
 const getImage = (id: string): ImagePlaceholder | undefined => {
   return PlaceHolderImages.find((img) => img.id === id);
 };
+
+import { RandomReviewDisplay } from "@/components/course/random-review-display";
 
 export default function CoursesPage() {
   return (
@@ -63,11 +66,11 @@ export default function CoursesPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Users className="h-4 w-4" />
-                    <span>{course.enrolledStudents.toLocaleString()}+ Enrolled</span>
+                    <RandomEnrolledCount initialCount={course.enrolledStudents} />
                   </div>
                   <div className="flex items-center gap-2">
                     <Star className="h-4 w-4" />
-                    <span>{course.rating} ({course.reviews.length} reviews)</span>
+                    <span>{course.rating} (<RandomReviewDisplay initialCount={course.reviews.length} />)</span>
                   </div>
                 </div>
 

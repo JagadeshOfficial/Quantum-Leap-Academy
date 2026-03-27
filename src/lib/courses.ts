@@ -28,6 +28,7 @@ export type Course = {
   }[];
   imageId: string;
   videoPreview?: string;
+  youtubeId?: string; // YouTube ID for the course overview
   brochureContent?: string; // Optional field for specific brochure content if meaningful
   brochureUrl?: string;
   syllabusUrl?: string;
@@ -47,9 +48,10 @@ export const courses: Course[] = [
     rating: 4.8,
     imageId: 'course-data-science',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    youtubeId: "Q-bxxxqkOOM",
     brochureUrl: "/brouchers/data_scientist_final_broucher.pdf",
     syllabusUrl: "/downloads/data-science-syllabus.pdf",
-    fees: "₹45,000",
+    fees: "₹14,999/-",
     earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Top Faculty & Mentors: Learn from experience.",
@@ -181,9 +183,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-data-analysis',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    youtubeId: "JEzaZ6T6-z8",
     brochureUrl: "/brouchers/data_analysis_final_broucher.pdf",
     syllabusUrl: "/downloads/data-analysis-syllabus.pdf",
-    fees: "₹40,000",
+    fees: "₹14,999/-",
     earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Industry Experts as Trainers.",
@@ -272,9 +275,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-ai-ml',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    youtubeId: "U0HsKG5_2bY",
     brochureUrl: "/downloads/ai-ml-brochure.pdf",
     syllabusUrl: "/downloads/ai-ml-syllabus.pdf",
-    fees: "₹50,000",
+    fees: "₹14,999/-",
     earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Top Industry Faculty & Trainers.",
@@ -363,9 +367,10 @@ export const courses: Course[] = [
     rating: 5,
     imageId: 'course-agentic-ai',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    youtubeId: "YjrXH6BmFjE", 
     brochureUrl: "/downloads/agentic-ai-brochure.pdf",
     syllabusUrl: "/downloads/agentic-ai-syllabus.pdf",
-    fees: "₹55,000",
+    fees: "₹14,999/-",
     earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Learn from AI engineers and researchers.",
@@ -437,9 +442,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-quantum-computing',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    youtubeId: "9IeZOSTNqHA",
     brochureUrl: "/downloads/quantum-computing-brochure.pdf",
     syllabusUrl: "/downloads/quantum-computing-syllabus.pdf",
-    fees: "₹60,000",
+    fees: "₹14,999/-",
     earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Learn from Quantum Computing Experts.",
@@ -479,9 +485,10 @@ export const courses: Course[] = [
     rating: 4.8,
     imageId: 'course-cyber-security',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    youtubeId: "FxXlL4OrCjk",
     brochureUrl: "/downloads/cyber-security-brochure.pdf",
     syllabusUrl: "/downloads/cyber-security-syllabus.pdf",
-    fees: "₹42,000",
+    fees: "₹14,999/-",
     earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Master End-to-End Cyber Security.",
@@ -537,9 +544,10 @@ export const courses: Course[] = [
     rating: 4.9,
     imageId: 'course-data-engineering',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+    youtubeId: "46a4rByAk5E",
     brochureUrl: "/downloads/data-engineering-brochure.pdf",
     syllabusUrl: "/downloads/data-engineering-syllabus.pdf",
-    fees: "₹48,000",
+    fees: "₹14,999/-",
     earlyBirdOffer: "10% Off for next 5 enrollments",
     highlights: [
       "Learn from Top Industry Engineers.",
@@ -603,6 +611,7 @@ export const courses: Course[] = [
     rating: 5.0,
     imageId: 'course-corporate',
     videoPreview: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    youtubeId: "kNblNN3hrkA",
     brochureUrl: "/downloads/corporate-training-brochure.pdf",
     syllabusUrl: "/downloads/corporate-training-syllabus.pdf",
     fees: "Custom",

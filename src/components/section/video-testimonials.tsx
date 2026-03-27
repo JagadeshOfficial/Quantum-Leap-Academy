@@ -9,31 +9,31 @@ import { logos, getLogoById } from "@/lib/logos";
 const videos = [
     {
         id: "1",
-        youtubeId: "7Y3uM-V5_Xw",
+        youtubeId: "JEzaZ6T6-z8",
         thumbnail: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop",
-        title: "Introduction to Agentic AI and Future Tech",
-        author: "Mathisi Faculty",
-        role: "School of AI",
-        company: "Mathisi",
-        logoId: "logo-mathisi"
+        title: "Mastering Data Analysis at Mathisi",
+        author: "Aditya Sharma",
+        role: "Alumni Story",
+        company: "Oracle",
+        logoId: "logo-oracle"
     },
     {
         id: "2",
-        youtubeId: "Kz6lBpsit_I", // generic AI demo
+        youtubeId: "Q-bxxxqkOOM", 
         thumbnail: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
-        title: "Data Science Career Roadmap 2026",
+        title: "From Data to Decisions: My Journey",
         author: "Alumni Network",
-        role: "Success Story",
+        role: "Data Scientist",
         company: "Google",
         logoId: "logo-google"
     },
     {
         id: "3",
-        youtubeId: "j942wKiXFu8", // generic AI demo
+        youtubeId: "2w8lbZyXtD8", 
         thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2670&auto=format&fit=crop",
-        title: "Building Real-World AI Projects",
-        author: "Student Showcase",
-        role: "Project Demo",
+        title: "Career Roadmap & Mentorship",
+        author: "Mentor Insight",
+        role: "Career Coach",
         company: "Microsoft",
         logoId: "logo-microsoft"
     }
