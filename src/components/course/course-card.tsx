@@ -83,15 +83,18 @@ export function CourseCard({ course }: CourseCardProps) {
                     </div>
                 </div>
 
-                {/* Video */}
-                <video
-                    ref={videoRef}
-                    src={course.videoPreview}
-                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    muted
-                    playsInline
-                    loop
-                />
+                {/* YouTube Preview on Hover */}
+                {isPlaying && course.youtubeId && (
+                    <div className="absolute inset-0 h-full w-full pointer-events-none">
+                        <iframe
+                            className="w-full h-full scale-125" // Scale to hide controls/branding
+                            src={`https://www.youtube.com/embed/${course.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${course.youtubeId}&modestbranding=1&rel=0&iv_load_policy=3&showinfo=0`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            style={{ border: 0 }}
+                        ></iframe>
+                    </div>
+                )}
 
                 <div className="absolute bottom-3 left-3 flex gap-2">
                     <Badge variant="secondary" className="bg-white/90 text-xs font-semibold text-slate-800 backdrop-blur-md hover:bg-white">

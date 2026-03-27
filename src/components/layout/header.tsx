@@ -53,12 +53,10 @@ export function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link href="/about" className="transition-colors hover:text-foreground/80 text-foreground/60">About</Link>
-            <Link href="/blogs" className="transition-colors hover:text-foreground/80 text-foreground/60">Blogs</Link>
-            <Link href="/pap" className="transition-colors hover:text-foreground/80 font-bold text-primary">Pay After Placement</Link>
-            <Link href="/hire" className="transition-colors hover:text-foreground/80 text-foreground/60">Hire From Us</Link>
-            <Link href="/refer" className="transition-colors hover:text-foreground/80 text-foreground/60">Refer & Earn</Link>
-            <Link href="/contact" className="transition-colors hover:text-foreground/80 text-foreground/60">Contact</Link>
+            <Link href="/about" className="transition-colors hover:text-foreground/80 text-foreground/60 focus:outline-none">About</Link>
+            <Link href="/blogs" className="transition-colors hover:text-foreground/80 text-foreground/60 focus:outline-none">Blogs</Link>
+            <Link href="/pap" className="transition-colors hover:text-foreground/80 font-bold text-primary whitespace-nowrap focus:outline-none">Pay After Placement</Link>
+            <Link href="/contact" className="transition-colors hover:text-foreground/80 text-foreground/60 focus:outline-none">Contact</Link>
           </nav>
         </div>
 
@@ -86,13 +84,11 @@ export function Header() {
                   </Link>
                 </div>
                 <nav className="flex flex-col space-y-4 p-4 text-lg">
-                  <Link href="/courses" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
-                  <Link href="/about" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>About</Link>
-                  <Link href="/blogs" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Blogs</Link>
-                  <Link href="/pap" className="text-primary font-bold" onClick={() => setMobileMenuOpen(false)}>Pay After Placement</Link>
-                  <Link href="/hire" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Hire From Us</Link>
-                  <Link href="/refer" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Refer & Earn</Link>
-                  <Link href="/contact" className="text-foreground/60 hover:text-foreground" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+                  <Link href="/courses" className="text-foreground/60 hover:text-foreground focus:outline-none" onClick={() => setMobileMenuOpen(false)}>Courses</Link>
+                  <Link href="/about" className="text-foreground/60 hover:text-foreground focus:outline-none" onClick={() => setMobileMenuOpen(false)}>About</Link>
+                  <Link href="/blogs" className="text-foreground/60 hover:text-foreground focus:outline-none" onClick={() => setMobileMenuOpen(false)}>Blogs</Link>
+                  <Link href="/pap" className="text-primary font-bold whitespace-nowrap focus:outline-none" onClick={() => setMobileMenuOpen(false)}>Pay After Placement</Link>
+                  <Link href="/contact" className="text-foreground/60 hover:text-foreground focus:outline-none" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                 </nav>
                 <div className="mt-auto flex flex-col gap-4 border-t border-border p-4">
                   <Button variant="ghost" asChild>
