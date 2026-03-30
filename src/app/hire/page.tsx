@@ -245,8 +245,8 @@ export default function HirePage() {
           <div className="absolute right-1/4 bottom-1/4 h-64 w-64 rounded-full bg-indigo-200 opacity-20 blur-3xl" />
         </div>
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <h2 className="mb-4 text-2xl font-semibold uppercase tracking-widest opacity-80">Highest Package Secured</h2>
-          <div className="mb-8 text-6xl font-black tracking-tighter sm:text-8xl">₹ 45,00,000</div>
+          <h2 className="mb-4 text-2xl font-semibold uppercase tracking-widest opacity-80">Average Package Secured</h2>
+          <div className="mb-8 text-5xl font-black tracking-tighter sm:text-7xl">15 LPA - 25 LPA</div>
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
             <div className="flex flex-col items-center">
               <CheckCircle2 className="mb-3 h-8 w-8" />

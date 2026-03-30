@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ChatWidget } from "@/components/chat/chat-widget";
+import { CounsellingPopup } from "@/components/layout/counselling-popup";
 
 export const metadata: Metadata = {
   title: "Mathisi | School of Technology & AI",
@@ -37,6 +38,7 @@ export default function RootLayout({
         </div>
         <Toaster />
         <ChatWidget />
+        <CounsellingPopup />
       </body>
     </html>
   );

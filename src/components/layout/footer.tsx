@@ -52,7 +52,7 @@ export function Footer() {
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Mathisi Twitter</span>
               </Link>
-              <Link href="https://www.instagram.com/mathisi.edtech/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
+              <Link href="https://www.instagram.com/mathisiedtech/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-primary">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Mathisi Instagram</span>
               </Link>

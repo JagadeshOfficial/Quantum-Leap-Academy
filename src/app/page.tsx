@@ -81,24 +81,24 @@ export default function Home() {
 
   const instructors = [
     {
-      name: "Maulika Modi",
-      title: "Senior Data Science Trainer",
-      imageId: "trainer-maulika",
-      companies: ["logo-microsoft", "logo-google"],
+      name: "Dr. Giri",
+      title: "PhD | 15+ Yrs. Exp as Trainer",
+      imageId: "trainer-giri",
+      companies: ["logo-microsoft", "logo-ibm"],
       backgroundImageId: "instructor-bg-1",
     },
     {
-      name: "Dr. Tamanna Sood",
-      title: "AI Research Associate at Roundglass",
-      imageId: "trainer-tamanna",
-      companies: ["logo-ibm", "logo-amazon"],
+      name: "Dr. Shridhar",
+      title: "19+ Yrs. Exp as Trainer",
+      imageId: "trainer-shridhar",
+      companies: ["logo-amazon", "logo-oracle"],
       backgroundImageId: "instructor-bg-2",
     },
     {
-      name: "Keerthana Eganathan",
-      title: "AI Developer at Bloom Value Corporation",
-      imageId: "trainer-keerthana",
-      companies: ["logo-oracle", "logo-wipro"],
+      name: "Suman",
+      title: "17+ Yrs. Exp as Trainer",
+      imageId: "none",
+      companies: ["logo-google", "logo-cisco"],
       backgroundImageId: "instructor-bg-3",
     },
   ];
@@ -329,15 +329,15 @@ export default function Home() {
           <div className="group relative flex overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}>
             <div className="flex animate-infinite-scroll-slow gap-20 group-hover:[animation-play-state:paused] items-center py-4">
               {[...logos, ...logos].map((logo, idx) => (
-                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center w-[180px] h-24 hover:scale-110 transition-all duration-300">
+                <div key={`${logo.id}-landing-${idx}`} className="flex shrink-0 items-center justify-center w-[220px] h-28 hover:scale-110 transition-all duration-300">
                   <div className="relative w-full h-full flex items-center justify-center p-4">
                     <Image
                       src={logo.imageUrl}
                       alt={logo.description}
-                      width={160}
-                      height={80}
+                      width={200}
+                      height={100}
                       unoptimized={true}
-                      className="max-h-10 w-auto max-w-[140px] object-contain drop-shadow-sm"
+                      className="max-h-16 w-auto max-w-[180px] object-contain drop-shadow-sm"
                       data-ai-hint={logo.imageHint}
                     />
                   </div>
@@ -582,14 +582,18 @@ export default function Home() {
                     <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-blue-500 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
                     <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-blue-600 rounded-full animate-spin-slow opacity-10 group-hover:opacity-100 transition-opacity"></div>
 
-                    <div className="relative h-40 w-40 rounded-full border-8 border-white shadow-2xl overflow-hidden bg-slate-100 z-10">
-                      {instructorImage && (
+                    <div className="relative h-40 w-40 rounded-full border-8 border-white shadow-2xl overflow-hidden bg-slate-100 z-10 flex items-center justify-center">
+                      {instructorImage ? (
                         <Image
                           src={instructorImage.imageUrl}
                           alt={instructor.name}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
+                      ) : (
+                        <span className="text-5xl font-bold text-slate-300">
+                          {instructor.name.charAt(0)}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -604,26 +608,7 @@ export default function Home() {
                       </h3>
                     </div>
 
-                    <div className="pt-6 border-t border-slate-200/50">
-                      <div className="text-[9px] font-black text-slate-400 uppercase tracking-[0.4em] mb-4">Past Experience</div>
-                      <div className="flex justify-center items-center gap-6">
-                        {instructor.companies.map((compId) => {
-                          const company = getLogoById(compId);
-                          if (!company) return null;
-                          return (
-                            <div key={compId} className="relative h-6 w-16 hover:scale-110 transition-all duration-300">
-                              <Image
-                                src={company.imageUrl}
-                                alt="Brand"
-                                fill
-                                unoptimized={true}
-                                className="object-contain"
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               );

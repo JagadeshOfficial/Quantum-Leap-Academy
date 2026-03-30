@@ -18,7 +18,7 @@ export default function PAPPage() {
     ];
 
     const admissionSteps = [
-        { icon: <UserPlus className="h-8 w-8 text-blue-600" />, title: "Registration", description: "Pay a nominal registration fee of ₹9,999/- to start your journey." },
+        { icon: <UserPlus className="h-8 w-8 text-blue-600" />, title: "Registration", description: "Pay a nominal registration fee of ₹14,999/- to start your journey." },
         { icon: <FileSearch className="h-8 w-8 text-purple-600" />, title: "Screening/Test", description: "Take a technical and aptitude assessment to evaluate your potential." },
         { icon: <UserCheck className="h-8 w-8 text-green-600" />, title: "Personal Interview", description: "Meet our mentors for a one-on-one discussion about your career goals." },
         { icon: <GraduationCap className="h-8 w-8 text-orange-600" />, title: "Enroll", description: "Get your offer letter and start your intensive training program." },
@@ -46,7 +46,7 @@ export default function PAPPage() {
                         Pay After <span className="text-primary italic">Placement</span>
                     </h1>
                     <p className="mt-6 max-w-2xl text-lg text-slate-300 md:text-xl font-medium">
-                        Invest in your future, not in fees. Join our elite program and pay your tuition only after you land a job of minimum ₹5 LPA.
+                        Invest in your future, not in fees. Join our elite program and pay your tuition only after you land a job of minimum ₹4 LPA.
                     </p>
                     <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                         <Button size="lg" className="h-14 px-8 text-lg font-bold shadow-xl shadow-primary/20" asChild>

@@ -251,15 +251,6 @@ export default function CareersPage() {
               <Button size="lg" className="h-14 px-8 text-lg font-bold shadow-xl" asChild>
                 <Link href="#openings">View Openings</Link>
               </Button>
-              <Button size="lg" variant="outline" className="h-14 border-white/30 bg-white/10 px-8 text-lg font-bold text-white backdrop-blur-md hover:bg-white/20" asChild>
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Direct Internship Form
-                </a>
-              </Button>
             </div>
           </div>
         </div>
@@ -322,16 +313,6 @@ export default function CareersPage() {
                           <div className="flex flex-col gap-4 sm:flex-row">
                             <Button onClick={() => handleApplyClick(job.title)} className="w-full sm:w-auto font-bold">
                               Apply Now
-                            </Button>
-                            <Button variant="outline" asChild className="w-full sm:w-auto border-primary text-primary hover:bg-primary/5">
-                              <a
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2"
-                              >
-                                Google Form Application <ArrowRight className="h-4 w-4" />
-                              </a>
                             </Button>
                           </div>
                         </AccordionContent>

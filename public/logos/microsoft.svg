@@ -1,3 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#737373">Microsoft</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <path fill="#f35325" d="M10 13h25v25H10z"/>
+  <path fill="#81bc06" d="M40 13h25v25H40z"/>
+  <path fill="#05a6f0" d="M10 42h25v25H10z"/>
+  <path fill="#ffba08" d="M40 42h25v25H40z"/>
+  <text x="75" y="55" font-family="Segoe UI, Arial, sans-serif" font-size="48" fill="#5f6368" font-weight="600">Microsoft</text>
 </svg>

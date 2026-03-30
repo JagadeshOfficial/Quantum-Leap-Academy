@@ -137,7 +137,7 @@ export function ChatWidget() {
     };
 
     const openWhatsApp = () => {
-        const adminNumber = "919014985626"; // Updated admin number
+        const adminNumber = "917090000311"; // Updated admin number
         const text = `Hi Mathisi School, I am ${leadData.name}. I'm interested in ${leadData.inquiryType}. My email is ${leadData.email}. Please help me with more info.`;
         window.open(`https://wa.me/${adminNumber}?text=${encodeURIComponent(text)}`, '_blank');
     };

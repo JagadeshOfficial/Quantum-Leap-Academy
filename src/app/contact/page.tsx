@@ -11,7 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Mail, MapPin, Phone, Twitter, Linkedin, Facebook, Loader2, CheckCircle2, Send, MessageSquare, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Phone, Twitter, Linkedin, Facebook, Instagram, Loader2, CheckCircle2, Send, MessageSquare, ArrowRight, MessageCircle } from "lucide-react";
 import { submitContactForm } from "@/app/actions/contact-submission";
 
 export default function ContactPage() {
@@ -150,7 +150,7 @@ export default function ContactPage() {
               <div className="mt-6 pt-6 border-t border-slate-100">
                 <Button variant="outline" className="w-full justify-between group/btn" asChild>
                   <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSfxQr-6UnZfJzrBSJgmPRbksKh7pVVBiuYaZ9aLfiZ0I5Klig/viewform?usp=sharing&ouid=107766999723966890966"
+                    href="https://forms.gle/DSAeg9dLx6qMniHH9"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -174,6 +174,17 @@ export default function ContactPage() {
                 <a href="tel:+919880289192" className="block text-lg font-semibold text-slate-900 hover:text-purple-600 transition-colors group-hover:translate-x-1 duration-300">
                   +91 988 0289 192
                 </a>
+              </div>
+              <div className="mt-6 pt-6 border-t border-slate-100">
+                <Button variant="outline" className="w-full justify-between group/btn text-green-600 border-green-200 hover:bg-green-50 hover:text-green-700" asChild>
+                  <a
+                    href="https://wa.me/917090000311"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Chat on WhatsApp <MessageCircle className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                  </a>
+                </Button>
               </div>
             </div>
 
@@ -254,6 +265,14 @@ export default function ContactPage() {
               className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-all hover:bg-blue-800 hover:text-white hover:scale-110 shadow-sm"
             >
               <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/mathisiedtech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-all hover:bg-pink-600 hover:text-white hover:scale-110 shadow-sm"
+            >
+              <Instagram className="h-5 w-5" />
             </a>
           </div>
         </div>
